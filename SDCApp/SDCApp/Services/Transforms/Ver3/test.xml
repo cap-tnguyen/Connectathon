@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sdctemplate.xslt"?>
+<FormDesign xmlns="urn:ihe:qrph:sdc:2016" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    ID="ID=0003/v1.0/">
+    <!--baseURI is not valid, is just for example--> 
+    <Header styleClass="left" ID="Header.0003.010" title="Lung Cancer Screening Template">
+        <Property propName="Copyright" propClass="meta" styleClass="copyright" val="(c) 2016 Cancer Care Ontario.  All rights reserved."/>
+        <Property styleClass="float-right" val="CCO Cancer Imaging Program approved"/>
+        <Property propName="GenericHeaderText" propClass="meta" styleClass="left" val="High Risk Lung Cancer Screening Summary (Checklist)"/>
+        <Property propName="OfficialName" propClass="meta" val="LDCT Lung Cancer Screening Reporting Template"/>
+        <Property propName="Category" propClass="meta" val="Thoracic"/>
+        <Property propName="Restrictions" propClass="meta" val="Protocol LDCT Lung Cancer Screening."/>
+        <Property propName="Required" propClass="meta" val="true"/>
+        <Property propName="CTV_Dkey" propClass="meta" val=""/>
+        <Property propName="ChecklistCKey" propClass="meta" val=""/>
+        <Property propName="VersionID" propClass="meta" val="1.0"/>
+        <Property propName="CurrentFileName" propClass="meta" val="LDCT Lung Screening ver 1.0 Connectathon Jan 2017"/>
+        <Property propName="ApprovalStatus" propClass="meta" val="0"/>
+        <Property propName="EffectiveDate" propClass="meta" val="2016-10-5" styleClass="right"/>
+    </Header>
+    
+    <Body title="LDCT Lung Screening Template" ID="root" styleClass="title">
+        <Property propName="Publisher" propClass="Reporttext" val="Cancer Care Ontario"/>
+        <Property propName="Version" propClass="Reporttext" val="version 1.0"/>
+        <Property propName="ReleaseDate" propClass="Reporttext" val="2016-10-5"/>
+        <Contact>
+            <Organization>
+                <OrgName val="Cancer Care Ontario"/>
+                <Email>
+                    <EmailAddress val="david.kwan@cancercare.on.ca"/>
+                </Email>
+            </Organization>
+        </Contact>
+        <ChildItems>
+            <Section title="PATIENT INFORMATION" type="level1" ID="000001">
+                <ChildItems>
+                    <Question title="Name:" ID="000002">
+                        <Property propClass="numbering" val="1."/>
+                        <ResponseField>
+                            <Response>
+                                <string val=""/>
+                            </Response>
+                        </ResponseField>
+                    </Question>
+                    <Section title="Contacts" ID="00003" minCard="0" maxCard="4">
+                        <ChildItems>
+                            <Question title="Name" ID="37573895">
+                                <ResponseField>
+                                    <Response>
+                                        <string val=""/>
+                                    </Response>
+                                </ResponseField>
+                            </Question> 
+                            <Question title = "Street" ID = "123123">
+                                <ResponseField>
+                                    <Response>
+                                        <string val=""/>
+                                    </Response>
+                                </ResponseField>
+                            </Question>
+                            <Question title = "City" ID = "5123123">
+                                <ResponseField>
+                                    <Response>
+                                        <string val=""/>
+                                    </Response>
+                                </ResponseField>
+                            </Question>
+                            <Section title="Phones" ID="4538" minCard="0" maxCard="4">
+                                <ChildItems>
+                                    <Question title="Phone:" ID="000004" >
+                                        <Property propClass="numbering" val="2."/>
+                                        <ResponseField>
+                                            <Response>
+                                                <string val=""/>
+                                            </Response>
+                                        </ResponseField>                            
+                                    </Question>
+                                    <Question title="Phone Type" ID="89385932"> 
+                                        <ListField>
+                                            <List>
+                                                <ListItem title="Work" ID="93479"/>
+                                                <ListItem title="Home" ID="933479"/>
+                                                <ListItem title="Cell" ID="9355479"/>
+                                            </List>
+                                        </ListField>
+                                    </Question>
+                                </ChildItems>
+                                
+                            </Section>
+                        </ChildItems>
+                 
+                    </Section>
+                    
+                    
+                </ChildItems>
+            </Section>
+        </ChildItems>
+    </Body>
+</FormDesign>

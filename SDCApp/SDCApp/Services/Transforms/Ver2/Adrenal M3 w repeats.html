@@ -1,0 +1,1649 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:sr="http://www.cap.org/pert/2009/01/" xmlns:x="urn:ihe:qrph:sdc:2016">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script><style>
+				Body 
+				{
+					font-family: Arial;
+					font-size: 12px;
+					width: 100%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				li
+				{
+					padding: 1px;
+					color: blue;
+					list-style-type: square;
+				}
+
+				p
+				{
+					margin-top:2px;
+					margin-bottom:2px;
+					padding:0px;
+				}
+				.BodyGroup
+				{
+					width: 900px;
+					margin-left: auto;
+					margin-right: auto;
+					text-align: left;
+				}
+
+				.HeaderGroup
+				{
+					width: 99%;
+					margin-top: 5px;
+					margin-bottom: 5px;
+					margin-left: auto;
+					margin-right: auto;
+					border: solid 1px #000080;
+					padding: 5px;
+					clear: both;
+				}
+
+				.HeaderGroupText
+				{
+					font-size: 12px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+
+				.HeaderInfoText
+				{
+					font-size: 12px;
+					text-align: right;
+					font-style: italic;    
+				}
+
+				.HeaderText
+				{
+					text-align: center;
+					font-size: 18px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+
+				.TopHeader
+				{
+					text-align: center;
+					font-size: 30px;
+					font-weight: bold;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+				.form-version
+				{
+					font-name:courier;
+					font-size:9px;
+					float:right;
+				}
+
+				.subSection
+				{
+					text-align: center;
+					font-size: 20px;
+					font-weight: bold;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+				.thinBox
+				{
+					text-align: center;
+					font-size: 14px;
+					font-weight: bold;
+					font-style:italic;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+
+				.QuestionReset
+				{
+					float: right;
+					padding-left: 2px;
+					font-size: 10px;
+					text-decoration: none;
+					font-style: normal;
+					color: Blue;
+				}
+
+
+				.QuestionInSection
+				{
+					float: left;
+					width: 49%;
+					padding: 2px;
+				}
+
+				.QuestionInQuestion
+				{
+					float: left;    
+					padding: 2px;
+				}
+
+				.QuestionInListItem
+				{
+					padding: 2px;
+					padding-left: 20px;
+				}
+
+
+
+				.QuestionTitle
+				{
+					padding: 2px;
+					background-color: #add8e6;
+					font-size: 13px;
+					font-style: italic;
+					font-weight: bold;
+					clear: both;
+				}
+
+				.Answer
+				{
+					float: left;
+					padding-top: 2px;
+					width: 93%;
+				}
+
+				.DisplayProperty
+				{
+					float: left;
+					padding-top: 2px;
+					width: 22%;
+				}
+
+				.DisplayProperty1
+				{
+					float: left;
+					padding-top: 2px;
+					padding-left: 5px;
+				}
+
+				.AnswerTextBox
+				{
+					height: 11px;
+					font-size: 10px;
+					padding-left: 2px;
+					margin-left: 4px;
+				}
+
+				.NoteText
+				{
+					padding: 2px;
+					font-weight: bold;
+					color: Blue;
+					clear: both;
+				}
+
+				.TextBox
+				{
+					padding: 2px;
+					width: 98%;
+					height: 15px;
+				}
+
+				.SubmitButton
+				{
+					padding: 2px;
+					text-align: center;
+				}
+
+				.MessageDataResult
+				{
+					padding-bottom: 20px;
+					padding-top: 20px;
+					clear: both;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+
+				.MessageDataQuestion
+				{
+					padding-left: 20px;
+					color: blue;
+					font-style: italic;
+				}
+
+				.MessageDataAnswer
+				{
+					padding-left: 20px;
+					color: green;
+					font-style: normal;
+					font-weight: bold;
+				}
+
+				.MessageDataChecklist
+				{
+					font-weight: bold;
+					color: red;
+				}
+
+
+				.header_text
+				{
+					border-bottom:1px solid black;padding-bottom:0px;text-align:left;
+				}
+
+				.title
+				{
+					text-align: center;
+					font-size: 18px;
+					font-weight: bold;
+					font-style:italic;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+
+				}
+
+				#S1
+				{
+					font-size: 18px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+				.right.noBreak{float: right}
+				.right{float: right;clear:both}
+				.float-right{float: right;}
+				.Header_left
+				{
+					color:purple;
+					text-align: left;
+					font-size: 18px;
+					font-weight: bold;
+					
+				}
+				.left
+				{
+					text-align:left;clear:both;
+				}
+				.copyright
+				{
+					font-style:italic;
+					float:left;
+				}
+				
+				.section_within_list
+				{
+					margin-left:1px;
+				}
+			</style><script type="text/javascript">
+						
+							var xmlDoc;
+
+							$(document).ready(function () {
+
+								jQuery.support.cors = true;  //not sure if needed because cors setting is on the server
+								
+								/*
+									save original xml in jquery variable  
+									server or xslt puts original xml in #rawxml, issue with xslt putting in xml is copy-of function decodes special characters, thus 
+									making xml invalid
+								*/
+								var xmlstring = $("#rawxml").val();   
+
+								//remove declaration part if exists
+								//xmlstring = xmlstring.substring(xmlstring.indexOf("<FormDesign"));
+								//$("#rawxml").val(xmlstring);
+								
+								//load into xml dom
+								try{
+									xmlDoc = $.parseXML(xmlstring);
+									$xml = $(xmlDoc);
+
+									//allow submit
+									if($("#allowsubmit").val()=='no')
+									{
+										$("#send").css("display","none");
+										$("#btnAdd").css("display","none");
+									}
+									
+									
+
+								}
+								catch(err){
+									alert(err.message);
+								}
+
+							});
+
+
+							function sayHello(name) {
+								alert("sayHello function in javascripts says - hello, " + name);
+								return window.external.ShowMessage("If you can see this message sayHello successfully called ShowMessage function in this desktop client app.");
+
+
+							}
+
+							function ShowHideDemo() {
+								$('#divdemo').toggle();
+								if (($('#divdemo')).css("display")=='none')
+									$('#demshowhide').text('+ Demographics');
+								else
+									$('#demshowhide').text('- Demographics');
+								
+							}
+							
+							var repeat = 1;
+							//adds a new repeat of a section
+							function addSection(obj) {
+								//obj is btnAdd
+
+								//we need to clone table, so get table
+								var td = obj.parentElement;
+								var table = td.parentElement  //tr
+											   .parentElement  //tbody
+											   .parentElement //table
+								
+								var sectionGuid = table.parentElement.id;
+
+								var max = table.parentElement.firstChild.value;  //maxcardinality
+								
+								var textboxes = td.getElementsByTagName("input");  //get hidden input, radio buttons, checkboxes and input text boxes
+
+								var newid = "";
+								
+
+								var newtable = table.cloneNode(true);    
+
+								newtable.id = table.id;   
+								repeat = +repeat + 1;
+
+
+								//make the remove button visible 
+								//and hide the add button on the previous section
+								obj.nextSibling.style.visibility = "visible";
+								obj.style.visibility = "hidden";    
+
+								var trace = 0;
+								var newname;
+								var i;
+								var parentGuid;
+								var ID;
+
+								//add the new repeat
+								try {
+									parentsection = table.parentElement;
+									//append newtable after setting properties of individual elements
+									//parentsection.appendChild(newtable);  //add new table - note that table.id is the same for new table
+									
+
+									//find parentGuid
+									for (i = 0; i < textboxes.length; i++) {
+										if (textboxes[i].type == "hidden") {
+											var components = textboxes[i].name.split(":");
+											parentId = components[1];
+
+											//remove repeat indicator if exists from Guid
+											if (parentId.indexOf(",") > 0)
+												parentId = parentId.substring(0, parentId.indexOf(","));
+											break;
+										}
+										
+									}
+
+									/*add a new section node in xml by cloning the section with instanceGuid = parentGuid
+									since there will be repeat sections with the same instanceGuid, take the last instance
+									and clone it*/
+
+									var $sectionCurrent = $xml.find('Section[ID="' + parentId.substring(1) + '"]:last');
+										   
+									sectionid = $sectionCurrent.attr('ID');
+									var $sectionNew = $sectionCurrent.clone(true);
+
+									//iterate through textboxes and assign new unique ids to them
+									for (i = 0; i < textboxes.length; i++) {
+										newid = "";
+										if (textboxes[i].type == "hidden" || textboxes[i].type == "text" || textboxes[i].type=="radio") {
+
+											oldname = textboxes[i].name;
+
+											if(textboxes[i].id=="maxcardinality")
+												  continue;
+
+											if(textboxes[i].name=="")
+											{
+												alert("error: a " + textboxes[i].type + " box without name is found at " + i);
+												continue;
+											}
+
+											var components = oldname.split(":");
+											var newguid = generateGuid();
+
+											//if (i == 0) testguid = newguid;
+
+											parentId = components[1];
+
+											//remove repeat indicator if exists from Guid
+											if (parentId.indexOf(",") > 0)
+												parentId = parentGuid.substring(0, parentId.indexOf(","));
+
+											ID = components[0].substring(1);
+
+										   
+											if (textboxes[i].type == "hidden") {
+											   //note that parent has repeat indicator
+												newname = "q" + ID + '-' + newguid + ":" + parentId;
+											}
+
+											
+											//find the element in the new table
+											var item;
+											var allelements = newtable.getElementsByTagName('*');
+											for(k=0;k<allelements.length;k++)
+											{
+											   if(allelements[k].name == textboxes[i].name)
+											   {
+												   item = allelements[k];
+
+												   break;
+											   }
+											 }
+																					
+
+											if (item != null) {
+																	
+												if(item.type=="hidden")   //question will have Q as the first letter
+												{  
+												   //find question in xml fragment and change ID
+												   $question = $sectionNew.find('Question[ID="' + ID + '"]');
+												   
+												   $question.attr("ID", ID + '-' + newguid);                       
+											   
+												   item.name = newname;
+												   
+												   
+												   /* 12/18/2016
+												   New constraints
+												   Property name, ResponseField name and Value name have to be unique 
+												   */
+												   
+												   
+												   //new property name
+												   var propname = $question.find("Property").attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("Property").attr("name",propname);
+												   
+												   //new response name
+												   propname = $question.find("ResponseField").attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("ResponseField").attr("name",propname);
+												   
+												   //new name on value field
+												   propname = $question.find("Response").children(0).attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("Response").children(0).attr("name", propname);
+												   
+												   
+												   
+												   
+												}
+												else {                   //answers do not have Q
+														item.name = newname.substring(1);
+														if(item.type=="radio" || item.type == "checkbox")
+															 item.checked = false;
+														 else
+															 item.value = "";
+												}
+
+											}
+
+										}
+									}
+
+									//better to append new table after setting properties of individual controls
+									parentsection.appendChild(newtable);
+
+									//insert newsec after section
+									$sectionCurrent.after($sectionNew);
+									
+									
+									//hide the Add button if max count reached
+									if (countRepeats(sectionGuid) == max) {
+										// alert('max repeat = ' + max + ' reached');
+										inputs = newtable.getElementsByTagName('*');
+										for(m=0;m<inputs.length;m++)
+										{
+											if(inputs[m].id=="btnAdd")
+											   inputs[m].style.visibility="hidden";
+											if(inputs[m].id=="btnRemove")
+											   inputs[m].style.visibility="visible";
+										}
+
+									}
+
+
+
+								}
+								catch (err) {
+									alert(err.message + "\n" + trace + "\n" + newname + "n" + i);
+								}
+
+							}
+
+
+							function generateGuid() {
+								var result, i, j;
+								result = '';
+								for (j = 0; j < 32; j++) {
+									if (j == 8 || j == 12 || j == 16 || j == 20)
+										result = result + '-';
+									i = Math.floor(Math.random() * 16).toString(16).toUpperCase();
+									result = result + i;
+								}
+								return result;
+							}
+
+
+							function countRepeats(sectionid) {
+
+								var section = document.getElementById(sectionid);  //
+								var tables = section.getElementsByTagName('TABLE');
+								var count = 0;
+								for(i=0; i<tables.length; i++)
+								{
+								   if(tables[i].id == sectionid) count++;
+								}
+							   
+								return count;
+
+							}
+
+							function getLastRepeat(sectionid) {
+								var section = document.getElementById(sectionid);
+								var tables = section.parentElement.getElementsByTagName('TABLE');
+								var ret = null;
+								for(i=0;i<tables.length;i++)
+								{
+								   if(tables[i].id==sectionid)
+									 ret = tables[i];
+								}
+								return ret;
+
+							}
+
+							function removeSection(obj) {
+								td = obj.parentElement;
+								tr = td.parentElement;
+								tbody = tr.parentElement;
+								table = tbody.parentElement;
+								var section = table.parentElement;
+								section.removeChild(table);
+
+								//make Add button on the last repeat visible again
+								last = getLastRepeat(section.id);
+								if (last==null)
+								{
+									alert("Error: last repeat is null");
+									return false;
+								}
+								inputs = last.getElementsByTagName('*');
+								for(m=0;m<inputs.length;m++)
+								{
+								if(inputs[m].id=="btnAdd")
+									{
+										 inputs[m].style.visibility="visible";
+									}
+								}
+								
+								
+								id = section.id;
+								//repeat = table.id;
+								$xml.find('Section[ID="' + id + '"]').eq(table.id).remove(); 
+							}
+
+
+							/*
+							Helper functions
+							*/
+							function trim(input) {
+							input = input.replace(/^\s+|\s+$/g, '');
+							return input;
+							}
+
+							function findElementById(parentId, Id) {
+							   //finds an element among descedants of a given node
+							   var parent = document.getElementById(parentId);
+
+							   var children = parent.getElementsByTagName('*');
+
+
+							   for (i = 0; i < children.length; i++) {
+
+								  if (children[i].id == Id) {
+									 return children[i];
+								  }
+							   }
+
+							}
+
+							function findElementByName(parentName, Name) {
+							  //finds an element among descedants of a given node
+							  var parent = document.getElementById(parentName);
+							  var children = parent.getElementsByTagName('*');
+							  
+							  for (i = 0; i < children.length; i++) {
+								 if (children[i].name == Name) {
+									 return children[i];
+								 }
+							  }
+							}
+
+							function xmlToString(xmlData) {
+
+								var xmlString;
+								//no longer needed for newer IE
+								//IE
+								//if (window.ActiveXObject) {
+								//    xmlString = xmlData.xml;
+								//}
+								// code for Mozilla, Firefox, Opera, etc.
+								//else {
+								xmlString = (new XMLSerializer()).serializeToString(xmlData);
+								//}
+								return xmlString;
+							}
+
+							//helper functions end
+
+							//submit form calls this function
+							/*
+							Builds flatXml, updates the original xml with answers.
+							Note that new section nodes for repeat sections have already been added (upon clicking btnAdd - addSection function) 
+							*/
+							var flatXml;
+							function openMessageData() {
+
+								var sb = "";
+								var q, answer = "";
+								var elem = document.getElementById("checklist").elements;
+								var response = "<response>";
+								var html = response;
+
+								for (var i = 0; i < elem.length; i++) {
+									q = "";
+									var name = elem[i].name;
+
+									var value;
+
+									//split up name into instanceGuid and parentGuid and question id
+									//var components = name.split(':');
+									//var instanceGuid = components[0].substring(1);
+									//var parentGuid = components[1];
+									//var id = components[2];
+									var instanceGuid = '';
+									var parentGuid = '';
+									var id = name;
+									if (name.indexOf("q") == 0) {
+										value = elem[i].value;
+
+										answer = GetAnswer(name.substring(1));
+
+										if (answer != "") {
+
+											response += "<question ID=\"" + id + "\" display-name=\"" + value.replace(/</g, "&lt;").replace(/>/g, "&gt;") 
+													 + "\">";
+											response += answer + "</question>";               
+
+											q += "<div class=\"MessageDataQuestion\">&lt;question ID=\"" + id + "\" display-name=\"" + value + "";
+											q += "&gt;<br><div class=\"MessageDataAnswer\">" + answer.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</div>&lt;/question&gt;</div>";
+
+
+										}
+										sb += q;
+										answer = "";
+									}
+								}
+
+								response = response.replace(/<br>/g, "");
+								response = response + "</response>";
+
+								flatXml = response;
+
+
+								sb = "<div style='font-weight:bold; color:purple'>Flat Xml response</div>" 
+									 + "<div class=\"MessageDataChecklist\">&lt;response&gt;" + sb + "&lt;/response&gt;</div>"
+									 + "<br/><div style='font-weight:bold; color:purple'>Response xml sent to web service.</div>"
+
+
+								document.getElementById('MessageDataResult').innerHTML = sb;
+								document.getElementById('MessageData').style.display = 'block';
+								document.getElementById('FormData').style.display = 'none';
+								
+								
+								//update Xml with answers
+								updateXml();
+								
+								
+
+								//var test = xmlToString(xmlDoc);
+								//document.getElementById('rawxml').innerText = test;
+
+								//Ajax call to web service
+								CallTestService1(xmlToString(xmlDoc));
+								
+							}
+
+							function closeMessageData() {
+								document.getElementById('MessageData').style.display = 'none';
+								document.getElementById('response').style.display = 'none';
+								document.getElementById('FormData').style.display = 'block';
+							}
+
+							function GetAnswer(qCkey) {
+								var elem = document.getElementById("checklist").elements;
+								var str = "";
+								var name, value;
+
+								for (var i = 0; i < elem.length; i++) {
+									name = elem[i].name;
+									value = elem[i].value;
+
+									if (name.indexOf(qCkey) == 0) {
+
+										if (elem[i].checked || (elem[i].type == "text" && value != "")) {
+
+											{
+
+												var k = value.split(',');
+
+												if (elem[i].type == "text" && value != "") {
+													//str += "&lt;answer value=\"" + value + "\"/&gt;<br>";
+													str += "<answer value=\"" + value + "\"/><br>";
+												}
+												else if (elem[i].type != "text") {
+													//str += "&lt;answer ID=\"" + k[0] + "\" display-name=\"" + GetDisplayName(value) + "\"/&gt;<br>";
+													str += "<answer ID=\"" + k[0] + "\" display-name=\"" + GetDisplayName(value) + "\"/><br>";
+												}
+											}
+										}
+									}
+								}
+								return str;
+							}
+
+							function GetDisplayName(value) {
+								var strArray = value.split(',');
+								var returnStr = "";
+								if (strArray.length > 1) {
+									for (var i = 1; i < strArray.length; i++) {
+										if (i != strArray.length) {
+											returnStr += strArray[i] + ",";
+										}
+										else {
+											returnStr += strArray[i];
+										}
+									}
+								}
+								returnStr = returnStr.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+								return returnStr.substr(0, returnStr.length - 1);
+							}
+
+
+							//updates answers in full xml
+							function updateXml() {
+								var $xml = $(xmlDoc);  //full xml
+								FlatDoc = $.parseXML(flatXml);
+								$xmlFlatDoc = $(FlatDoc);
+								$xmlFlatDoc.find('question').each(function () {
+									var $question = $(this);
+									var questionid = $question.attr("ID");
+
+									if(questionid.indexOf(":")>0)
+										questionid = questionid.substring(0,questionid.indexOf(':'));
+
+									//if(questionid.indexOf("-")>0)
+									//    questionid = questionid.substring(0,questionid.indexOf('-'));
+
+									questionid = questionid.substring(1);
+
+									var repeat = 0;
+									
+
+
+									//there may be multiple answers per question
+									$question.find('answer').each(function () {
+										var $test = $(this);
+										var id = $test.attr("ID");
+										var val = $test.attr("value");
+
+										
+										var $targetQuestion = $(xmlDoc).find("Question[ID='" + questionid + "']");
+										var targetQuestionId = $targetQuestion.attr("ID");
+
+
+										if (id != null) {
+											 
+											var $targetAnswer = $targetQuestion.find("ListItem[ID='" + id + "']");
+											$targetAnswer.attr("selected", "true");
+											//alert("set selected to true");
+											if ($targetAnswer.find("ListItemResponseField") != null) {
+												val = $question.find('answer').next().attr("value");
+												$response = $targetAnswer.find("Response").children(0);
+												$response.attr("val", val);
+											}
+
+										}
+										else {  //free response
+											
+											$targetAnswer = $targetQuestion.find("ResponseField").find("Response");
+											$targetAnswer.children(0).attr("val", val);
+										}
+									});
+
+								});
+								
+							   
+
+							}
+
+							//soap 1.2
+							function CallTestService2(data) {
+
+							
+								var webServiceURL = "http://www.sharedapps.net/SDCReceiver/service1.asmx";
+								webServiceURL = $("#submiturl").val();  // prompt("Enter endpoint:", webServiceURL);
+								
+								var ns = $("#submitnamespace").val();
+								
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+													'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"' + 
+													' xmlns:urn="' + ns + '/">'  + 
+													'<soap:Header/>' +
+														' <soap:Body>' +
+																' <urn:SubmitFormRequest>' +
+																 data +
+																'</urn:SubmitFormRequest>' +
+														' </soap:Body>' +
+													' </soap:Envelope>';
+
+								//alert(soapRequest);
+								$("#submitsoap").val(soapRequest);
+
+								soapAction = $("#submitaction").val();  // "SubmitFormRequest";
+								//soapAction = ns + "/SubmitFormRequest";
+								
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+								
+							}
+							
+
+							//soap 1.1
+							function CallTestService1(data) {
+								
+
+								//get DemogFormDesign and FormDesign element only
+								xmlDoc = $.parseXML(data);
+								$xml = $(xmlDoc);
+
+								var $formdesignelement = $xml.find('FormDesign');
+										   
+								if($xml.find('DemogFormDesign'))
+								{
+									
+									$demog = $xml.find('DemogFormDesign'); 
+									$demogNew = $demog.clone(true);
+								}
+
+								var $designNew = $formdesignelement.clone(true);
+								newDoc = $.parseXML("<SDCSubmissionPackage xmlns='urn:ihe:qrph:sdc:2016'></SDCSubmissionPackage>")
+								test = $(newDoc).find("SDCSubmissionPackage");
+								test.append($designNew);
+								if($demogNew)
+								{
+									test.prepend($demogNew);						
+									
+								}
+
+								data = xmlToString(newDoc);
+
+								//read destination url from xml if present
+								var webServiceURL = "";
+
+								webServiceURL = $xml.find('Destination').find('Endpoint').attr('val');
+								
+								if(webServiceURL!="" & $("#submiturl").val()=="")
+									$("#submiturl").val("Populated from RetrieveForm: " + webServiceURL);
+								
+
+								webServiceURL = $("#submiturl").val();  
+								
+								var ns = $("#submitnamespace").val();
+								
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+													'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' + 
+													' xmlns:urn="' + ns + '">'  + 
+													'<soap:Header/>' +
+														' <soap:Body>' +
+																' <urn:SubmitFormRequest>' +
+																//' <SDCSubmissionPackage xmlns="urn:ihe:qrph:sdc:2016">' +
+																 data +
+																// ' </SDCSubmissionPackage>' +
+																'</urn:SubmitFormRequest>' +
+														' </soap:Body>' +
+													' </soap:Envelope>';
+
+								
+								$("#submitsoap").val(soapRequest);
+
+								soapAction = "SubmitForm";  
+								//soapAction = $("#submitaction").val();
+															
+
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction  
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+								
+							}
+
+							/*
+							function CallTestService(data) {
+								var webServiceURL = "%receiver%";
+								webServiceURL = prompt("Enter endpoint:", webServiceURL);
+								var ns = $('#submitnamespace').val();
+
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+												'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" + xmlns:tem="http://tempuri.org/">' + 
+												 '  <soapenv:Header/>' +
+												  ' <soapenv:Body>' + 
+													 ' <tem:SubmitFormRequest>' + data + '</tem:SubmitFormRequest>' +
+												  ' </soapenv:Body>' + 
+												' </soapenv:Envelope>'
+
+								
+								soapAction = ns + "//SubmitFormRequest";    //"http://tempuri.org/SubmitFormRequest";
+								
+								
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+							}
+							*/
+
+							function OnSuccess(data, status) {
+								//alert("Response received from the receiver.");
+								var xmlstring = xmlToString(data);
+							    //add breaks
+
+							    xmlstring = xmlstring.replace(/</g,'&lt;');
+							    xmlstring = xmlstring.replace(/>/g,'&gt;');
+							    xmlstring = xmlstring.replace(/\n/g,'<br/>');
+							    
+
+								if (document.getElementById("response") != null) {       
+									//document.getElementById("response").textContent ="Receiver Response - " + xmlstring + '</pre>';
+									//document.getElementById("response").textContent ="Receiver Response - " + xmlstring ;
+									$("#response").html("Receiver Response - <PRE>" + xmlstring + '</PRE>');
+									
+									$("#response").css("background-color", "yellow");
+									$("#response").css("display", "block");
+								}
+								
+								
+							}
+
+							function OnError(xhr, textStatus, err) {
+								var xmlstring = xhr.responseText;
+								
+							    //add breaks
+
+							    //xmlstring = xmlstring.replace(/</g,'&lt;');
+							    //xmlstring = xmlstring.replace(/>/g,'&gt;');
+							    //xmlstring = xmlstring.replace(/\t/g,'&nbsp;&nbsp;&nbsp;&nbsp;');
+							    //xmlstring = xmlstring.replace(/\r\n/g,'<br/>');
+							    //xmlstring = xmlstring.replace(/(?:\r\n|\r|\n)/g, '<br />');
+							    //alert(xmlstring);
+								if (document.getElementById("response") != null) {       
+									$("#response").html("Receiver Response - " + xmlstring + '');
+									$("#response").css("background-color", "white");
+									$("#response").css("color", "red");
+									$("#response").css("display", "block");
+								}
+								//alert('Status:' + xhr.status + ', Text:' + textStatus + ', Error: ' + err);
+							}
+
+
+						
+					</script></head>
+   <body align="left">
+      <div class="BodyGroup">
+         <div id="MessageData" style="display:none;">
+            <table class="HeaderGroup" align="center">
+               <tr>
+                  <td>
+                     <div class="TopHeader">
+                        										Structured Report Data
+                        									
+                     </div>
+                     <div id="MessageDataResult" class="MessageDataResult"></div>
+                     <div class="SubmitButton"><input type="button" value="Back" onClick="javascript:closeMessageData()"></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div id="response" style="display:none;"></div>
+         <div id="FormData">
+            <form id="checklist" name="checklist" method="post" action="">
+               <div class="form-version">
+                  <p>
+                     										Form Instance: 
+                     										www.cap.org/eCC/SDC/IHE/Adrenal1/QAFG-GGHH
+                  </p>
+                  <p>
+                     										Version: 
+                     										www.cap.org/eCC/SDC/IHE/Adrenal1/DAGG-GGHH
+                  </p>
+                  <p>
+                     										Previous Version: 
+                     										www.cap.org/eCC/SDC/IHE/Adrenal1/DAGG-CCC
+                  </p>
+               </div>
+               <div ID="Header.129.1000043" class="Header_left">ADRENAL GLAND</div>
+               <div style="clear:both"></div>
+               <hr>
+               <div>
+                  <p class="copyright">(c) 2016 College of American Pathologists.  All rights reserved.  License required for use.</p>
+                  <p class="float-right">CAP approved</p>
+                  <p class="left">GenericHeaderText
+                     										:
+                     									Surgical Pathology Cancer Case Summary (Checklist)
+                  </p>
+                  <p class="">OfficialName
+                     										:
+                     									ADRENAL GLAND: Biopsy (Core Needle, Incisional, Excisional); Resection
+                  </p>
+                  <p class="">Category
+                     										:
+                     									Endocrine
+                  </p>
+                  <p class="">Restrictions
+                     										:
+                     									Protocol applies to adrenal cortical carcinoma only. Cortical adenomas, pheochromocytoma, neuroblastic tumors, and adrenal
+                     tumors of childhood are not included.
+                  </p>
+                  <p class="">true</p>
+                  <p class="">CTV_Ckey
+                     										:
+                     									129.1000043
+                  </p>
+                  <p class="">ChecklistCKey
+                     										:
+                     									2.100004300
+                  </p>
+                  <p class="">VersionID
+                     										:
+                     									3.000.001.1000043
+                  </p>
+                  <p class="">CurrentFileName
+                     										:
+                     									AdrenalGlandBiopsy(CoreNe[Bx]_3.000.001
+                  </p>
+                  <p class="">ApprovalStatus
+                     										:
+                     									1
+                  </p>
+                  <p class="right">EffectiveDate
+                     										:
+                     									
+                  </p>
+                  <p class="right">WebPostingDate
+                     										:
+                     									10/1/2013 12:00:00 AM
+                  </p>
+                  <p class="right">AJCC_UICC_Version
+                     										:
+                     									8th Edition
+                  </p>
+                  <p class="right">CS_Version
+                     										:
+                     									Version 2
+                  </p>
+                  <p class="right">FIGO_Version
+                     										:
+                     									
+                  </p>
+               </div>
+               <div style="clear:both"></div><a style="text-decoration:none;color:black;font-weight:bold;font-size:large" id="demshowhide" href="#" onclick="ShowHideDemo()">+ Demographics</a><div id="divdemo" style="display:none">
+                  <div id="sfhs::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="sfhs::1">
+                        <tr>
+                           <td>
+                              <div class="TopHeader">Demographics</div><input type="hidden" class="TextBox" name="q456:sfhs" value="Last Name"><div class="QuestionInSection">
+                                 <div class="QuestionTitle">Last Name<input type="text" class="TextBox" name="456:sfhs" value="Enter last name here"></div>
+                                 <div style="clear:both;"></div>
+                                 <div style="clear:both;"></div>
+                              </div><input type="hidden" class="TextBox" name="q345:sfhs" value="First Name"><div class="QuestionInSection">
+                                 <div class="QuestionTitle">First Name<input type="text" class="TextBox" name="345:sfhs" value="Enter first name here"></div>
+                                 <div style="clear:both;"></div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                              <div style="clear:both"></div>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+               <div id="s4257.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s4257.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader"></div><input type="hidden" class="TextBox" name="q2118.100004300:s4257.100004300" value="Tumor Site"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Tumor Site</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2118.100004300:s4257.100004300" checked="" value="2119.100004300,Adrenal structure">Adrenal structure
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17537.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17537.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">CLINICAL</div><input type="hidden" class="TextBox" name="q20899.100004300:s17537.100004300" value="Non-Pathology Findings (Notes J and K)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Non-Pathology Findings (Notes J and K)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20899.100004300:s17537.100004300" value="20900.100004300,Urinary 17-ketosteroids increased (10 mg / g creatinine / 24 hours)">Urinary 17-ketosteroids increased (10 mg / g creatinine / 24 hours)
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20899.100004300:s17537.100004300" value="20901.100004300,Hormone production">Hormone production
+                              </div><input type="hidden" class="TextBox" name="q24853.100004300:s17537.100004300" value=""><div class="QuestionInListItem">
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="24853.100004300:s17537.100004300" value="20902.100004300,Cushing syndrome">Cushing syndrome
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="24853.100004300:s17537.100004300" value="20904.100004300,Conn syndrome">Conn syndrome
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="24853.100004300:s17537.100004300" value="20905.100004300,Virilization / feminization">Virilization / feminization
+                                 </div>
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20899.100004300:s17537.100004300" value="20906.100004300,Weight loss">Weight loss
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20899.100004300:s17537.100004300" value="20907.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" name="20899.100004300:s17537.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q20911.100004300:s17537.100004300" value="Neoadjuvant Therapy"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Neoadjuvant Therapy</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20911.100004300:s17537.100004300" value="24854.100004300,Yes (specify type)">Yes (specify type)<input type="text" class="AnswerTextBox" width="100" name="20911.100004300:s17537.100004300" value=""></div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20911.100004300:s17537.100004300" value="20914.100004300,No">No
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20911.100004300:s17537.100004300" value="20915.100004300,Indeterminate">Indeterminate<input type="text" class="AnswerTextBox" width="100" name="20911.100004300:s17537.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q4156.100004300:s17537.100004300" value="Other (specify)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Other (specify)<input type="text" class="TextBox" name="4156.100004300:s17537.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17875.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17875.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">SPECIMEN</div><input type="hidden" class="TextBox" name="q20850.100004300:s17875.100004300" value="Adrenal Gland Received"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Adrenal Gland Received</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20850.100004300:s17875.100004300" value="20848.100004300,Fresh">Fresh
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20850.100004300:s17875.100004300" value="20849.100004300,In formalin">In formalin
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20850.100004300:s17875.100004300" value="20855.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" width="100" name="20850.100004300:s17875.100004300" value=""></div>
+                              <div class="property"></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q2120.100004300:s17875.100004300" value="Procedure"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Procedure</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2120.100004300:s17875.100004300" value="20856.100004300,Needle biopsy (radiographically guided)">Needle biopsy (radiographically guided)
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2120.100004300:s17875.100004300" value="2122.100004300,Adrenalectomy, total">Adrenalectomy, total
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2120.100004300:s17875.100004300" value="2121.100004300,Adrenalectomy, partial">Adrenalectomy, partial
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2120.100004300:s17875.100004300" value="2123.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" width="100" name="2120.100004300:s17875.100004300" value=""></div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2120.100004300:s17875.100004300" value="2124.100004300,Not specified">Not specified
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q20858.100004300:s17875.100004300" value="Specimen Integrity"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Specimen Integrity</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20858.100004300:s17875.100004300" value="20857.100004300,Intact">Intact
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20858.100004300:s17875.100004300" value="20859.100004300,Fragmented">Fragmented
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q2125.100004300:s17875.100004300" value="Specimen Laterality"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Specimen Laterality</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2125.100004300:s17875.100004300" value="2126.100004300,Right">Right
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2125.100004300:s17875.100004300" value="2127.100004300,Left">Left
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2125.100004300:s17875.100004300" value="2128.100004300,Not specified">Not specified
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2125.100004300:s17875.100004300" value="20866.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" width="100" name="2125.100004300:s17875.100004300" value=""></div>
+                              <div class="property"></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q2129.100004300:s17875.100004300" value="Tumor Size (Note A)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Tumor Size (Note A)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2129.100004300:s17875.100004300" value="2131.100004300,Greatest dimension (cm)">Greatest dimension (cm)<input type="text" class="AnswerTextBox" width="100" name="2129.100004300:s17875.100004300" value=""></div>
+                              <div class="property"></div><input type="hidden" class="TextBox" name="q2133.100004300:s17875.100004300" value="Additional Dimension (cm)"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="2133.100004300:s17875.100004300" value=""></div>
+                                 <div style="clear:both;"></div>
+                              </div><input type="hidden" class="TextBox" name="q2132.100004300:s17875.100004300" value="Additional Dimension (cm)"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="2132.100004300:s17875.100004300" value=""></div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2129.100004300:s17875.100004300" value="2130.100004300,Cannot be determined (fragmented specimen)">Cannot be determined (fragmented specimen)<input type="text" class="AnswerTextBox" width="100" name="2129.100004300:s17875.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q26236.100004300:s17875.100004300" value="Tumor Gland Weight (Note B)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Tumor Gland Weight (Note B)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="26236.100004300:s17875.100004300" value="26237.100004300,Not applicable">Not applicable<input type="text" class="AnswerTextBox" name="26236.100004300:s17875.100004300" value=""></div><input type="hidden" class="TextBox" name="q2134.100004300:s17875.100004300" value="Specify Weight (g)"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Specify Weight (g)<input type="text" class="TextBox" name="2134.100004300:s17875.100004300" value=""></div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div id="s20860.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s20860.100004300::1">
+                                 <tr>
+                                    <td>
+                                       <div class="TopHeader">Specimen Size</div><input type="hidden" class="TextBox" name="q24068.100004300:s20860.100004300" value="Greatest Dimension (cm)"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">Greatest Dimension (cm)<input type="text" class="TextBox" name="24068.100004300:s20860.100004300" value=""></div>
+                                          <div style="clear:both;"></div>
+                                          <div style="clear:both;"></div>
+                                       </div><input type="hidden" class="TextBox" name="q24856.100004300:s20860.100004300" value="Additional Dimension (cm)"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="24856.100004300:s20860.100004300" value=""></div>
+                                          <div style="clear:both;"></div>
+                                          <div style="clear:both;"></div>
+                                       </div><input type="hidden" class="TextBox" name="q24857.100004300:s20860.100004300" value="Additional Dimension (cm)"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="24857.100004300:s20860.100004300" value=""></div>
+                                          <div style="clear:both;"></div>
+                                          <div style="clear:both;"></div>
+                                       </div>
+                                       <div id="s24855.100004300::1"><input id="maxcardinality" type="hidden" value="10"><table class="HeaderGroup" align="center" id="s24855.100004300::1">
+                                             <tr>
+                                                <td>
+                                                   <div class="TopHeader">Additional dimensions (repeat section if more than one part)</div><input type="hidden" class="TextBox" name="q24069.100004300:s24855.100004300" value="Additional Dimension (cm)"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="24069.100004300:s24855.100004300" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q20847.100004300:s24855.100004300" value="Additional Dimension (cm)"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="20847.100004300:s24855.100004300" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q20912.100004300:s24855.100004300" value="Additional Dimension (cm)"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Additional Dimension (cm)<input type="text" class="TextBox" name="20912.100004300:s24855.100004300" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                   <div style="clear:both"></div><input type="button" id="btnAdd" onclick="addSection(this)" value="+"><input type="button" id="btnRemove" onclick="removeSection(this)" value="-" style="visibility:hidden;"></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                       <div style="clear:both"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17876.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17876.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">TUMOR</div><input type="hidden" class="TextBox" name="q2116.100004300:s17876.100004300" value="Histologic Type (Notes C through E)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Histologic Type (Notes C through E)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2116.100004300:s17876.100004300" checked="" value="2117.100004300,Adrenal cortical carcinoma">Adrenal cortical carcinoma
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17877.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17877.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">EXTENT</div><input type="hidden" class="TextBox" name="q20873.100004300:s17877.100004300" value="Microscopic Tumor Extension (specify)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Microscopic Tumor Extension (specify)<input type="text" class="TextBox" name="20873.100004300:s17877.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17878.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17878.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">MARGINS</div><input type="hidden" class="TextBox" name="q2153.100004300:s17878.100004300" value=""><div class="QuestionInSection">
+                              <div class="QuestionTitle"></div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2153.100004300:s17878.100004300" value="2154.100004300,Margins uninvolved by tumor">Margins uninvolved by tumor
+                              </div><input type="hidden" class="TextBox" name="q26358.100004300:s17878.100004300" value="Distance from Closest Margin"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Distance from Closest Margin</div>
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26358.100004300:s17878.100004300" value="26359.100004300,Specify (mm)">Specify (mm)<input type="text" class="AnswerTextBox" width="100" name="26358.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26358.100004300:s17878.100004300" value="26361.100004300,Cannot be assessed (explain)">Cannot be assessed (explain)<input type="text" class="AnswerTextBox" width="100" name="26358.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                              </div><input type="hidden" class="TextBox" name="q26362.100004300:s17878.100004300" value="Specify Margin, if possible"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Specify Margin, if possible</div>
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26362.100004300:s17878.100004300" value="26363.100004300,Specify margin">Specify margin<input type="text" class="AnswerTextBox" width="100" name="26362.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26362.100004300:s17878.100004300" value="26364.100004300,Cannot be determined (explain)">Cannot be determined (explain)<input type="text" class="AnswerTextBox" width="100" name="26362.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2153.100004300:s17878.100004300" value="2155.100004300,Margin(s) involved by tumor">Margin(s) involved by tumor
+                              </div><input type="hidden" class="TextBox" name="q26365.100004300:s17878.100004300" value="Specify Margin(s), if possible"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Specify Margin(s), if possible</div>
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26365.100004300:s17878.100004300" value="26366.100004300,Specify margin(s)">Specify margin(s)<input type="text" class="AnswerTextBox" width="100" name="26365.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                                 <div class="Answer"><input type="radio" style="float:left" name="26365.100004300:s17878.100004300" value="26367.100004300,Cannot be determined (explain)">Cannot be determined (explain)<input type="text" class="AnswerTextBox" width="100" name="26365.100004300:s17878.100004300" value=""></div>
+                                 <div class="property"></div>
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2153.100004300:s17878.100004300" value="2157.100004300,Cannot be determined">Cannot be determined<input type="text" class="AnswerTextBox" width="100" name="2153.100004300:s17878.100004300" value=""></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2153.100004300:s17878.100004300" value="20852.100004300,Not applicable">Not applicable<input type="text" class="AnswerTextBox" width="100" name="2153.100004300:s17878.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17879.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17879.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">ACCESSORY FINDINGS</div><input type="hidden" class="TextBox" name="q20875.100004300:s17879.100004300" value="Treatment Effect (applicable to carcinomas treated with neoadjuvant therapy)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Treatment Effect (applicable to carcinomas treated with neoadjuvant therapy)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20875.100004300:s17879.100004300" value="20876.100004300,Not identified">Not identified
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20875.100004300:s17879.100004300" value="20877.100004300,Present (specify)">Present (specify)<input type="text" class="AnswerTextBox" width="100" name="20875.100004300:s17879.100004300" value=""></div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20875.100004300:s17879.100004300" value="20878.100004300,Indeterminate">Indeterminate<input type="text" class="AnswerTextBox" width="100" name="20875.100004300:s17879.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q20862.100004300:s17879.100004300" value="Tumor Description"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Tumor Description</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20862.100004300:s17879.100004300" value="20863.100004300,Hemorrhagic">Hemorrhagic
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20862.100004300:s17879.100004300" value="20864.100004300,Necrotic">Necrotic
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20862.100004300:s17879.100004300" value="17883.100004300,Invasion">Invasion
+                              </div><input type="hidden" class="TextBox" name="q20869.100004300:s17879.100004300" value=""><div class="QuestionInListItem">
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="20869.100004300:s17879.100004300" value="20870.100004300,Capsule">Capsule
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="20869.100004300:s17879.100004300" value="20871.100004300,Vessels">Vessels
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="20869.100004300:s17879.100004300" value="20872.100004300,Extra-adrenal (specify)">Extra-adrenal (specify)<input type="text" class="AnswerTextBox" name="20869.100004300:s17879.100004300" value=""></div>
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20862.100004300:s17879.100004300" value="20865.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" name="20862.100004300:s17879.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q2158.100004300:s17879.100004300" value="Lymph-Vascular Invasion (Note F)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Lymph-Vascular Invasion (Note F)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2158.100004300:s17879.100004300" value="2159.100004300,Not identified">Not identified
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2158.100004300:s17879.100004300" value="2160.100004300,Present">Present
+                              </div><input type="hidden" class="TextBox" name="q20861.100004300:s17879.100004300" value=""><div class="QuestionInListItem">
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="20861.100004300:s17879.100004300" value="20853.100004300,Large vessel (venous)">Large vessel (venous)
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="20861.100004300:s17879.100004300" value="20881.100004300,Small vessel (capillary lymphatic)">Small vessel (capillary lymphatic)
+                                 </div>
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="2158.100004300:s17879.100004300" value="2161.100004300,Indeterminate">Indeterminate<input type="text" class="AnswerTextBox" width="100" name="2158.100004300:s17879.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q20882.100004300:s17879.100004300" value="Perineural Invasion"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Perineural Invasion</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20882.100004300:s17879.100004300" value="20879.100004300,Not identified">Not identified
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20882.100004300:s17879.100004300" value="20884.100004300,Present">Present
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20882.100004300:s17879.100004300" value="20883.100004300,Indeterminate">Indeterminate<input type="text" class="AnswerTextBox" width="100" name="20882.100004300:s17879.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17880.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17880.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">SPECIAL STUDIES</div><input type="hidden" class="TextBox" name="q6202.100004300:s17880.100004300" value="Ancillary Studies (Note L)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Ancillary Studies (Note L)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="6202.100004300:s17880.100004300" value="20908.100004300,Specify type(s)">Specify type(s)<input type="text" class="AnswerTextBox" name="6202.100004300:s17880.100004300" value=""></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="6202.100004300:s17880.100004300" value="20909.100004300,Specify result(s)">Specify result(s)<input type="text" class="AnswerTextBox" name="6202.100004300:s17880.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17881.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17881.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">LYMPH NODES</div><input type="hidden" class="TextBox" name="q20885.100004300:s17881.100004300" value="Lymph Nodes, Extranodal Extension"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Lymph Nodes, Extranodal Extension</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20885.100004300:s17881.100004300" value="1850.100004300,No nodes submitted or found">No nodes submitted or found
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20885.100004300:s17881.100004300" value="20886.100004300,Not identified">Not identified
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20885.100004300:s17881.100004300" value="20887.100004300,Present">Present
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="20885.100004300:s17881.100004300" value="20888.100004300,Indeterminate">Indeterminate<input type="text" class="AnswerTextBox" width="100" name="20885.100004300:s17881.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s2136.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s2136.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">STAGE  (pTNM, AJCC 8th ed.)</div><input type="hidden" class="TextBox" name="q20880.100004300:s2136.100004300" value="?TNM Descriptors"><div class="QuestionInSection">
+                              <div class="QuestionTitle">?TNM Descriptors</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20880.100004300:s2136.100004300" value="22897.100004300,?Not applicable">?Not applicable<input type="text" class="AnswerTextBox" name="20880.100004300:s2136.100004300" value=""></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20880.100004300:s2136.100004300" value="20890.100004300,m (multiple primary tumors)">m (multiple primary tumors)
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20880.100004300:s2136.100004300" value="20891.100004300,r (recurrent)">r (recurrent)
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="20880.100004300:s2136.100004300" value="20892.100004300,y (post-treatment)">y (post-treatment)
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q37523.100004300:s2136.100004300" value="Primary Tumor (pT)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Primary Tumor (pT)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37654.100004300,pTX: Primary tumor cannot be assessed">pTX: Primary tumor cannot be assessed
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37655.100004300,pT0: No evidence of primary tumor">pT0: No evidence of primary tumor
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37656.100004300,pT1: Tumor <= 5 cm in greatest dimension, no extra-adrenal invasion">pT1: Tumor &lt;= 5 cm in greatest dimension, no extra-adrenal invasion
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37657.100004300,pT2: Tumor &gt; 5 cm, no extra-adrenal invasion">pT2: Tumor &gt; 5 cm, no extra-adrenal invasion
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37658.100004300,pT3: Tumor of any size with local invasion but not invading adjacent organs">pT3: Tumor of any size with local invasion but not invading adjacent organs
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37523.100004300:s2136.100004300" value="37659.100004300,pT4: Tumor of any size that invades adjacent organs (kidney, diaphragm, pancreas, spleen, or liver) or large blood vessels (renal vein or vena cava)">pT4: Tumor of any size that invades adjacent organs (kidney, diaphragm, pancreas, spleen, or liver) or large blood vessels
+                                 (renal vein or vena cava)
+                              </div>
+                              <div class="property"></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q37660.100004300:s2136.100004300" value="Regional Lymph Nodes (pN)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Regional Lymph Nodes (pN)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37660.100004300:s2136.100004300" value="37661.100004300,pNX: Regional lymph nodes cannot be assessed">pNX: Regional lymph nodes cannot be assessed
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37660.100004300:s2136.100004300" value="37662.100004300,pN0: No regional lymph node metastasis">pN0: No regional lymph node metastasis
+                              </div>
+                              <div class="property"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37660.100004300:s2136.100004300" value="37663.100004300,pN1: Metastasis in regional lymph node(s)">pN1: Metastasis in regional lymph node(s)
+                              </div>
+                              <div class="property"></div>
+                              <div style="clear:both;"></div><input type="hidden" class="TextBox" name="q1867.100004300:s2136.100004300" value=""><div class="QuestionInQuestion">
+                                 <div class="QuestionTitle"></div>
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="1867.100004300:s2136.100004300" value="1868.100004300,No nodes submitted or found">No nodes submitted or found
+                                 </div><input type="hidden" class="TextBox" name="q1869.100004300:s2136.100004300" value="Number of Lymph Nodes Examined"><div class="QuestionInListItem">
+                                    <div class="QuestionTitle">Number of Lymph Nodes Examined</div>
+                                    <div style="clear:both;"></div>
+                                    <div class="Answer"><input type="radio" style="float:left" name="1869.100004300:s2136.100004300" value="1870.100004300,Specify">Specify<input type="text" class="AnswerTextBox" width="100" name="1869.100004300:s2136.100004300" value=""></div>
+                                    <div class="property"></div>
+                                    <div class="Answer"><input type="radio" style="float:left" name="1869.100004300:s2136.100004300" value="1871.100004300,Number cannot be determined (explain)">Number cannot be determined (explain)<input type="text" class="AnswerTextBox" width="100" name="1869.100004300:s2136.100004300" value=""></div>
+                                    <div class="property"></div>
+                                 </div><input type="hidden" class="TextBox" name="q1872.100004300:s2136.100004300" value="Number of Lymph Nodes Involved"><div class="QuestionInListItem">
+                                    <div class="QuestionTitle">Number of Lymph Nodes Involved</div>
+                                    <div style="clear:both;"></div>
+                                    <div class="Answer"><input type="radio" style="float:left" name="1872.100004300:s2136.100004300" value="1873.100004300,Specify">Specify<input type="text" class="AnswerTextBox" width="100" name="1872.100004300:s2136.100004300" value=""></div>
+                                    <div class="property"></div>
+                                    <div class="Answer"><input type="radio" style="float:left" name="1872.100004300:s2136.100004300" value="1874.100004300,Number cannot be determined (explain)">Number cannot be determined (explain)<input type="text" class="AnswerTextBox" width="100" name="1872.100004300:s2136.100004300" value=""></div>
+                                    <div class="property"></div>
+                                 </div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                           </div><input type="hidden" class="TextBox" name="q37664.100004300:s2136.100004300" value="?Distant Metastasis (pM)"><div class="QuestionInSection">
+                              <div class="QuestionTitle">?Distant Metastasis (pM)</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37664.100004300:s2136.100004300" value="37665.100004300,?Not applicable - pM cannot be determined from the submitted specimen(s)">?Not applicable - pM cannot be determined from the submitted specimen(s)
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="37664.100004300:s2136.100004300" value="37666.100004300,pM1: Distant metastasis">pM1: Distant metastasis
+                              </div>
+                              <div class="property"></div><input type="hidden" class="TextBox" name="q37667.100004300:s2136.100004300" value="?Specify Site(s), if known"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">?Specify Site(s), if known<input type="text" class="TextBox" name="37667.100004300:s2136.100004300" value=""></div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s17884.100004300::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s17884.100004300::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">ADDITIONAL NON-TUMOR</div><input type="hidden" class="TextBox" name="q2162.100004300:s17884.100004300" value="Additional Pathologic Findings"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Additional Pathologic Findings</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="2162.100004300:s17884.100004300" value="2163.100004300,None identified">None identified
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="2162.100004300:s17884.100004300" value="2164.100004300,Tumor necrosis">Tumor necrosis
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="2162.100004300:s17884.100004300" value="20896.100004300,Degenerative changes">Degenerative changes
+                              </div><input type="hidden" class="TextBox" name="q22900.100004300:s17884.100004300" value=""><div class="QuestionInListItem">
+                                 <div style="clear:both;"></div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="22900.100004300:s17884.100004300" value="20854.100004300,Calcifications">Calcifications
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="22900.100004300:s17884.100004300" value="20897.100004300,Hemorrhage">Hemorrhage
+                                 </div>
+                                 <div class="Answer"><input type="checkbox" style="float:left;" name="22900.100004300:s17884.100004300" value="20898.100004300,Cystic change">Cystic change
+                                 </div>
+                              </div>
+                              <div class="Answer"><input type="checkbox" style="float:left;" name="2162.100004300:s17884.100004300" value="2167.100004300,Other (specify)">Other (specify)<input type="text" class="AnswerTextBox" name="2162.100004300:s17884.100004300" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div><input type="hidden" class="TextBox" name="q2168.100004300:" value="Comment(s)"><div class="QuestionInListItem">
+                  <div class="QuestionTitle">Comment(s)<input type="text" class="TextBox" name="2168.100004300:" value=""></div>
+                  <div style="clear:both;"></div>
+               </div>
+               <div class="SubmitButton"><input type="submit" id="send" value="Submit" onclick="javascript:openMessageData();return false;"></div>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

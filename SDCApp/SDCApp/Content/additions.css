@@ -1,0 +1,97 @@
+﻿
+
+        input[type='file'] {  /*hides the filename label*/
+            color: transparent;
+            display:inline-block;
+            width:90px;
+        }
+
+        .navigator { margin-bottom:40px;}
+
+        #txtSearch {
+            height:24px;
+        }
+        body{
+   font-family: Arial;
+   font-size: 1em;
+   width: 99%;
+   margin-left: 5px;
+   margin-right: 0px;
+}
+
+        .page-title{
+            font-family:Arial;
+            font-size:24px; 
+            color:#666;
+            margin-top:10px;
+            height:35.6px;
+        }
+
+        .tab-title{
+            font-family:Arial;
+            font-size:1.4em; 
+            color:black;
+            font-weight:bold;
+            margin-top:10px
+        }
+
+        p {padding-top:2px;}
+        .tab-content{
+        background-color:white;
+        color:black;
+        padding:5px;
+        border-color:grey;
+        border-style:solid;
+        border-width:thin;
+        border-collapse: collapse;
+    }
+
+        
+        table, th, td {
+            border: none;
+            border-collapse: collapse;
+            padding-top: 4px;
+            padding-bottom:4px;
+            padding-left: 10px;
+            
+        }
+
+        table th {background-color:#009BBF;color:white}
+        
+            table tr:nth-child(even) {
+                background-color: #D2D2D2;
+                color:black;
+                font-weight:normal
+            }
+
+            table tr:nth-child(odd) {
+                background-color: #F7F7F7;
+                color:black;
+                font-weight:normal
+            }
+
+        html {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top:20px;
+        }
+
+        #bodyContainer {
+            background-color: #e9edf7;
+            padding: 20px;
+        }
+
+        .page-section{
+            background-color:whitesmoke; 
+            margin-top:5px;
+            padding:5px;
+            border:solid thin lightblue;
+
+        }
+      
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 80%;
+}
+
+    

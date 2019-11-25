@@ -1,0 +1,396 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Transforms/working/sdctemplate.js?ver=7"></script>
+    <link href="Content/Site.css?ver=1.2" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.6.2.js"></script>
+    <script src="Scripts/site.js"></script>
+    <link href="Transforms/working/sdctemplate.css?ver=4" rel="stylesheet" />
+    <!--<link href="Content/Menu.css?ver=1.2" rel="stylesheet" />-->
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/SDCTrancationApp.js?ver=1.42"></script>
+
+    <style>
+        ul.breadcrumb {
+            margin: 0px;
+            padding: 0px;
+            background-color: white;
+        }
+            /* Display list items side by side */
+            ul.breadcrumb li {
+                display: inline;
+                font-size: 12px;
+            }
+
+        #menu {
+            margin: 20px 0px 10px 0px !important;
+        }
+
+        li a {
+            display: inline;
+        }
+        /*Add a slash symbol (/) before/behind each list item*/
+        ul.breadcrumb li + li:before {
+            padding: 8px;
+            color: black;
+            content: "\003E";
+        }
+
+        /* Add a color to all links inside the list */
+        ul.breadcrumb li a {
+            /*color: #0275d8;*/
+            color: #009BBF;
+            text-decoration: none;
+            padding: 4px;
+            background-color: white !important;
+        }
+
+            ul.breadcrumb li a.selected {
+                /*color: #0275d8;*/
+                color: black;
+                cursor: auto;
+            }
+
+            /* Add a color on mouse-over */
+            ul.breadcrumb li a:hover {
+                /*color: #01447e;
+                text-decoration: underline;*/
+                background-color: white !important;
+            }
+
+        a.linkClass {
+            border: none;
+            background: transparent;
+            color: #009BBF;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+          
+        .pagetitle {
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .pagecontent {
+            margin-top: 30px;
+        }
+    </style>
+
+    <script>
+        $(window).on("load", function (e) {
+
+            $('#copyright').text("© " + new Date().getFullYear() + " SDC Application");
+        });
+    </script>
+
+    <script type="text/javascript">
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+        $(window).on("load", function () {
+
+            $('#packagename').text(getQueryVariable('PackageId'));
+            //$('#header').load('header.html');
+            $.getJSON('config/server.json', function (data) {
+                var packageid = getUrlParam("packageid", "test");
+                //api/forms/xml
+                // var Url = $scope.baseUrl + "/GetXml.aspx?PackageId=" + id;
+                $.ajax({
+                    url: data.apiurl + "api/forms/xml?id=" + packageid, success: function (result) {
+
+                        $('#rawxml').text(result);
+
+                        xmlstring = $("#rawxml").val();
+
+
+
+                        try {
+
+
+                            xmlDoc = $.parseXML(xmlstring);
+
+                            $xml = $(xmlDoc);
+
+                            //allow submit
+                            if ($("#allowsubmit").val() == 'no') {
+                                $("#send").css("display", "none");
+
+                            }
+
+
+                        }
+                        catch (err) {
+                            alert('Error loading xml: ' + err.message);
+                        }
+                    }
+                });
+
+                $.ajax({
+                    //url: data.apiurl + "api/htmlrenderer/" + packageid, success: function (result) {
+                    url: data.apiurl + "api/htmlrenderer?id=" + packageid, success: function (result) {
+                        $('#content').html(result);
+                        $('#navFormManager').addClass("active");
+
+                        if (localStorage.getItem("authenticator") === 'undefined') {
+                            $('#test').hide();
+                        }
+                        else {
+                            $('#caplogout').hide();
+                        }
+
+                        $('#btnParameters').hide();
+                        $('#btnRetrieveResponse').hide();
+
+                        $('.SubmitButton').hide();  //hide by class
+                        $('#anotherpackage').hide();
+
+                        $(document).ready(function () {
+                            $('.mustImplement').parent().toggle();
+
+
+                            var toggle_all = true;
+                            $(".collapse_all_control").click(function () {
+                                $(".collapsable_q").each(function () {
+                                    if ($(this).siblings().is(":visible") && toggle_all === true) {
+                                        $(this).siblings().toggle(false);
+                                        $(this).toggleClass("Question collapsed_q");
+                                    } else if (!$(this).siblings().is(":visible") && toggle_all === false) {
+                                        $(this).siblings().toggle(true);
+                                        $(this).toggleClass("Question collapsed_q");
+                                    }
+                                });
+
+                                $(".collapsable").each(function () {
+                                    if ($(this).siblings().is(":visible") && toggle_all === true) {
+                                        $(this).siblings().toggle(false);
+                                        $(this).toggleClass("HeaderGroup collapsed");
+                                    } else if (!$(this).siblings().is(":visible") && toggle_all === false) {
+                                        $(this).siblings().toggle(true);
+                                        $(this).toggleClass("HeaderGroup collapsed");
+                                    }
+                                });
+
+                                if (toggle_all) {
+                                    toggle_all = false;
+                                } else {
+                                    toggle_all = true;
+                                }
+                            });
+
+                            $(".collapsable").click(function () {
+                                $(this).siblings().toggle();
+                                $(this).toggleClass("HeaderGroup collapsed");
+                            });
+
+                            var toggle_section = true;
+                            $(".collapse_control").click(function () {
+                                $(".collapsable").each(function () {
+                                    if ($(this).siblings().is(":visible") && toggle_section === true) {
+                                        $(this).siblings().toggle(false);
+                                        $(this).toggleClass("HeaderGroup collapsed");
+                                    } else if (!$(this).siblings().is(":visible") && toggle_section === false) {
+                                        $(this).siblings().toggle(true);
+                                        $(this).toggleClass("HeaderGroup collapsed");
+                                    }
+                                });
+
+                                if (toggle_section) {
+                                    toggle_section = false;
+                                } else {
+                                    toggle_section = true;
+                                }
+                            });
+
+                            var toggle_question = true;
+                            $(".collapse_q_control").click(function () {
+                                $(".collapsable_q").each(function () {
+                                    if ($(this).siblings().is(":visible") && toggle_question === true) {
+                                        $(this).siblings().toggle(false);
+                                        $(this).toggleClass("Question collapsed_q");
+                                    } else if (!$(this).siblings().is(":visible") && toggle_question === false) {
+                                        $(this).siblings().toggle(true);
+                                        $(this).toggleClass("Question collapsed_q");
+                                    }
+                                });
+
+                                if (toggle_question)
+                                    toggle_question = false;
+                                else
+                                    toggle_question = true;
+                            });
+
+                            //support toggle - sections
+                            $(".collapsable").click(function () {
+                                $(this).siblings().toggle();
+                                $(this).toggleClass("HeaderGroup collapsed");
+                            });
+
+                            // support toggle - questions
+                            $(".collapsable_q").click(function () {
+                                $(this).siblings().toggle();
+                                $(this).toggleClass("Question collapsed_q");
+                            });
+                        });
+                    }
+                });
+            });
+
+
+        });
+
+        function toggleviewxml() {
+            var f = document.getElementById("rawxml");
+            if (f.style.display == "none") {
+                f.style.display = "block";
+                document.getElementById("linkxml").innerText = "Hide Xml";
+            }
+            else {
+                f.style.display = "none";
+                document.getElementById("linkxml").innerText = "Show Xml";
+            }
+        }
+    </script>
+    <script>
+        function toggle_metadata() {
+            var divsMD = document.getElementsByClassName('MetadataDisplay')
+            var divsMDH = document.getElementsByClassName('MetadataDisplayHeader')
+
+            var display = 'none'
+            if (divsMD[0].style.display) {
+                if (divsMD[0].style.display == 'inline') { display = 'none' }
+                else { display = 'inline' }
+            }
+
+            for (var i = 0; i < divsMD.length; i++) { divsMD[i].style.display = display }
+            for (var i = 0; i < divsMDH.length; i++) { divsMDH[i].style.display = display }
+
+
+            //Toggle ids too
+            var divs = document.getElementsByClassName('idDisplay')
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = display
+            }
+
+            //Toggle deprecated items
+            var dis = document.getElementsByClassName('TopHeader')
+            var searchText = "(Deprecated Items)"
+
+            for (var i = 0; i < dis.length; i++) {
+                if (dis[i].textContent.indexOf(searchText) >= 0) {
+                    var divHeader = dis[i].parentElement.parentElement.parentElement //the tbody element
+                    if (display == 'inline') { display = '' }
+                    divHeader.style.display = display
+                    break;
+                }
+            }
+
+        }
+
+        function toggle_name() {
+            var nameDiv = document.getElementsByClassName('nameDiv');
+
+            var display = 'none'
+            if (nameDiv[0].style.display) {
+                if (nameDiv[0].style.display == 'inline') { display = 'none' }
+                else { display = 'inline' }
+            }
+
+            for (var i = 0; i < nameDiv.length; i++) { nameDiv[i].style.display = display }
+        }
+
+        function toggle_mustImplement() {
+
+            if ($('.mustImplement').parent().is(":visible")) {
+                $('#mnuRequired').text('Toggle optional items');
+                $('.mustImplement').parent().toggle();
+            }
+            else {
+                $('#mnuRequired').text('Hide optional items');
+                $('.mustImplement').parent().toggle();
+            }
+        }
+
+        function toggle_id() {
+            var divs = document.getElementsByClassName('idDisplay');
+            var display = 'none';
+
+            if (divs[0].style.display) {
+                if (divs[0].style.display == 'inline') { display = 'none'; }
+                else { display = 'inline'; }
+            }
+
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.display = display;
+            }
+        }
+
+        function ShowHideDemo() {
+            $('#divdemo').toggle();
+            if (($('#divdemo')).css("display") == 'none')
+                $('#demshowhide').text('+ Demographics');
+            else
+                $('#demshowhide').text('- Demographics');
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+    <div ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+        <div ng-include="'header.html'"></div>
+        <div id="header"></div>
+        <div style=" padding: 10px 36px 15px 18px;">
+            <div>
+                <ul class='breadcrumb'>
+                    <li><a href='formmanager.html'> Form Manager</a></li>
+                    <li><a class="selected" href='#'>View HTML Package</a></li>
+                </ul>
+            </div>
+            <div class="pagecontent">
+                <p class="pagetitle">View HTML Package - <span id="packagename"></span></p>
+                <div>
+                    <input type="hidden" runat="server" id="allowsubmit" value="no" />
+                    <textarea runat="server" id="rawxml" style="display:none;width:92%;margin-left:100px;margin-right:auto;background-color:wheat" rows="10"></textarea>
+                    <div style="clear:both"></div>
+                    <div id="content">
+
+                    </div>
+                    <br />
+                    <br />
+                    <a class="linkClass" href="formmanager.html"><< Back to Form Manager</a>
+
+                </div>
+            </div>
+            
+            
+        </div>
+       
+        <div id="footer" style="text-align: center;background-color:#333333; margin-top:10px; padding:8px; margin-bottom:20px; color:whitesmoke">
+            <span id="copyright" style="font-family:Arial;font-size:12px;display: inline-block;"></span>
+        </div>
+    </div>
+</body>
+</html>

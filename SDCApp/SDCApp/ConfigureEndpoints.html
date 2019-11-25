@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  
+
+    <title></title>
+    <link href="Content/Site.css?ver=1.2" rel="stylesheet" />
+    <link href="Content/menu.css?ver=1.2" rel="stylesheet" />
+    
+    
+   
+
+    <script src="Scripts/site.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/SDCTrancationApp.js?ver=102"></script>
+    <script>
+        function loadjsfile(filename)
+	{
+        
+	 var fileref = document.createElement('script')
+         fileref.setAttribute("type", "text/javascript")
+         var d = new Date();
+         fileref.setAttribute("src", filename + "?ver=100")
+         console.log("in loadjsfile" + filename + "?ver=100");
+
+	}
+    
+       
+        //loadjsfile("Scripts/site.js");
+        //loadjsfile("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+        //loadjsfile("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
+        //loadjsfile("Scripts/angular.js");
+        //loadjsfile("Scripts/angular-route.js");
+
+
+        
+    </script>
+
+    <script>
+        $(window).on("load", function (e) {
+            $('#copyright').text("© " + new Date().getFullYear() + " SDC Application");
+        });
+    </script>
+
+    <style>
+
+        .headerClass {
+            /*height: 30px;*/
+            font-family: 'Arial Bold', 'Arial';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 14px;
+            color: #FFFFFF;
+            text-align: center;
+            display: table-cell;
+        }
+
+        td {
+            font-size: 12px;
+        }
+
+        .inputClass {
+            margin: 2px 5px;
+            padding: 2px 5px;
+            font-size: 13px;
+            width: calc(100% - 30px);
+        }
+
+        .btnClass {
+            border: none;
+            background: transparent;
+            color: blue;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        .linkClass {
+            border: none;
+            background: transparent;
+            color: blue !important;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+
+<body ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+    <div ng-include="'header.html'"></div>
+
+    <div style="font-size:18px;font-weight:700">Form Managers</div>
+    <table>
+        <thead>
+            <tr>
+                <th class="headerClass" style="width: 200px;">Name</th>
+                <th class="headerClass" style="width: 400px;">Form Request Url</th>
+                <th class="headerClass" style="width: 400px;">Forms List Url</th>
+                <th class="headerClass" colspan="2" style="width: 100px;" ng-show="admin">Action</th>
+            </tr>
+
+        </thead>
+
+        <tr  data-ng-repeat="x in Managers">
+            <td >
+                <div ng-hide="editingManagers[x.Id]">{{x.Name | uppercase}}</div>
+                <div ng-show="editingManagers[x.Id]"><input style="width: 200px;" type="text" ng-model="x.Name" /></div>
+            </td>
+            <td >
+                <div ng-hide="editingManagers[x.Id]">{{x.Url}}</div>
+                <div ng-show="editingManagers[x.Id]"><input style="width: 400px;" type="text" ng-model="x.Url" /></div>
+            </td>
+            <td >
+
+                <div ng-hide="editingManagers[x.Id]">{{x.FormlistUrl}}</div>
+                <div ng-show="editingManagers[x.Id]"><input style="width: 400px;" type="text" ng-model="x.FormlistUrl" /></div>
+            </td>
+            <td ng-show="admin" ><button class="btnClass" ng-click="toggleManagersedit($event,x.Id)">Update</button></td>
+            <td ng-show="admin" ><button class="btnClass" ng-click="deleteManager($event,x.Id)">Remove</button></td>
+        </tr>
+        <tr ng-show="admin">
+            <td><input class="inputClass" ng-model="newmanager.Name" type="text" /></td>
+            <td><input class="inputClass" ng-model="newmanager.Url" type="text" /></td>
+            <td><input class="inputClass" ng-model="newmanager.FormlistUrl" type="text" /></td>
+            <td ng-show="admin"><button class="btnClass" ng-click="addManager($event)">Add</button></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div style="font-size:18px;font-weight:700;margin-top:20px;">Form Receivers</div>
+    <table>
+        <thead>
+            <tr>
+                <th class="headerClass" style="width: 200px;">Name</th>
+                <th class="headerClass" style="width: 400px;">Submit Url</th>
+                <th class="headerClass" style="width: 400px;">Supports Cors</th>
+                <th class="headerClass" style="width: 100px;" colspan="2" ng-show="admin">Action</th>
+            </tr>
+
+        </thead>
+        <tr data-ng-repeat="x in Receivers">
+            <td >
+                <div ng-hide="editingReceivers[x.Id]">{{x.Name | uppercase}}</div>
+                <div ng-show="editingReceivers[x.Id]"><input style="width: 200px;" type="text" ng-model="x.Name" /></div>
+
+            </td>
+            <td >
+                <div ng-hide="editingReceivers[x.Id]">{{x.Url}}</div>
+                <div ng-show="editingReceivers[x.Id]"><input style="width: 400px;" type="text" ng-model="x.Url" /></div>
+            </td>
+            <td style="text-align: center">
+                <div ng-hide="editingReceivers[x.Id]"><input type="checkbox" onclick="return false;" ng-model="x.SupportsScript" /></div>
+                <div ng-show="editingReceivers[x.Id]"><input type="checkbox" ng-model="x.SupportsScript" /></div>
+            </td>
+            <td ng-show="admin"><button class="btnClass" ng-click="toggleReceiversedit($event,x.Id)">Update</button></td>
+            <td ng-show="admin"><button class="btnClass" ng-click="deleteReceiver($event,x.Id)">Remove</button></td>
+        </tr>
+
+        <tr ng-show="admin">
+            <td><input class="inputClass" ng-model="newreceiver.Name" type="text" /></td>
+            <td><input class="inputClass" ng-model="newreceiver.Url" type="text" /></td>
+            <td style="text-align:center;"><input class="inputClass" ng-model="newreceiver.SupportsScript" type="checkbox" /></td>
+            <td ng-show="admin"><button class="btnClass" ng-click="addReceiver($event)" ng-show="admin">Add</button></td>
+            <td></td>
+        </tr>
+    </table>
+    <div id="footer" style="text-align: center;background-color:#333333; margin-top:10px; padding:8px; margin-bottom:20px; color:whitesmoke">
+        <span id="copyright" style="font-family:Arial;font-size:12px;display: inline-block;"></span>
+    </div>
+</body>
+</html>
+

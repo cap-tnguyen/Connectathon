@@ -1,0 +1,1507 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:sr="http://www.cap.org/pert/2009/01/" xmlns:x="urn:ihe:qrph:sdc:2016">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script><style>
+				Body 
+				{
+					font-family: Arial;
+					font-size: 12px;
+					width: 100%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				li
+				{
+					padding: 1px;
+					color: blue;
+					list-style-type: square;
+				}
+
+				p
+				{
+					margin-top:2px;
+					margin-bottom:2px;
+					padding:0px;
+				}
+				.BodyGroup
+				{
+					width: 900px;
+					margin-left: auto;
+					margin-right: auto;
+					text-align: left;
+				}
+
+				.HeaderGroup
+				{
+					width: 99%;
+					margin-top: 5px;
+					margin-bottom: 5px;
+					margin-left: auto;
+					margin-right: auto;
+					border: solid 1px #000080;
+					padding: 5px;
+					clear: both;
+				}
+
+				.HeaderGroupText
+				{
+					font-size: 12px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+
+				.HeaderInfoText
+				{
+					font-size: 12px;
+					text-align: right;
+					font-style: italic;    
+				}
+
+				.HeaderText
+				{
+					text-align: center;
+					font-size: 18px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+
+				.TopHeader
+				{
+					text-align: center;
+					font-size: 30px;
+					font-weight: bold;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+				.form-version
+				{
+					font-name:courier;
+					font-size:9px;
+					float:right;
+				}
+
+				.subSection
+				{
+					text-align: center;
+					font-size: 20px;
+					font-weight: bold;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+				.thinBox
+				{
+					text-align: center;
+					font-size: 14px;
+					font-weight: bold;
+					font-style:italic;
+					background-color: #000080;
+					color: #FFFFFF;
+					padding: 2px;
+				}
+
+
+				.QuestionReset
+				{
+					float: right;
+					padding-left: 2px;
+					font-size: 10px;
+					text-decoration: none;
+					font-style: normal;
+					color: Blue;
+				}
+
+
+				.QuestionInSection
+				{
+					float: left;
+					width: 49%;
+					padding: 2px;
+				}
+
+				.QuestionInQuestion
+				{
+					float: left;    
+					padding: 2px;
+				}
+
+				.QuestionInListItem
+				{
+					padding: 2px;
+					padding-left: 20px;
+				}
+
+
+
+				.QuestionTitle
+				{
+					padding: 2px;
+					background-color: #add8e6;
+					font-size: 13px;
+					font-style: italic;
+					font-weight: bold;
+					clear: both;
+				}
+
+				.Answer
+				{
+					float: left;
+					padding-top: 2px;
+					width: 93%;
+				}
+
+				.DisplayProperty
+				{
+					float: left;
+					padding-top: 2px;
+					width: 22%;
+				}
+
+				.DisplayProperty1
+				{
+					float: left;
+					padding-top: 2px;
+					padding-left: 5px;
+				}
+
+				.AnswerTextBox
+				{
+					height: 11px;
+					font-size: 10px;
+					padding-left: 2px;
+					margin-left: 4px;
+				}
+
+				.NoteText
+				{
+					padding: 2px;
+					font-weight: bold;
+					color: Blue;
+					clear: both;
+				}
+
+				.TextBox
+				{
+					padding: 2px;
+					width: 98%;
+					height: 15px;
+				}
+
+				.SubmitButton
+				{
+					padding: 2px;
+					text-align: center;
+				}
+
+				.MessageDataResult
+				{
+					padding-bottom: 20px;
+					padding-top: 20px;
+					clear: both;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+
+				.MessageDataQuestion
+				{
+					padding-left: 20px;
+					color: blue;
+					font-style: italic;
+				}
+
+				.MessageDataAnswer
+				{
+					padding-left: 20px;
+					color: green;
+					font-style: normal;
+					font-weight: bold;
+				}
+
+				.MessageDataChecklist
+				{
+					font-weight: bold;
+					color: red;
+				}
+
+
+				.header_text
+				{
+					border-bottom:1px solid black;padding-bottom:0px;text-align:left;
+				}
+
+				.title
+				{
+					text-align: center;
+					font-size: 18px;
+					font-weight: bold;
+					font-style:italic;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+
+				}
+
+				#S1
+				{
+					font-size: 18px;
+					font-weight: bold;
+					background-color: #FFFFFF;
+					color: #000080;
+					padding: 8px;
+					vertical-align: bottom;
+				}
+				.right.noBreak{float: right}
+				.right{float: right;clear:both}
+				.float-right{float: right;}
+				.Header_left
+				{
+					color:purple;
+					text-align: left;
+					font-size: 18px;
+					font-weight: bold;
+					
+				}
+				.left
+				{
+					text-align:left;clear:both;
+				}
+				.copyright
+				{
+					font-style:italic;
+					float:left;
+				}
+				
+				.section_wthin_list
+				{
+					margin-left:20px;
+					
+				}
+			</style><script type="text/javascript">
+						
+							var xmlDoc;
+
+							$(document).ready(function () {
+
+								jQuery.support.cors = true;  //not sure if needed because cors setting is on the server
+								
+								/*
+									save original xml in jquery variable  
+									server or xslt puts original xml in #rawxml, issue with xslt putting in xml is copy-of function decodes special characters, thus 
+									making xml invalid
+								*/
+								var xmlstring = $("#rawxml").val();   
+
+								//remove declaration part if exists
+								//xmlstring = xmlstring.substring(xmlstring.indexOf("<FormDesign"));
+								//$("#rawxml").val(xmlstring);
+								
+								//load into xml dom
+								try{
+									xmlDoc = $.parseXML(xmlstring);
+									$xml = $(xmlDoc);
+
+									//allow submit
+									if($("#allowsubmit").val()=='no')
+									{
+										$("#send").css("display","none");
+										$("#btnAdd").css("display","none");
+									}
+									
+									
+
+								}
+								catch(err){
+									alert(err.message);
+								}
+
+							});
+
+
+							function sayHello(name) {
+								alert("sayHello function in javascripts says - hello, " + name);
+								return window.external.ShowMessage("If you can see this message sayHello successfully called ShowMessage function in this desktop client app.");
+
+
+							}
+
+							function ShowHideDemo() {
+								$('#divdemo').toggle();
+								if (($('#divdemo')).css("display")=='none')
+									$('#demshowhide').text('+ Demographics');
+								else
+									$('#demshowhide').text('- Demographics');
+								
+							}
+							
+							var repeat = 1;
+							//adds a new repeat of a section
+							function addSection(obj) {
+								//obj is btnAdd
+
+								//we need to clone table, so get table
+								var td = obj.parentElement;
+								var table = td.parentElement  //tr
+											   .parentElement  //tbody
+											   .parentElement //table
+								
+								var sectionGuid = table.parentElement.id;
+
+								var max = table.parentElement.firstChild.value;  //maxcardinality
+								
+								var textboxes = td.getElementsByTagName("input");  //get hidden input, radio buttons, checkboxes and input text boxes
+
+								var newid = "";
+								
+
+								var newtable = table.cloneNode(true);    
+
+								newtable.id = table.id;   
+								repeat = +repeat + 1;
+
+
+								//make the remove button visible 
+								//and hide the add button on the previous section
+								obj.nextSibling.style.visibility = "visible";
+								obj.style.visibility = "hidden";    
+
+								var trace = 0;
+								var newname;
+								var i;
+								var parentGuid;
+								var ID;
+
+								//add the new repeat
+								try {
+									parentsection = table.parentElement;
+									//append newtable after setting properties of individual elements
+									//parentsection.appendChild(newtable);  //add new table - note that table.id is the same for new table
+									
+
+									//find parentGuid
+									for (i = 0; i < textboxes.length; i++) {
+										if (textboxes[i].type == "hidden") {
+											var components = textboxes[i].name.split(":");
+											parentId = components[1];
+
+											//remove repeat indicator if exists from Guid
+											if (parentId.indexOf(",") > 0)
+												parentId = parentId.substring(0, parentId.indexOf(","));
+											break;
+										}
+										
+									}
+
+									/*add a new section node in xml by cloning the section with instanceGuid = parentGuid
+									since there will be repeat sections with the same instanceGuid, take the last instance
+									and clone it*/
+
+									var $sectionCurrent = $xml.find('Section[ID="' + parentId.substring(1) + '"]:last');
+										   
+									sectionid = $sectionCurrent.attr('ID');
+									var $sectionNew = $sectionCurrent.clone(true);
+
+									//iterate through textboxes and assign new unique ids to them
+									for (i = 0; i < textboxes.length; i++) {
+										newid = "";
+										if (textboxes[i].type == "hidden" || textboxes[i].type == "text" || textboxes[i].type=="radio") {
+
+											oldname = textboxes[i].name;
+
+											if(textboxes[i].id=="maxcardinality")
+												  continue;
+
+											if(textboxes[i].name=="")
+											{
+												alert("error: a " + textboxes[i].type + " box without name is found at " + i);
+												continue;
+											}
+
+											var components = oldname.split(":");
+											var newguid = generateGuid();
+
+											//if (i == 0) testguid = newguid;
+
+											parentId = components[1];
+
+											//remove repeat indicator if exists from Guid
+											if (parentId.indexOf(",") > 0)
+												parentId = parentGuid.substring(0, parentId.indexOf(","));
+
+											ID = components[0].substring(1);
+
+										   
+											if (textboxes[i].type == "hidden") {
+											   //note that parent has repeat indicator
+												newname = "q" + ID + '-' + newguid + ":" + parentId;
+											}
+
+											
+											//find the element in the new table
+											var item;
+											var allelements = newtable.getElementsByTagName('*');
+											for(k=0;k<allelements.length;k++)
+											{
+											   if(allelements[k].name == textboxes[i].name)
+											   {
+												   item = allelements[k];
+
+												   break;
+											   }
+											 }
+																					
+
+											if (item != null) {
+																	
+												if(item.type=="hidden")   //question will have Q as the first letter
+												{  
+												   //find question in xml fragment and change ID
+												   $question = $sectionNew.find('Question[ID="' + ID + '"]');
+												   
+												   $question.attr("ID", ID + '-' + newguid);                       
+											   
+												   item.name = newname;
+												   
+												   
+												   /* 12/18/2016
+												   New constraints
+												   Property name, ResponseField name and Value name have to be unique 
+												   */
+												   
+												   
+												   //new property name
+												   var propname = $question.find("Property").attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("Property").attr("name",propname);
+												   
+												   //new response name
+												   propname = $question.find("ResponseField").attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("ResponseField").attr("name",propname);
+												   
+												   //new name on value field
+												   propname = $question.find("Response").children(0).attr("name") + ":" + countRepeats(sectionGuid);
+												   $question.find("Response").children(0).attr("name", propname);
+												   
+												   
+												   
+												   
+												}
+												else {                   //answers do not have Q
+														item.name = newname.substring(1);
+														if(item.type=="radio" || item.type == "checkbox")
+															 item.checked = false;
+														 else
+															 item.value = "";
+												}
+
+											}
+
+										}
+									}
+
+									//better to append new table after setting properties of individual controls
+									parentsection.appendChild(newtable);
+
+									//insert newsec after section
+									$sectionCurrent.after($sectionNew);
+									
+									
+									//hide the Add button if max count reached
+									if (countRepeats(sectionGuid) == max) {
+										// alert('max repeat = ' + max + ' reached');
+										inputs = newtable.getElementsByTagName('*');
+										for(m=0;m<inputs.length;m++)
+										{
+											if(inputs[m].id=="btnAdd")
+											   inputs[m].style.visibility="hidden";
+											if(inputs[m].id=="btnRemove")
+											   inputs[m].style.visibility="visible";
+										}
+
+									}
+
+
+
+								}
+								catch (err) {
+									alert(err.message + "\n" + trace + "\n" + newname + "n" + i);
+								}
+
+							}
+
+
+							function generateGuid() {
+								var result, i, j;
+								result = '';
+								for (j = 0; j < 32; j++) {
+									if (j == 8 || j == 12 || j == 16 || j == 20)
+										result = result + '-';
+									i = Math.floor(Math.random() * 16).toString(16).toUpperCase();
+									result = result + i;
+								}
+								return result;
+							}
+
+
+							function countRepeats(sectionid) {
+
+								var section = document.getElementById(sectionid);  //
+								var tables = section.getElementsByTagName('TABLE');
+								var count = 0;
+								for(i=0; i<tables.length; i++)
+								{
+								   if(tables[i].id == sectionid) count++;
+								}
+							   
+								return count;
+
+							}
+
+							function getLastRepeat(sectionid) {
+								var section = document.getElementById(sectionid);
+								var tables = section.parentElement.getElementsByTagName('TABLE');
+								var ret = null;
+								for(i=0;i<tables.length;i++)
+								{
+								   if(tables[i].id==sectionid)
+									 ret = tables[i];
+								}
+								return ret;
+
+							}
+
+							function removeSection(obj) {
+								td = obj.parentElement;
+								tr = td.parentElement;
+								tbody = tr.parentElement;
+								table = tbody.parentElement;
+								var section = table.parentElement;
+								section.removeChild(table);
+
+								//make Add button on the last repeat visible again
+								last = getLastRepeat(section.id);
+								if (last==null)
+								{
+									alert("Error: last repeat is null");
+									return false;
+								}
+								inputs = last.getElementsByTagName('*');
+								for(m=0;m<inputs.length;m++)
+								{
+								if(inputs[m].id=="btnAdd")
+									{
+										 inputs[m].style.visibility="visible";
+									}
+								}
+								
+								
+								id = section.id;
+								//repeat = table.id;
+								$xml.find('Section[ID="' + id + '"]').eq(table.id).remove(); 
+							}
+
+
+							/*
+							Helper functions
+							*/
+							function trim(input) {
+							input = input.replace(/^\s+|\s+$/g, '');
+							return input;
+							}
+
+							function findElementById(parentId, Id) {
+							   //finds an element among descedants of a given node
+							   var parent = document.getElementById(parentId);
+
+							   var children = parent.getElementsByTagName('*');
+
+
+							   for (i = 0; i < children.length; i++) {
+
+								  if (children[i].id == Id) {
+									 return children[i];
+								  }
+							   }
+
+							}
+
+							function findElementByName(parentName, Name) {
+							  //finds an element among descedants of a given node
+							  var parent = document.getElementById(parentName);
+							  var children = parent.getElementsByTagName('*');
+							  
+							  for (i = 0; i < children.length; i++) {
+								 if (children[i].name == Name) {
+									 return children[i];
+								 }
+							  }
+							}
+
+							function xmlToString(xmlData) {
+
+								var xmlString;
+								//no longer needed for newer IE
+								//IE
+								//if (window.ActiveXObject) {
+								//    xmlString = xmlData.xml;
+								//}
+								// code for Mozilla, Firefox, Opera, etc.
+								//else {
+								xmlString = (new XMLSerializer()).serializeToString(xmlData);
+								//}
+								return xmlString;
+							}
+
+							//helper functions end
+
+							//submit form calls this function
+							/*
+							Builds flatXml, updates the original xml with answers.
+							Note that new section nodes for repeat sections have already been added (upon clicking btnAdd - addSection function) 
+							*/
+							var flatXml;
+							function openMessageData() {
+
+								var sb = "";
+								var q, answer = "";
+								var elem = document.getElementById("checklist").elements;
+								var response = "<response>";
+								var html = response;
+
+								for (var i = 0; i < elem.length; i++) {
+									q = "";
+									var name = elem[i].name;
+
+									var value;
+
+									//split up name into instanceGuid and parentGuid and question id
+									//var components = name.split(':');
+									//var instanceGuid = components[0].substring(1);
+									//var parentGuid = components[1];
+									//var id = components[2];
+									var instanceGuid = '';
+									var parentGuid = '';
+									var id = name;
+									if (name.indexOf("q") == 0) {
+										value = elem[i].value;
+
+										answer = GetAnswer(name.substring(1));
+
+										if (answer != "") {
+
+											response += "<question ID=\"" + id + "\" display-name=\"" + value.replace(/</g, "&lt;").replace(/>/g, "&gt;") 
+													 + "\">";
+											response += answer + "</question>";               
+
+											q += "<div class=\"MessageDataQuestion\">&lt;question ID=\"" + id + "\" display-name=\"" + value + "";
+											q += "&gt;<br><div class=\"MessageDataAnswer\">" + answer.replace(/</g,"&lt;").replace(/>/g,"&gt;") + "</div>&lt;/question&gt;</div>";
+
+
+										}
+										sb += q;
+										answer = "";
+									}
+								}
+
+								response = response.replace(/<br>/g, "");
+								response = response + "</response>";
+
+								flatXml = response;
+
+
+								sb = "<div style='font-weight:bold; color:purple'>Flat Xml response</div>" 
+									 + "<div class=\"MessageDataChecklist\">&lt;response&gt;" + sb + "&lt;/response&gt;</div>"
+									 + "<br/><div style='font-weight:bold; color:purple'>Response xml sent to web service.</div>"
+
+
+								document.getElementById('MessageDataResult').innerHTML = sb;
+								document.getElementById('MessageData').style.display = 'block';
+								document.getElementById('FormData').style.display = 'none';
+								
+								
+								//update Xml with answers
+								updateXml();
+								
+								
+
+								//var test = xmlToString(xmlDoc);
+								//document.getElementById('rawxml').innerText = test;
+
+								//Ajax call to web service
+								CallTestService1(xmlToString(xmlDoc));
+								
+							}
+
+							function closeMessageData() {
+								document.getElementById('MessageData').style.display = 'none';
+								document.getElementById('response').style.display = 'none';
+								document.getElementById('FormData').style.display = 'block';
+							}
+
+							function GetAnswer(qCkey) {
+								var elem = document.getElementById("checklist").elements;
+								var str = "";
+								var name, value;
+
+								for (var i = 0; i < elem.length; i++) {
+									name = elem[i].name;
+									value = elem[i].value;
+
+									if (name.indexOf(qCkey) == 0) {
+
+										if (elem[i].checked || (elem[i].type == "text" && value != "")) {
+
+											{
+
+												var k = value.split(',');
+
+												if (elem[i].type == "text" && value != "") {
+													//str += "&lt;answer value=\"" + value + "\"/&gt;<br>";
+													str += "<answer value=\"" + value + "\"/><br>";
+												}
+												else if (elem[i].type != "text") {
+													//str += "&lt;answer ID=\"" + k[0] + "\" display-name=\"" + GetDisplayName(value) + "\"/&gt;<br>";
+													str += "<answer ID=\"" + k[0] + "\" display-name=\"" + GetDisplayName(value) + "\"/><br>";
+												}
+											}
+										}
+									}
+								}
+								return str;
+							}
+
+							function GetDisplayName(value) {
+								var strArray = value.split(',');
+								var returnStr = "";
+								if (strArray.length > 1) {
+									for (var i = 1; i < strArray.length; i++) {
+										if (i != strArray.length) {
+											returnStr += strArray[i] + ",";
+										}
+										else {
+											returnStr += strArray[i];
+										}
+									}
+								}
+								returnStr = returnStr.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+								return returnStr.substr(0, returnStr.length - 1);
+							}
+
+
+							//updates answers in full xml
+							function updateXml() {
+								var $xml = $(xmlDoc);  //full xml
+								FlatDoc = $.parseXML(flatXml);
+								$xmlFlatDoc = $(FlatDoc);
+								$xmlFlatDoc.find('question').each(function () {
+									var $question = $(this);
+									var questionid = $question.attr("ID");
+
+									if(questionid.indexOf(":")>0)
+										questionid = questionid.substring(0,questionid.indexOf(':'));
+
+									//if(questionid.indexOf("-")>0)
+									//    questionid = questionid.substring(0,questionid.indexOf('-'));
+
+									questionid = questionid.substring(1);
+
+									var repeat = 0;
+									
+
+
+									//there may be multiple answers per question
+									$question.find('answer').each(function () {
+										var $test = $(this);
+										var id = $test.attr("ID");
+										var val = $test.attr("value");
+
+										
+										var $targetQuestion = $(xmlDoc).find("Question[ID='" + questionid + "']");
+										var targetQuestionId = $targetQuestion.attr("ID");
+
+
+										if (id != null) {
+											 
+											var $targetAnswer = $targetQuestion.find("ListItem[ID='" + id + "']");
+											$targetAnswer.attr("selected", "true");
+											//alert("set selected to true");
+											if ($targetAnswer.find("ListItemResponseField") != null) {
+												val = $question.find('answer').next().attr("value");
+												$response = $targetAnswer.find("Response").children(0);
+												$response.attr("val", val);
+											}
+
+										}
+										else {  //free response
+											
+											$targetAnswer = $targetQuestion.find("ResponseField").find("Response");
+											$targetAnswer.children(0).attr("val", val);
+										}
+									});
+
+								});
+								
+							   
+
+							}
+
+							//soap 1.2
+							function CallTestService2(data) {
+
+							
+								var webServiceURL = "http://www.sharedapps.net/SDCReceiver/service1.asmx";
+								webServiceURL = $("#submiturl").val();  // prompt("Enter endpoint:", webServiceURL);
+								
+								var ns = $("#submitnamespace").val();
+								
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+													'<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"' + 
+													' xmlns:urn="' + ns + '/">'  + 
+													'<soap:Header/>' +
+														' <soap:Body>' +
+																' <urn:SubmitFormRequest>' +
+																 data +
+																'</urn:SubmitFormRequest>' +
+														' </soap:Body>' +
+													' </soap:Envelope>';
+
+								//alert(soapRequest);
+								$("#submitsoap").val(soapRequest);
+
+								soapAction = $("#submitaction").val();  // "SubmitFormRequest";
+								//soapAction = ns + "/SubmitFormRequest";
+								
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+								
+							}
+							
+
+							//soap 1.1
+							function CallTestService1(data) {
+								
+
+								//get DemogFormDesign and FormDesign element only
+								xmlDoc = $.parseXML(data);
+								$xml = $(xmlDoc);
+
+								var $formdesignelement = $xml.find('FormDesign');
+										   
+								if($xml.find('DemogFormDesign'))
+								{
+									
+									$demog = $xml.find('DemogFormDesign'); 
+									$demogNew = $demog.clone(true);
+								}
+
+								var $designNew = $formdesignelement.clone(true);
+								newDoc = $.parseXML("<SDCSubmissionPackage xmlns='urn:ihe:qrph:sdc:2016'></SDCSubmissionPackage>")
+								test = $(newDoc).find("SDCSubmissionPackage");
+								test.append($designNew);
+								if($demogNew)
+								{
+									test.prepend($demogNew);						
+									
+								}
+
+								data = xmlToString(newDoc);
+
+								//read destination url from xml if present
+								var webServiceURL = "";
+
+								webServiceURL = $xml.find('Destination').find('Endpoint').attr('val');
+								
+								if(webServiceURL!="" & $("#submiturl").val()=="")
+									$("#submiturl").val("Populated from RetrieveForm: " + webServiceURL);
+								
+
+								webServiceURL = $("#submiturl").val();  
+								
+								var ns = $("#submitnamespace").val();
+								
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+													'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"' + 
+													' xmlns:urn="' + ns + '">'  + 
+													'<soap:Header/>' +
+														' <soap:Body>' +
+																' <urn:SubmitFormRequest>' +
+																//' <SDCSubmissionPackage xmlns="urn:ihe:qrph:sdc:2016">' +
+																 data +
+																// ' </SDCSubmissionPackage>' +
+																'</urn:SubmitFormRequest>' +
+														' </soap:Body>' +
+													' </soap:Envelope>';
+
+								
+								$("#submitsoap").val(soapRequest);
+
+								soapAction = "SubmitForm";  
+								//soapAction = $("#submitaction").val();
+															
+
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction  
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+								
+							}
+
+							/*
+							function CallTestService(data) {
+								var webServiceURL = "%receiver%";
+								webServiceURL = prompt("Enter endpoint:", webServiceURL);
+								var ns = $('#submitnamespace').val();
+
+								$.support.cors = true;
+								var xmldata = encodeURIComponent(data);
+								
+								var soapRequest =
+												'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" + xmlns:tem="http://tempuri.org/">' + 
+												 '  <soapenv:Header/>' +
+												  ' <soapenv:Body>' + 
+													 ' <tem:SubmitFormRequest>' + data + '</tem:SubmitFormRequest>' +
+												  ' </soapenv:Body>' + 
+												' </soapenv:Envelope>'
+
+								
+								soapAction = ns + "//SubmitFormRequest";    //"http://tempuri.org/SubmitFormRequest";
+								
+								
+								$.ajax({
+									type: "POST",
+									url: webServiceURL,
+									contentType: "text/xml",
+									dataType: "xml",
+									processData: false,
+									headers: {
+										"SOAPAction": soapAction
+									},
+									data: soapRequest,
+									success: OnSuccess,
+									error: OnError
+								});
+
+								return false;
+							}
+							*/
+
+							function OnSuccess(data, status) {
+								//alert("Response received from the receiver.");
+								var xmlstring = xmlToString(data);
+							    //add breaks
+
+							    xmlstring = xmlstring.replace(/</g,'&lt;');
+							    xmlstring = xmlstring.replace(/>/g,'&gt;');
+							    xmlstring = xmlstring.replace(/\n/g,'<br/>');
+							    
+
+								if (document.getElementById("response") != null) {       
+									//document.getElementById("response").textContent ="Receiver Response - " + xmlstring + '</pre>';
+									//document.getElementById("response").textContent ="Receiver Response - " + xmlstring ;
+									$("#response").html("Receiver Response - <PRE>" + xmlstring + '</PRE>');
+									
+									$("#response").css("background-color", "yellow");
+									$("#response").css("display", "block");
+								}
+								
+								
+							}
+
+							function OnError(xhr, textStatus, err) {
+								var xmlstring = xhr.responseText;
+								
+							    //add breaks
+
+							    //xmlstring = xmlstring.replace(/</g,'&lt;');
+							    //xmlstring = xmlstring.replace(/>/g,'&gt;');
+							    //xmlstring = xmlstring.replace(/\t/g,'&nbsp;&nbsp;&nbsp;&nbsp;');
+							    //xmlstring = xmlstring.replace(/\r\n/g,'<br/>');
+							    //xmlstring = xmlstring.replace(/(?:\r\n|\r|\n)/g, '<br />');
+							    //alert(xmlstring);
+								if (document.getElementById("response") != null) {       
+									$("#response").html("Receiver Response - " + xmlstring + '');
+									$("#response").css("background-color", "white");
+									$("#response").css("color", "red");
+									$("#response").css("display", "block");
+								}
+								//alert('Status:' + xhr.status + ', Text:' + textStatus + ', Error: ' + err);
+							}
+
+
+						
+					</script></head>
+   <body align="left">
+      <div class="BodyGroup">
+         <div id="MessageData" style="display:none;">
+            <table class="HeaderGroup" align="center">
+               <tr>
+                  <td>
+                     <div class="TopHeader">
+                        										Structured Report Data
+                        									
+                     </div>
+                     <div id="MessageDataResult" class="MessageDataResult"></div>
+                     <div class="SubmitButton"><input type="button" value="Back" onClick="javascript:closeMessageData()"></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div id="response" style="display:none;"></div>
+         <div id="FormData">
+            <form id="checklist" name="checklist" method="post" action="">
+               <div class="form-version"></div>
+               <div ID="Header.0003.010" class="Header_left">Lung Cancer Screening Template</div>
+               <div style="clear:both"></div>
+               <hr>
+               <div>
+                  <p class="copyright">Copyright
+                     										:
+                     									(c) 2016 Cancer Care Ontario.  All rights reserved.
+                  </p>
+                  <p class="float-right">CCO Cancer Imaging Program approved</p>
+                  <p class="left">GenericHeaderText
+                     										:
+                     									High Risk Lung Cancer Screening Summary (Checklist)
+                  </p>
+                  <p class="">OfficialName
+                     										:
+                     									LDCT Lung Cancer Screening Reporting Template
+                  </p>
+                  <p class="">Category
+                     										:
+                     									Thoracic
+                  </p>
+                  <p class="">Restrictions
+                     										:
+                     									Protocol LDCT Lung Cancer Screening.
+                  </p>
+                  <p class="">Required
+                     										:
+                     									true
+                  </p>
+                  <p class="">CTV_Dkey
+                     										:
+                     									
+                  </p>
+                  <p class="">ChecklistCKey
+                     										:
+                     									
+                  </p>
+                  <p class="">VersionID
+                     										:
+                     									1.0
+                  </p>
+                  <p class="">CurrentFileName
+                     										:
+                     									LDCT Lung Screening ver 1.0 Connectathon Jan 2017
+                  </p>
+                  <p class="">ApprovalStatus
+                     										:
+                     									0
+                  </p>
+                  <p class="right">EffectiveDate
+                     										:
+                     									2016-10-5
+                  </p>
+               </div>
+               <div style="clear:both"></div><a style="text-decoration:none;color:black;font-weight:bold;font-size:large" id="demshowhide" href="#" onclick="ShowHideDemo()">+ Demographics</a><div id="divdemo" style="display:none"></div>
+               <div id="s000001::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000001::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">CLINICAL INFORMATION</div><input type="hidden" class="TextBox" name="q000002:s000001" value="Clinical Information:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Clinical Information:<input type="text" class="TextBox" name="000002:s000001" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q000004:s000001" value="Reason for exam:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Reason for exam:</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000004:s000001" value="000005,Baseline scan">Baseline scan
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000004:s000001" value="000006,12 month recall">12 month recall
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000004:s000001" value="000007,6 month follow-up">6 month follow-up
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000004:s000001" value="000008,Other">Other<input type="text" class="AnswerTextBox" width="100" name="000004:s000001" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s000010::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000010::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">COMPARISON STUDIES</div><input type="hidden" class="TextBox" name="q000011:s000010" value="Comparison Study:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Comparison Study:</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000011:s000010" value="000012,None Available">None Available
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000011:s000010" value="000013,Previous CT Exam:">Previous CT Exam:
+                              </div><input type="hidden" class="TextBox" name="q000014:s000010" value=""><div class="QuestionInListItem"><input type="text" class="TextBox" name="000014:s000010" value=""><div style="clear:both;"></div>
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s000016::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000016::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">IMAGING PROCEDURE DESCRIPTION</div><input type="hidden" class="TextBox" name="q000017:s000016" value="Overall Image Quality:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Overall Image Quality:</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000017:s000016" value="000018,Adequate">Adequate
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000017:s000016" value="000019,Suboptimal">Suboptimal
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000017:s000016" value="000020,Non-diagnostic">Non-diagnostic
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q000021:s000016" value="Procedure protocol:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Procedure protocol:</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000021:s000016" value="000022,LDCT Study Protocol">LDCT Study Protocol
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000021:s000016" value="000023,Other">Other<input type="text" class="AnswerTextBox" width="100" name="000021:s000016" value=""></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q000025:s000016" value="All measurements obtained on axial CT lung reconstruction series:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">All measurements obtained on axial CT lung reconstruction series:<input type="text" class="TextBox" name="000025:s000016" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s000026::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000026::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">FINDINGS</div>
+                           <div id="s000027::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000027::1">
+                                 <tr>
+                                    <td>
+                                       <div class="TopHeader">Nodules</div><input type="hidden" class="TextBox" name="q000028:s000027" value="Number of lung nodules present in total:"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">Number of lung nodules present in total:<input type="text" class="TextBox" name="000028:s000027" value=""></div>
+                                          <div style="clear:both;"></div>
+                                          <div style="clear:both;"></div>
+                                       </div><input type="hidden" class="TextBox" name="q000097:s000027" value="+Other comments"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">+Other comments<input type="text" class="TextBox" name="000097:s000027" value=""></div>
+                                          <div style="clear:both;"></div>
+                                          <div style="clear:both;"></div>
+                                       </div>
+                                       <div id="s000032::1"><input id="maxcardinality" type="hidden" value="11"><table class="HeaderGroup" align="center" id="s000032::1">
+                                             <tr>
+                                                <td>
+                                                   <div class="TopHeader">Nodule:</div><input type="hidden" class="TextBox" name="q000033:s000032" value="Image Number:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Image Number:<input type="text" class="TextBox" name="000033:s000032" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000035:s000032" value="Lobe:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Lobe:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000036,RUL">RUL
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000037,RML">RML
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000038,RLL">RLL
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000039,LUL">LUL
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000040,Lingula">Lingula
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000035:s000032" value="000041,LLL">LLL
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000042:s000032" value="Location:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Location:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000042:s000032" value="000043,Parenchymal">Parenchymal
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000042:s000032" value="000044,Subpleural">Subpleural
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000042:s000032" value="000045,Fissural">Fissural
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000046:s000032" value="Attenuation:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Attenuation:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000046:s000032" value="000047,Solid">Solid
+                                                      </div><input type="hidden" class="TextBox" name="q000048:s000032" value="Mean diameter:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">Mean diameter:<input type="text" class="TextBox" name="000048:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div><input type="hidden" class="TextBox" name="q000049:s000032" value="+Length:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">+Length:<input type="text" class="TextBox" name="000049:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div><input type="hidden" class="TextBox" name="q000050:s000032" value="+Width:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">+Width:<input type="text" class="TextBox" name="000050:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000046:s000032" value="000051,Part-solid">Part-solid
+                                                      </div>
+                                                      <div class="section_wthin_list" id="s000052::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000052::1">
+                                                            <tr>
+                                                               <td>
+                                                                  <div class="TopHeader">Overall size:</div><input type="hidden" class="TextBox" name="q000053:s000052" value="Mean diameter:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">Mean diameter:<input type="text" class="TextBox" name="000053:s000052" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div><input type="hidden" class="TextBox" name="q000054:s000052" value="+Length:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">+Length:<input type="text" class="TextBox" name="000054:s000052" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div><input type="hidden" class="TextBox" name="q000055:s000052" value="+Width:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">+Width:<input type="text" class="TextBox" name="000055:s000052" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div>
+                                                                  <div style="clear:both"></div>
+                                                               </td>
+                                                            </tr>
+                                                         </table>
+                                                      </div>
+                                                      <div class="section_wthin_list" id="s000056::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000056::1">
+                                                            <tr>
+                                                               <td>
+                                                                  <div class="TopHeader">Size of Solid component:</div><input type="hidden" class="TextBox" name="q000057:s000056" value="Mean diameter:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">Mean diameter:<input type="text" class="TextBox" name="000057:s000056" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div><input type="hidden" class="TextBox" name="q000058:s000056" value="+Length:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">+Length:<input type="text" class="TextBox" name="000058:s000056" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div><input type="hidden" class="TextBox" name="q000059:s000056" value="+Width:"><div class="QuestionInListItem">
+                                                                     <div class="QuestionTitle">+Width:<input type="text" class="TextBox" name="000059:s000056" value=""></div>
+                                                                     <div style="clear:both;"></div>
+                                                                  </div>
+                                                                  <div style="clear:both"></div>
+                                                               </td>
+                                                            </tr>
+                                                         </table>
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000046:s000032" value="000060,Pure Ground Glass">Pure Ground Glass
+                                                      </div><input type="hidden" class="TextBox" name="q000061:s000032" value="Mean diameter:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">Mean diameter:<input type="text" class="TextBox" name="000061:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div><input type="hidden" class="TextBox" name="q000062:s000032" value="+Length:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">+Length:<input type="text" class="TextBox" name="000062:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div><input type="hidden" class="TextBox" name="q000063:s000032" value="+Width:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">+Width:<input type="text" class="TextBox" name="000063:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000064:s000032" value="Comparison:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Comparison:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000065,No Prior Comparison">No Prior Comparison
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000066,Stable Nodule">Stable Nodule
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000067,New Nodule">New Nodule
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000068,Interval increase in solid component">Interval increase in solid component
+                                                      </div><input type="hidden" class="TextBox" name="q000069:s000032" value="Previous mean diameter:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">Previous mean diameter:<input type="text" class="TextBox" name="000069:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div><input type="hidden" class="TextBox" name="q000070:s000032" value=""><div class="QuestionInListItem">
+                                                         <div style="clear:both;"></div>
+                                                         <div class="Answer"><input type="radio" style="float:left" name="000070:s000032" value="000071,Compared to most recent CT">Compared to most recent CT
+                                                         </div>
+                                                         <div class="Answer"><input type="radio" style="float:left" name="000070:s000032" value="000072,Compared to:">Compared to:<input type="text" class="AnswerTextBox" width="100" name="000070:s000032" value=""></div>
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000074,Interval increase in ground glass component">Interval increase in ground glass component
+                                                      </div><input type="hidden" class="TextBox" name="q000075:s000032" value="Previous mean diameter:"><div class="QuestionInListItem">
+                                                         <div class="QuestionTitle">Previous mean diameter:<input type="text" class="TextBox" name="000075:s000032" value=""></div>
+                                                         <div style="clear:both;"></div>
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000064:s000032" value="000076,Interval decreased in size">Interval decreased in size
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000077:s000032" value="Margins:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Margins:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000078,Spiculated">Spiculated
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000079,Smooth">Smooth
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000080,Lobulated">Lobulated
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000081,Polygonal">Polygonal
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000082,Halo">Halo
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000077:s000032" value="000083,Obscured">Obscured
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000084:s000032" value="Calcification:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Calcification:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000084:s000032" value="000085,None">None
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000084:s000032" value="000086,Benign Pattern">Benign Pattern
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000084:s000032" value="000087,Indeterminate">Indeterminate
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000088:s000032" value="Other characteristics:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">Other characteristics:</div>
+                                                      <div style="clear:both;"></div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000088:s000032" value="000089,None">None
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000088:s000032" value="000090,Fat">Fat
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000088:s000032" value="000091,Cavitation">Cavitation
+                                                      </div>
+                                                      <div class="Answer"><input type="radio" style="float:left" name="000088:s000032" value="000092,Other">Other<input type="text" class="AnswerTextBox" width="100" name="000088:s000032" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div><input type="hidden" class="TextBox" name="q000094:s000032" value="+Other comments:"><div class="QuestionInSection">
+                                                      <div class="QuestionTitle">+Other comments:<input type="text" class="TextBox" name="000094:s000032" value=""></div>
+                                                      <div style="clear:both;"></div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                   <div style="clear:both"></div><input type="button" id="btnAdd" onclick="addSection(this)" value="+"><input type="button" id="btnRemove" onclick="removeSection(this)" value="-" style="visibility:hidden;"></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                       <div style="clear:both"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                           <div id="s000098::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000098::1">
+                                 <tr>
+                                    <td>
+                                       <div class="TopHeader">Incidental Findings</div><input type="hidden" class="TextBox" name="qQ4.B:s000098" value=""><div class="QuestionInSection">
+                                          <div class="QuestionTitle"></div>
+                                          <div style="clear:both;"></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000100,Lung or Pleura:">Lung or Pleura:<input type="text" class="AnswerTextBox" name="Q4.B:s000098" value=""></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000102,Mediastinum and Hila:">Mediastinum and Hila:<input type="text" class="AnswerTextBox" name="Q4.B:s000098" value=""></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000104,Chest Wall and Axilla:">Chest Wall and Axilla:<input type="text" class="AnswerTextBox" name="Q4.B:s000098" value=""></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000106,Bones:">Bones:<input type="text" class="AnswerTextBox" name="Q4.B:s000098" value=""></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000108,Upper Abdomen:">Upper Abdomen:<input type="text" class="AnswerTextBox" name="Q4.B:s000098" value=""></div>
+                                          <div class="Answer"><input type="checkbox" style="float:left;" name="Q4.B:s000098" value="000110,+Other:">+Other:
+                                          </div><input type="hidden" class="TextBox" name="qQ4.B.6.a:s000098" value=""><div class="QuestionInListItem"><input type="text" class="TextBox" name="Q4.B.6.a:s000098" value=""><div style="clear:both;"></div>
+                                          </div>
+                                          <div style="clear:both;"></div>
+                                       </div>
+                                       <div style="clear:both"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div id="s000131::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000131::1">
+                     <tr>
+                        <td>
+                           <div class="TopHeader">IMPRESSIONS</div><input type="hidden" class="TextBox" name="q000112:s000131" value="Summary:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Summary:<input type="text" class="TextBox" name="000112:s000131" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q000123:s000131" value="Modifiers:"><div class="QuestionInSection">
+                              <div class="QuestionTitle">Modifiers:</div>
+                              <div style="clear:both;"></div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000123:s000131" value="000124,S - Incidental Finding(s):">S - Incidental Finding(s):<input type="text" class="AnswerTextBox" width="100" name="000123:s000131" value=""></div><input type="hidden" class="TextBox" name="q000126:s000131" value="Follow-up recommendations for Incidental Finding:"><div class="QuestionInListItem">
+                                 <div class="QuestionTitle">Follow-up recommendations for Incidental Finding:<input type="text" class="TextBox" name="000126:s000131" value=""></div>
+                                 <div style="clear:both;"></div>
+                              </div>
+                              <div class="Answer"><input type="radio" style="float:left" name="000123:s000131" value="000128,C - Previous lung cancer:">C - Previous lung cancer:
+                              </div>
+                              <div style="clear:both;"></div>
+                           </div><input type="hidden" class="TextBox" name="q000129:s000131" value="+Other Comments"><div class="QuestionInSection">
+                              <div class="QuestionTitle">+Other Comments<input type="text" class="TextBox" name="000129:s000131" value=""></div>
+                              <div style="clear:both;"></div>
+                              <div style="clear:both;"></div>
+                           </div>
+                           <div id="s000114::1"><input id="maxcardinality" type="hidden" value=""><table class="HeaderGroup" align="center" id="s000114::1">
+                                 <tr>
+                                    <td>
+                                       <div class="TopHeader">Lung-Rads Version 1.0 Assessment Category:</div><input type="hidden" class="TextBox" name="q000115:s000114" value="Lung-Rads Version 1.0 Assessment Category:"><div class="QuestionInSection">
+                                          <div class="QuestionTitle">Lung-Rads Version 1.0 Assessment Category:</div>
+                                          <div style="clear:both;"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000116,0 - Additional lung cancer screening CT images and/or comparison to prior chest CT examinations is needed">0 - Additional lung cancer screening CT images and/or comparison to prior chest CT examinations is needed
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000117,1 - Continue annual screening with LDCT in 12 months">1 - Continue annual screening with LDCT in 12 months
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000118,2 - Continue annual screening with LDCT in 12 months">2 - Continue annual screening with LDCT in 12 months
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000119,3 - LDCT in 6 months">3 - LDCT in 6 months
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000120,4A - LDCT in 3 months; PET/CT may be used when there is a&#194;&nbsp;&#226;&#8240;&#165;&#194;&nbsp;8 mm solid component">4A - LDCT in 3 months; PET/CT may be used when there is a&#194;&nbsp;&#226;&#8240;&#165;&#194;&nbsp;8 mm solid component
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000121,4B - chest CT with or without contrast, PET/CT and/or tissue sampling depending on the *probability of malignancy and comorbidities. PET/CT may be used when there is a&#194;&nbsp;&#226;&#8240;&#165;&#194;&nbsp;8 mm solid component">4B - chest CT with or without contrast, PET/CT and/or tissue sampling depending on the *probability of malignancy and comorbidities.
+                                             PET/CT may be used when there is a&#194;&nbsp;&#226;&#8240;&#165;&#194;&nbsp;8 mm solid component
+                                          </div>
+                                          <div class="property"></div>
+                                          <div class="Answer"><input type="radio" style="float:left" name="000115:s000114" value="000122,4X - chest CT with or without contrast, PET/CT and/or tissue sampling depending on the *probability of malignancy and comorbidities. PET/CT may be used when there is a &#226;&#8240;&#165;&#194;&nbsp;8 mm solid component">4X - chest CT with or without contrast, PET/CT and/or tissue sampling depending on the *probability of malignancy and comorbidities.
+                                             PET/CT may be used when there is a &#226;&#8240;&#165;&#194;&nbsp;8 mm solid component
+                                          </div>
+                                          <div class="property"></div>
+                                          <div style="clear:both;"></div>
+                                       </div>
+                                       <div style="clear:both"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                           <div style="clear:both"></div>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+               <div class="SubmitButton"><input type="submit" id="send" value="Submit" onclick="javascript:openMessageData();return false;"></div>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

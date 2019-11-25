@@ -1,0 +1,187 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/Site.css?ver=1.2" rel="stylesheet" />
+    <link href="Content/Additions.css?ver=1.2" rel="stylesheet" />
+    <link href="Content/Menu.css?ver=1.2" rel="stylesheet" />
+
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+          rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/site.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/SDCTrancationApp.js?ver=1.48"></script>
+
+    <script>
+        $(window).on("load", function (e) {
+            $('#copyright').text("© " + new Date().getFullYear() + " SDC Application");
+        });
+    </script>
+
+    <style>
+
+        /*table, th, td, tr {
+            border: none;
+        }*/
+
+
+            table tr:nth-child(even) {
+                background-color: white;
+                color: black;
+                font-weight: normal
+            }
+
+            table tr:nth-child(odd) {
+                background-color: lightgray;
+                color: black;
+                font-weight: normal
+            }
+    </style>
+    <!-- CSS -->
+    <style>
+
+        .steps.selected {
+            background-color: white;
+            font-weight: bold;
+        }
+
+        .steps {
+            float: left;
+            display: inline;
+            margin-right: 4px;
+            margin-top: 8px;
+            background-color: lightgray;
+            height: 20px;
+            font-family: Arial;
+            font-size: 12px;
+            padding: 4px;
+        }
+        .required {
+            color: #b41f28;
+            font-family: Arial;
+            font-size: 11px;
+        }
+       
+    </style>
+</head>
+<body>
+    <form id="form1">
+
+        <div ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+            <div ng-include="'header.html'"></div>
+
+            <div id='step1' class='steps selected'><strong> Step 1: Select Package ></strong></div>
+            <div id='step2' class='steps'><strong> Step 2: Submit Package to Receiver ></strong></div>
+            <div id='step3' class='steps'><strong> Step 3: Confirmation</strong></div>
+
+
+            <div ng-init="GetForms(fillerSelectedManager)" style="clear:both"></div>
+            <p style="font-family:Arial;font-size:18px;font-weight:bold">
+                {{getManagerById(fillerSelectedManager)[0].Name}} Form Filler
+                <!--{{GetForms(fillerSelectedManager)}}-->
+               
+            </p>
+            <span class="required">*indicates required field</span>
+            <div>
+                <!--<div>Select a form manager</div>
+        <div id="formmanagers" runat="server">
+            <span  data-ng-repeat="x in Managers">
+                <input type="radio" value="{{x.Id
+                    }}" name="optManager" ng-model="manager" ng-click='GetFormslist($event,manager)' />
+                    {{x.Name}}
+                    </span>
+    </div>-->
+               
+                <!--{{fillerSelectedManager}} - {{packageObjects.length}}-->
+                <div ng-show="fillerSelectedManager && packageObjects.length==0">
+                    <p><span class="required">*</span>Enter Package ID</p>
+                    <input type="text" style="width:200px" ng-model="package" />
+                    <p><span class="required">*</span>Enter Content Format</p>
+                    <span>
+                        <input type="radio" name="chkformat" ng-value="1" ng-model="format" ng-change='selectFormat(format)' />
+                        <label>XML</label>
+
+                        <input type="radio" name="chkformat" ng-value="2" ng-model="format" ng-change='selectFormat(format)' />
+                        <label>HTML</label>
+
+                        <input type="radio" name="chkformat" ng-value="3" ng-model="format" ng-change='selectFormat(format)' />
+                        <label>URL</label>
+                    </span>
+                </div>
+                <div id="packages" ng-show="packageObjects.length>0">
+
+                    <div style="margin-top:20px; margin-bottom:20px; font-size:18px;font-weight:700">Select a package and content format</div>
+
+                    <div><input id="txtSearch" style="width:480px" ng-model="search" ng-change="filterForms(search)" type="text" placeholder="Search..." /></div>
+                    <p>{{packageObjects.length}} packages(s)</p>
+                    <table>
+                        <thead style="display:block">
+                            <tr>
+                                <th style="width:50px">Select</th>
+                                <th style="width:200px">Package Id</th>
+                                <th style="width:200px">Content Format</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody style="height:250px;overflow-y: auto;overflow-x: hidden;display:block">
+                            <tr data-ng-repeat="x in packageObjects">
+                                <td style="width:50px"> <input type="radio" ng-value="x.packageid" name="optPackage" ng-model="package" ng-change='selectPackage($index)' /></td>
+                                <td style="width:200px">{{x.packageid}}</td>
+                                <td style="width:200px">
+                                    <span>
+                                        <select ng-model="x.format" ng-change="selectFormat(x.format,$index)">
+                                            <option ng-repeat="y in formats" value="{{y.id}}">{{y.name}}</option>
+                                            <option value="" disabled ng-selected="true">Select a format</option>
+                                        </select>
+
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div ng-show="format && package">
+                    <p>Prepop</p>
+
+                    <textarea rows="10" ng-model="prepop"></textarea>
+                </div>
+
+                <div ng-show="format==1">
+                    <div style="margin-top:20px; margin-bottom:20px; font-size:18px;font-weight:700">
+                        Select one or more form receivers
+                    </div>
+
+                    <div style="margin-top:20px; margin-bottom:20px">
+
+                        <label ng-repeat="receiver in Receivers">
+                            <input type="checkbox" ng-model="receiver.selected"
+                                   ng-true-value="'{{receiver.Id}}'" ng-false-value="''"
+                                   id="'{{receiver.Id}}'" />
+
+                            {{ receiver.Name }}
+                        </label>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+
+                <button style="background-color:#009BBF;color:white" ng-click="GetForm($event, package, format, selectedManager, Receivers, prepop)">CONTINUE</button>
+
+            </div>
+        </div>
+    </form>
+    <div id="footer" style="text-align: center;background-color:#333333; margin-top:10px; padding:8px; margin-bottom:20px; color:whitesmoke">
+        <span id="copyright" style="font-family:Arial;font-size:12px;display: inline-block;"></span>
+    </div>
+</body>
+</html>

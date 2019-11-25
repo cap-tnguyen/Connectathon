@@ -1,0 +1,2732 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="urn:ihe:qrph:sdc:2016" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="urn:ihe:qrph:sdc:2016">
+
+<xs:element name="Changes" type="tns:OverrideTemplateType"/>
+
+<xs:element name="FormDesign" type="tns:FormDesignType"/>
+
+<xs:element name="Map" type="tns:MappingType"/>
+
+<xs:element name="SDCPackage" type="tns:SimpleSdcRetrieveFormPackageType"/>
+
+<xs:element name="TemplateAdmin" type="tns:TemplateAdminType"/>
+
+<xs:element name="dt">
+<xs:complexType>
+<xs:sequence/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="SdcRetrieveFormPackageType">
+<xs:complexContent>
+<xs:extension base="tns:BasePackageType">
+<xs:sequence>
+<xs:element name="SubmissionRule" type="tns:SubmissionRuleType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ComplianceRule" type="tns:ComplianceRuleType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="HTMLPackage" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="XMLPackage" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DemogFormDesign" type="tns:FormDesignType" minOccurs="0"/>
+<xs:element name="FormDesign" type="tns:FormDesignType"/>
+<xs:element name="MapTemplate" type="tns:MappingType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="FormOverridesTemplate" type="tns:OverrideTemplateType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ReportDesignTemplate" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:FormDesignType">
+<xs:sequence/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="HelperFile" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="templateID" type="xs:string" use="required"/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasePackageType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Admin" type="tns:TemplateAdminType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="packageID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExtensionBaseType" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="Comment" type="tns:CommentType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Extension" type="tns:ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BaseType" abstract="true">
+<xs:sequence/>
+<xs:attribute name="name" type="xs:ID"/>
+<xs:attribute name="type">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="styleClass">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="order" type="xs:decimal"/>
+</xs:complexType>
+
+<xs:complexType name="SubmissionRuleType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Destination" type="tns:DestinationType" maxOccurs="unbounded"/>
+<xs:element name="RuleDescription" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="formID" type="xs:string"/>
+<xs:attribute name="ruleID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DestinationType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="Endpoint" type="tns:anyURI_Stype"/>
+<xs:element name="EndpointDescription" type="tns:string_Stype"/>
+<xs:element name="SubmissionTechnology" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Organization" type="tns:OrganizationType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="anyURI_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:anyURI"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gMonth_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:gMonth"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gMonth_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:gMonth_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:gMonth"/>
+<xs:attribute name="maxInclusive" type="xs:gMonth"/>
+<xs:attribute name="minExclusive" type="xs:gMonth"/>
+<xs:attribute name="maxExclusive" type="xs:gMonth"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="boolean_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="boolean_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:boolean_Stype">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AreaCodeType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="long_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:long"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="long_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:long_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:long"/>
+<xs:attribute name="maxInclusive" type="xs:long"/>
+<xs:attribute name="minExclusive" type="xs:long"/>
+<xs:attribute name="maxExclusive" type="xs:long"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="yearMonthDuration_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:duration"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="yearMonthDuration_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:yearMonthDuration_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:duration"/>
+<xs:attribute name="maxInclusive" type="xs:duration"/>
+<xs:attribute name="minExclusive" type="xs:duration"/>
+<xs:attribute name="maxExclusive" type="xs:duration"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="integer_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:integer"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="integer_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:integer_Stype">
+<xs:sequence/>
+<xs:attribute name="maxExclusive" type="xs:integer"/>
+<xs:attribute name="minExclusive" type="xs:integer"/>
+<xs:attribute name="maxInclusive" type="xs:integer"/>
+<xs:attribute name="minInclusive" type="xs:integer"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XML_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="schema" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MappingType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="DefaultCodeSystem" type="tns:CodeSystemType" minOccurs="0"/>
+<xs:element name="ItemMap" type="tns:ItemMapType" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="templateID" type="xs:string" use="required"/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CodeSystemType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="CodeSystemName" type="tns:string_Stype"/>
+<xs:element name="ReleaseDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="Version" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="OID" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="CodeSystemURI" type="tns:anyURI_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="string_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FileHashType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="hashType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XQueryType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="version" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SQL_Type">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="sqlDialect" type="xs:string"/>
+<xs:attribute name="sqlDialectVersion" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LanguageCode.ISO.639.3_Type">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AcceptabilityType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="string_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+<xs:attribute name="pattern" type="xs:string"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TargetItemXPathType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="targetItemText" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UnitsType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="unitSystem" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XPathType">
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="version" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dateTime_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:dateTime"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dateTime_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:dateTime_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:dateTime"/>
+<xs:attribute name="maxInclusive" type="xs:dateTime"/>
+<xs:attribute name="minExclusive" type="xs:dateTime"/>
+<xs:attribute name="maxExclusive" type="xs:dateTime"/>
+<xs:attribute name="pattern" type="xs:string"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CommentType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExtensionType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:anyAttribute namespace="##other" processContents="skip"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OverrideTemplateType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Change" type="tns:ChangeType" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="templateID" type="xs:string" use="required"/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ChangeType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="TargetItemID" type="tns:TargetItemIDType" minOccurs="0"/>
+<xs:element name="TargetItemName" type="tns:TargetItemNameType" minOccurs="0"/>
+<xs:element name="TargetItemXPath" type="tns:TargetItemXPathType" minOccurs="0"/>
+<xs:element name="NewValue" type="tns:DataTypes_SType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TargetItemIDType">
+<xs:complexContent>
+<xs:extension base="tns:anyURI_Stype">
+<xs:sequence/>
+<xs:attribute name="targetItemText" type="xs:string"/>
+<xs:attribute name="targetProperty" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TargetItemNameType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:NCName"/>
+<xs:attribute name="targetItemText" type="xs:string"/>
+<xs:attribute name="targetProperty" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DataTypes_SType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="anyType" type="tns:anyType_DEtype" minOccurs="0"/>
+<xs:element name="anyURI" type="tns:anyURI_Stype" minOccurs="0"/>
+<xs:element name="base64Binary" type="tns:base64Binary_Stype" minOccurs="0"/>
+<xs:element name="boolean" type="tns:boolean_Stype" minOccurs="0"/>
+<xs:element name="duration" type="tns:duration_Stype" minOccurs="0"/>
+<xs:element name="int" type="tns:int_Stype" minOccurs="0"/>
+<xs:element name="integer" type="tns:integer_Stype" minOccurs="0"/>
+<xs:element name="byte" type="tns:byte_Stype" minOccurs="0"/>
+<xs:element name="date" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="dateTimeStamp" type="tns:dateTimeStamp_Stype" minOccurs="0"/>
+<xs:element name="decimal" type="tns:decimal_Stype" minOccurs="0"/>
+<xs:element name="dateTime" type="tns:dateTimeStamp_Stype" minOccurs="0"/>
+<xs:element name="double" type="tns:double_Stype" minOccurs="0"/>
+<xs:element name="float" type="tns:float_Stype" minOccurs="0"/>
+<xs:element name="gDay" type="tns:gDay_Stype" minOccurs="0"/>
+<xs:element name="gMonth" type="tns:gMonth_Stype" minOccurs="0"/>
+<xs:element name="gMonthDay" type="tns:gMonthDay_Stype" minOccurs="0"/>
+<xs:element name="gYear" type="tns:gYear_Stype" minOccurs="0"/>
+<xs:element name="gYearMonth" type="tns:gMonth_Stype" minOccurs="0"/>
+<xs:element name="hexBinary" type="tns:hexBinary_Stype" minOccurs="0"/>
+<xs:element name="HTML" type="tns:HTML_Stype" minOccurs="0"/>
+<xs:element name="long" type="tns:long_Stype" minOccurs="0"/>
+<xs:element name="negativeInteger" type="tns:negativeInteger_Stype" minOccurs="0"/>
+<xs:element name="nonNegativeInteger" type="tns:nonNegativeInteger_Stype" minOccurs="0"/>
+<xs:element name="nonPositiveInteger" type="tns:nonPositiveInteger_Stype" minOccurs="0"/>
+<xs:element name="positiveInteger" type="tns:positiveInteger_Stype" minOccurs="0"/>
+<xs:element name="short" type="tns:short_Stype" minOccurs="0"/>
+<xs:element name="string" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="time" type="tns:time_Stype" minOccurs="0"/>
+<xs:element name="unsignedByte" type="tns:unsignedByte_Stype" minOccurs="0"/>
+<xs:element name="unsignedInt" type="tns:unsignedInt_Stype" minOccurs="0"/>
+<xs:element name="unsignedLong" type="tns:unsignedLong_Stype" minOccurs="0"/>
+<xs:element name="unsignedShort" type="tns:unsignedShort_Stype" minOccurs="0"/>
+<xs:element name="XML" type="tns:XML_Stype" minOccurs="0"/>
+<xs:element name="yearMonthDuration" type="tns:yearMonthDuration_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ParameterValueType">
+<xs:complexContent>
+<xs:extension base="tns:DataTypes_SType">
+<xs:sequence/>
+<xs:attribute name="paramName" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TemplateAdminType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="PackageDescription" type="tns:RichTextType" maxOccurs="unbounded"/>
+<xs:element name="RegistryData" type="tns:RegistryType" minOccurs="0"/>
+<xs:element name="TemplateFile" type="tns:FileType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RichTextType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="HTML" type="tns:HTML_Stype" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HTML_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:anyAttribute namespace="##other" processContents="skip"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HTML_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:HTML_Stype">
+<xs:sequence/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+<xs:anyAttribute namespace="##other" processContents="skip"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyType">
+<xs:complexContent>
+<xs:extension base="tns:RichTextType">
+<xs:sequence/>
+<xs:attribute name="propName" type="xs:NMTOKEN"/>
+<xs:attribute name="propClass">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActSendMessageType">
+<xs:complexContent>
+<xs:extension base="tns:RichTextType">
+<xs:sequence>
+<xs:element name="Email" type="tns:EmailAddressType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Fax" type="tns:PhoneNumberType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="WebService" type="tns:WebServiceType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="messageType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmailAddressType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PhoneNumberType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WebServiceType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Property" type="tns:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="URI" type="tns:anyURI_Stype"/>
+<xs:element name="Security" type="tns:RichTextType" minOccurs="0"/>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Parameter" type="tns:ParameterItemType"/>
+<xs:element name="ParameterValue" type="tns:ParameterValueType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ParameterItemType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="paramName" type="xs:string" use="required"/>
+<xs:attribute name="itemName" type="xs:NCName" use="required"/>
+<xs:attribute name="itemProperty" type="xs:NCName" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LookupEndPointType">
+<xs:complexContent>
+<xs:extension base="tns:WebServiceType">
+<xs:sequence>
+<xs:element name="ResponseValue" type="tns:CodingType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="includesHeaderRow" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CodingType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Code" type="tns:string_Stype" nillable="true"/>
+<xs:element name="CodeText" type="tns:RichTextType" minOccurs="0"/>
+<xs:element name="CodeMatch" type="tns:CodeMatchType" minOccurs="0"/>
+<xs:element name="CodeSystem" type="tns:CodeSystemType" minOccurs="0"/>
+<xs:element name="CodeURI" type="tns:anyURI_Stype" minOccurs="0"/>
+<xs:element name="DataType" type="tns:DataTypes_SType" minOccurs="0"/>
+<xs:element name="Units" type="tns:UnitsType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CodeMatchType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="CodingMatchComment" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="codeMatchEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegistryType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="OriginalRegistry" type="tns:RegistrySummaryType" minOccurs="0"/>
+<xs:element name="CurrentRegistry" type="tns:RegistrySummaryType"/>
+<xs:element name="RegistrationStatus" type="tns:RegisteredItemType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegistrySummaryType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="RegistryName" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Contact" type="tns:ContactType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ReferenceStandardIdentifier" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="ServiceLevelAgreement" type="tns:FileType" minOccurs="0"/>
+<xs:element name="RegistryPurpose" type="tns:FileType" minOccurs="0"/>
+<xs:element name="Manual" type="tns:FileType" minOccurs="0"/>
+<xs:element name="RegistryInterface" type="tns:InterfaceType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ContactType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Person" type="tns:PersonType" minOccurs="0"/>
+<xs:element name="Organization" type="tns:OrganizationType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PersonType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="PersonName" type="tns:NameType"/>
+<xs:element name="AliasName" type="tns:NameType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Job" type="tns:JobType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="StreetAddress" type="tns:AddressType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Email" type="tns:EmailType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Phone" type="tns:PhoneType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="WebURL" type="tns:anyURI_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Role" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Identifier" type="tns:IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Usage" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NameType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="NamePrefix" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="FirstName" type="tns:string_Stype" nillable="true"/>
+<xs:element name="MiddleName" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="LastName" type="tns:string_Stype" nillable="true"/>
+<xs:element name="NameSuffix" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="DegreeCert" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Title" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JobType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="JobTitle" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Organization" type="tns:OrganizationType" minOccurs="0"/>
+<xs:element name="StartDate" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="StopDate" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="Description" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OrganizationType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="OrgName" type="tns:string_Stype" nillable="true"/>
+<xs:element name="Department" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="StreetAddress" type="tns:AddressType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Email" type="tns:EmailType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Phone" type="tns:PhoneType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="WebURL" type="tns:anyURI_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Role" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ContactPerson" type="tns:PersonType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Identifier" type="tns:IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Usage" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AddressType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="AddressType" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="InternalAddress" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="AddressLine" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="City" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Jurisdiction" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="State" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="PostalCode" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Country" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Usage" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmailType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="EmailAddress" type="tns:EmailAddressType"/>
+<xs:element name="EmailClass" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Usage" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PhoneType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="PhoneType" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="CountryCode" type="tns:CountryCodeType" minOccurs="0"/>
+<xs:element name="AreaCode" type="tns:AreaCodeType" minOccurs="0"/>
+<xs:element name="PhoneNumber" type="tns:PhoneNumberType"/>
+<xs:element name="PhoneExtension" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Usage" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CountryCodeType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:short" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IdentifierType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="system" type="xs:string"/>
+<xs:attribute name="val" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="date_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:date"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="date_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:date_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:date"/>
+<xs:attribute name="maxInclusive" type="xs:date"/>
+<xs:attribute name="minExclusive" type="xs:date"/>
+<xs:attribute name="maxExclusive" type="xs:date"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FileType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="FileID" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="FileURI" type="tns:anyURI_Stype"/>
+<xs:element name="DisplayName" type="tns:string_Stype"/>
+<xs:element name="Title" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Version" type="tns:VersionType" minOccurs="0"/>
+<xs:element name="FileName" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="FileExtension" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="FileClass" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="FileSizeKB" type="tns:positiveInteger_Stype" minOccurs="0"/>
+<xs:element name="Description" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Copyright" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="TermsofUse" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Usage" type="tns:FileUsageType" minOccurs="0"/>
+<xs:element name="Dates" type="tns:FileDatesType" minOccurs="0"/>
+<xs:element name="Contacts" type="tns:ContactsType" minOccurs="0"/>
+<xs:element name="Approval" type="tns:ApprovalType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="FileHash" type="tns:FileHashType" minOccurs="0"/>
+<xs:element name="Language" type="tns:LanguageType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="AssociatedFiles" type="tns:AssociatedFilesType" minOccurs="0"/>
+<xs:element name="Provenance" type="tns:ProvenanceType" minOccurs="0"/>
+<xs:element name="DefaultSubmissionRule" type="tns:SubmissionRuleType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="DefaultComplianceRule" type="tns:ComplianceRuleType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VersionType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="VersioningReference" type="tns:FileType" minOccurs="0"/>
+<xs:element name="VersionComments" type="tns:RichTextType" minOccurs="0"/>
+<xs:element name="Changes" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Change" type="tns:ChangeLogType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="fullVersion" type="xs:string" use="required"/>
+<xs:attribute name="versionRegExPattern" type="xs:string" use="required"/>
+<xs:attribute name="versionLevel.1" type="xs:string"/>
+<xs:attribute name="versionLevel.2" type="xs:string"/>
+<xs:attribute name="versionLevel.3" type="xs:string"/>
+<xs:attribute name="versionLevel.4" type="xs:string"/>
+<xs:attribute name="versionLevel.5" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ChangeLogType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="ChangedField" type="tns:ChangedFieldType"/>
+<xs:element name="ChangedTo" type="tns:DataTypes_SType"/>
+<xs:element name="ChangedFrom" type="tns:DataTypes_SType"/>
+<xs:element name="ChangeType" type="tns:string_Stype" maxOccurs="unbounded"/>
+<xs:element name="Replaces" type="tns:ReplacedIDsType" minOccurs="0"/>
+<xs:element name="ChangeDate" type="tns:dateTime_Stype"/>
+<xs:element name="ChangeDescription" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Editors" type="tns:ContactsType" minOccurs="0"/>
+<xs:element name="ChangeTracking" type="tns:ChangeTrackingType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ChangedFieldType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="TargetItemID" type="tns:TargetItemIDType" minOccurs="0"/>
+<xs:element name="TargetItemName" type="tns:TargetItemNameType" minOccurs="0"/>
+<xs:element name="TargetItemXPath" type="tns:TargetItemXPathType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ReplacedIDsType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="ReplacedID" type="tns:anyURI_Stype" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ContactsType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Contact" type="tns:ContactType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ChangeTrackingType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="ChangeTrackingID" type="tns:string_Stype" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="positiveInteger_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:positiveInteger"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="positiveInteger_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:positiveInteger_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:positiveInteger"/>
+<xs:attribute name="maxInclusive" type="xs:positiveInteger"/>
+<xs:attribute name="minExclusive" type="xs:positiveInteger"/>
+<xs:attribute name="maxExclusive" type="xs:positiveInteger"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FileUsageType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Included" type="tns:CodingType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Excluded" type="tns:CodingType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Description" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FileDatesType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="FileDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="PreviousRevisionDate" type="tns:dateTime_Stype" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ReleaseDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="EffectiveDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="FirstReleaseDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="UsageStartDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="RetirementDate" type="tns:dateTime_Stype" minOccurs="0"/>
+<xs:element name="OtherDate" type="tns:dateTime_Stype" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ApprovalType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="ApprovalContact" type="tns:ContactType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Description" type="tns:string_Stype" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LanguageType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Language" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="LanguageCode.ISO.639.3" type="tns:LanguageCode.ISO.639.3_Type"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AssociatedFilesType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="File" type="tns:FileType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ProvenanceType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="ReplacedFile" type="tns:FileType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComplianceRuleType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Description" type="tns:string_Stype"/>
+<xs:element name="ComplianceOrganization" type="tns:OrganizationType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="ruleID" type="xs:string" use="required"/>
+<xs:attribute name="formID" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InterfaceType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Identifer" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="InterfaceName" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Description" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="URL" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Version" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Fields" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="Field" maxOccurs="unbounded">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Getter" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Setter" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="Action" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="Documentation" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:element name="File" type="tns:FileType" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegisteredItemType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="RegisteredItemDescription" type="tns:RichTextType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="State" type="tns:RegisteredItemStateType" minOccurs="0"/>
+<xs:element name="Contact" type="tns:ContactType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ReferenceDocument" type="tns:FileType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegisteredItemStateType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Acceptability" type="tns:AcceptabilityType"/>
+<xs:element name="AdministrativeStatus" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="AdministrativeNote" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="RegistrationStatus" type="tns:string_Stype"/>
+<xs:element name="RegistrationStatusDate" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="EffectiveDate" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="UntilDate" type="tns:date_Stype" minOccurs="0"/>
+<xs:element name="PreviousStatus" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GetPropertyValuesType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="itemNames" use="required">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="isSelected" type="xs:boolean"/>
+<xs:attribute name="isActive" type="xs:boolean"/>
+<xs:attribute name="hasResponse" type="xs:boolean"/>
+<xs:attribute name="isVisible" type="xs:boolean"/>
+<xs:attribute name="isEnabled" type="xs:boolean"/>
+<xs:attribute name="isRequired" type="xs:boolean"/>
+<xs:attribute name="isReadOnly" type="xs:boolean"/>
+<xs:attribute name="hasType">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="hasStyleClass">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute ref="tns:not"/>
+<xs:attribute name="boolOp" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActShowReportType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="reportID" type="xs:string"/>
+<xs:attribute name="packageID" type="xs:string"/>
+<xs:attribute name="reportInstanceGuid" type="xs:string"/>
+<xs:attribute name="displayState" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActSetPropertyType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="actVisible" type="xs:boolean"/>
+<xs:attribute name="actEnable" type="xs:boolean"/>
+<xs:attribute name="actMinCard" type="xs:nonNegativeInteger"/>
+<xs:attribute name="actMaxCard" type="xs:nonNegativeInteger"/>
+<xs:attribute name="actActivate" type="xs:boolean"/>
+<xs:attribute name="actSelect" type="xs:boolean"/>
+<xs:attribute name="actDeleteResponse" type="xs:boolean"/>
+<xs:attribute name="actReadOnly" type="xs:boolean"/>
+<xs:attribute name="actType">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="actStyleClass">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="actSetTitleText" type="xs:string"/>
+<xs:attribute name="actSetCode" type="xs:string"/>
+<xs:attribute name="targetNames" use="required">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RulesCollectionType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Assertion" type="tns:IfType"/>
+<xs:element name="IfThenRule" type="tns:IfThenType"/>
+<xs:element name="AutoSelection" type="tns:RuleAutoSelectType"/>
+<xs:element name="IllegalSelectionTest" type="tns:RuleSelectionTestType"/>
+<xs:element name="IllegalSelectionSets" type="tns:RuleIllegalSelectionSetsType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IfType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="PropertyValues" type="tns:GetPropertyValuesType" minOccurs="0"/>
+<xs:element name="SelectionDependencies" type="tns:SelectionSetBoolType" minOccurs="0"/>
+<xs:element name="Predicate" type="tns:PredicateType" minOccurs="0"/>
+<xs:element name="RuleReference" type="tns:RuleReferenceType" minOccurs="0"/>
+<xs:element name="BoolCompare" type="tns:IfBoolCompareType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SelectionSetBoolType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="selectedItemSet" use="required">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute ref="tns:not"/>
+<xs:attribute name="boolOp" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PredicateType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="LHS_Extension" type="tns:ExtensionBaseType" minOccurs="0"/>
+<xs:element name="LHS_GetResponse" type="tns:ItemNameType" minOccurs="0"/>
+<xs:element name="LHS_GetCode" type="tns:GetCodeType" minOccurs="0"/>
+<xs:element name="LHS_Expression" type="tns:ExpressionType" minOccurs="0"/>
+<xs:element name="Compare" type="tns:PredicateCompareType" minOccurs="0"/>
+<xs:element name="InList" type="tns:PredicateInListType" minOccurs="0"/>
+<xs:element name="Between" type="tns:PredicateBetweenType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ItemNameType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="itemName" type="xs:NCName" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActAddCodeType">
+<xs:complexContent>
+<xs:extension base="tns:ItemNameType">
+<xs:sequence>
+<xs:element name="Code" type="tns:CodeSystemType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GetCodeType">
+<xs:complexContent>
+<xs:extension base="tns:ItemNameType">
+<xs:sequence/>
+<xs:attribute name="codeSystem" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpressionType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="WebService" type="tns:WebServiceType" minOccurs="0"/>
+<xs:element name="Script" type="tns:ScriptCodeType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Reference" type="tns:ItemNameType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ScriptCodeType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Parameter" type="tns:ParameterItemType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="language" type="xs:string"/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PredicateCompareType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="RHS_Extension" type="tns:ExtensionBaseType" minOccurs="0"/>
+<xs:element name="RHS_GetResponse" type="tns:ItemNameType" minOccurs="0"/>
+<xs:element name="RHS_GetCode" type="tns:GetCodeType" minOccurs="0"/>
+<xs:element name="RHS_Expression" type="tns:ExpressionType" minOccurs="0"/>
+<xs:element name="RHS_Value" type="tns:DataTypes_SType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="CompareOpEnum" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PredicateInListType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="not" type="xs:boolean"/>
+<xs:attribute name="list" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PredicateBetweenType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="MinInclusive" type="tns:MinInclusiveType" minOccurs="0"/>
+<xs:element name="MinExclusive" type="tns:MinExclusiveType" minOccurs="0"/>
+<xs:element name="MaxInclusive" type="tns:MaxInclusiveType" minOccurs="0"/>
+<xs:element name="MaxExclusive" type="tns:MaxExclusiveType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="not" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MinInclusiveType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MinExclusiveType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MaxInclusiveType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MaxExclusiveType">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RuleReferenceType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="refName" type="xs:NMTOKEN"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IfBoolCompareType">
+<xs:complexContent>
+<xs:extension base="tns:IfType">
+<xs:sequence/>
+<xs:attribute ref="tns:not"/>
+<xs:attribute name="boolOp" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WatchedPropertyType">
+<xs:complexContent>
+<xs:extension base="tns:IfType">
+<xs:sequence/>
+<xs:attribute name="onlyIf" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IfThenType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="If" type="tns:IfType" minOccurs="0"/>
+<xs:element name="Then" type="tns:ThenType"/>
+<xs:element name="Else" type="tns:ThenType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ThenType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Action" type="tns:ActActionType"/>
+<xs:element name="SetProperty" type="tns:ActSetPropertyType"/>
+<xs:element name="_AddCode" type="tns:ActAddCodeType"/>
+<xs:element name="SetValue" type="tns:ActSetValueType"/>
+<xs:element name="Inject" type="tns:ActInjectType"/>
+<xs:element name="ShowMessage" type="tns:ActShowMessageType"/>
+<xs:element name="RunCommand" type="tns:ExpressionType"/>
+<xs:element name="ShowURL" type="tns:WebServiceType"/>
+<xs:element name="ShowForm" type="tns:ActShowFormType"/>
+<xs:element name="Save" type="tns:ActSaveResponsesType"/>
+<xs:element name="ShowReport" type="tns:ActShowReportType"/>
+<xs:element name="_SendReport" type="tns:ActSendReportType"/>
+<xs:element name="_SendMessage" type="tns:ActSendMessageType"/>
+<xs:element name="_ValidateForm" type="tns:ActValidateFormType"/>
+<xs:element name="IfThen" type="tns:IfThenType"/>
+<xs:element name="CallIfThen" type="tns:ItemNameType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActActionType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Property" type="tns:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Parameter" type="tns:ParameterItemType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="action" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActSetValueType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Expression" type="tns:ExpressionType" minOccurs="0"/>
+<xs:element name="ValueType" type="tns:DataTypes_SType" minOccurs="0"/>
+<xs:element name="ResponseValue" type="tns:ItemNameType" minOccurs="0"/>
+<xs:element name="CodeValue" type="tns:GetCodeType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="targetNames">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActInjectType">
+<xs:complexContent>
+<xs:extension base="tns:InjectFormType">
+<xs:sequence/>
+<xs:attribute name="targetNames">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InjectFormType">
+<xs:complexContent>
+<xs:extension base="tns:FormDesignType">
+<xs:sequence/>
+<xs:attribute name="packageID" type="xs:string"/>
+<xs:attribute name="rootItemID" type="xs:string"/>
+<xs:attribute name="injectionID" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FormDesignType">
+<xs:complexContent>
+<xs:extension base="tns:IdentifiedExtensionType">
+<xs:sequence>
+<xs:element name="Header" type="tns:SectionItemType" minOccurs="0"/>
+<xs:element name="Body" type="tns:SectionItemType"/>
+<xs:element name="Footer" type="tns:SectionItemType" minOccurs="0"/>
+<xs:element name="Rules" type="tns:RulesType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="formTitle" type="xs:string"/>
+<xs:attribute name="filename" type="xs:string"/>
+<xs:attribute name="basedOnURI" type="xs:string"/>
+<xs:attribute name="prevVersionURI" type="xs:string"/>
+<xs:attribute name="formInstanceURI" type="xs:string"/>
+<xs:attribute name="formInstanceVersionURI" type="xs:string"/>
+<xs:attribute name="formPreviousInstanceVersionURI" type="xs:string"/>
+<xs:attribute name="responseTypeEnum" type="xs:string"/>
+<xs:attribute name="responseStatusEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IdentifiedExtensionType" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="ID" type="xs:string" use="required"/>
+<xs:attribute name="baseURI" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SectionItemType">
+<xs:complexContent>
+<xs:extension base="tns:SectionBaseType">
+<xs:sequence>
+<xs:element name="ChildItems" type="tns:ChildItemsType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SectionBaseType">
+<xs:complexContent>
+<xs:extension base="tns:RepeatingType">
+<xs:sequence/>
+<xs:attribute name="ordered" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RepeatingType" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:DisplayedType">
+<xs:sequence/>
+<xs:attribute name="minCard" type="xs:unsignedShort"/>
+<xs:attribute name="maxCard" type="xs:unsignedShort"/>
+<xs:attribute name="repeat" type="xs:positiveInteger"/>
+<xs:attribute name="instanceGUID" type="xs:string"/>
+<xs:attribute name="parentGUID" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DisplayedType">
+<xs:complexContent>
+<xs:extension base="tns:IdentifiedExtensionType">
+<xs:sequence>
+<xs:element name="Property" type="tns:PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Link" type="tns:LinkType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="BlobContent" type="tns:BlobType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Contact" type="tns:ContactType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="CodedValue" type="tns:CodingType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="OnEnter" type="tns:IfThenType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="OnExit" type="tns:IfThenType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="OnEvent" type="tns:OnEventType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ActivateIf" type="tns:WatchedPropertyType" minOccurs="0"/>
+<xs:element name="DeActivateIf" type="tns:WatchedPropertyType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="title" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="mustImplement" type="xs:boolean"/>
+<xs:attribute name="showInReport" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ChildItemsType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Section" type="tns:SectionItemType"/>
+<xs:element name="Question" type="tns:QuestionItemType"/>
+<xs:element name="DisplayedItem" type="tns:DisplayedType"/>
+<xs:element name="ButtonAction" type="tns:ButtonItemType"/>
+<xs:element name="InjectForm" type="tns:InjectFormType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuestionItemType">
+<xs:complexContent>
+<xs:extension base="tns:QuestionItemBaseType">
+<xs:sequence>
+<xs:element name="ChildItems" type="tns:ChildItemsType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuestionItemBaseType">
+<xs:complexContent>
+<xs:extension base="tns:RepeatingType">
+<xs:sequence>
+<xs:element name="ResponseField" type="tns:ResponseFieldType" minOccurs="0"/>
+<xs:element name="ListField" type="tns:ListFieldType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="readOnly" type="xs:boolean"/>
+<xs:attribute name="responseTypeEnum" type="xs:string"/>
+<xs:attribute name="responseStatusEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResponseFieldType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Response" type="tns:DataTypes_DEType"/>
+<xs:element name="Extension" type="tns:ExtensionType"/>
+<xs:element name="OnEvent" type="tns:OnEventType"/>
+<xs:element name="AfterChange" type="tns:IfThenType"/>
+<xs:element name="ResponseUnits" type="tns:UnitsType"/>
+<xs:element name="TextAfterResponse" type="tns:RichTextType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListItemResponseFieldType">
+<xs:complexContent>
+<xs:extension base="tns:ResponseFieldType">
+<xs:sequence/>
+<xs:attribute name="responseRequired" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListFieldType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="ListHeaderText" type="tns:RichTextType" minOccurs="0"/>
+<xs:element name="DefaultListItemDataType" type="tns:DataTypes_DEType" minOccurs="0"/>
+<xs:element name="DefaultCodeSystem" type="tns:CodeSystemType" minOccurs="0"/>
+<xs:element name="List" type="tns:ListType" minOccurs="0"/>
+<xs:element name="LookupEndPoint" type="tns:LookupEndPointType" minOccurs="0"/>
+<xs:element name="IllegalListItemPairings" type="tns:RuleSelectionTestType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="IllegalCoSelectedListItems" type="tns:RuleIllegalSelectionSetsType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="AfterChange" type="tns:IfThenType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="OnEvent" type="tns:OnEventType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="colTextDelimiter" type="xs:string"/>
+<xs:attribute name="numCols" type="xs:unsignedByte"/>
+<xs:attribute name="storedCol" type="xs:unsignedByte"/>
+<xs:attribute name="minSelections" type="xs:int"/>
+<xs:attribute name="maxSelections" type="xs:unsignedShort"/>
+<xs:attribute name="ordered" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DataTypes_DEType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="anyType" type="tns:anyType_DEtype" minOccurs="0"/>
+<xs:element name="anyURI" type="tns:anyURI_DEtype" minOccurs="0"/>
+<xs:element name="base64Binary" type="tns:base64Binary_DEtype" minOccurs="0"/>
+<xs:element name="boolean" type="tns:boolean_DEtype" minOccurs="0"/>
+<xs:element name="duration" type="tns:duration_DEtype" minOccurs="0"/>
+<xs:element name="int" type="tns:int_DEtype" minOccurs="0"/>
+<xs:element name="integer" type="tns:integer_DEtype" minOccurs="0"/>
+<xs:element name="byte" type="tns:byte_DEtype" minOccurs="0"/>
+<xs:element name="date" type="tns:date_DEtype" minOccurs="0"/>
+<xs:element name="dateTimeStamp" type="tns:dateTimeStamp_DEtype" minOccurs="0"/>
+<xs:element name="decimal" type="tns:decimal_DEtype" minOccurs="0"/>
+<xs:element name="dateTime" type="tns:dateTimeStamp_DEtype" minOccurs="0"/>
+<xs:element name="double" type="tns:double_DEtype" minOccurs="0"/>
+<xs:element name="float" type="tns:float_DEtype" minOccurs="0"/>
+<xs:element name="gDay" type="tns:gDay_DEtype" minOccurs="0"/>
+<xs:element name="gMonth" type="tns:gMonth_DEtype" minOccurs="0"/>
+<xs:element name="gMonthDay" type="tns:gMonthDay_DEtype" minOccurs="0"/>
+<xs:element name="gYear" type="tns:gYear_DEtype" minOccurs="0"/>
+<xs:element name="gYearMonth" type="tns:gMonth_DEtype" minOccurs="0"/>
+<xs:element name="hexBinary" type="tns:hexBinary_DEtype" minOccurs="0"/>
+<xs:element name="HTML" type="tns:HTML_DEtype" minOccurs="0"/>
+<xs:element name="long" type="tns:long_DEtype" minOccurs="0"/>
+<xs:element name="negativeInteger" type="tns:negativeInteger_DEtype" minOccurs="0"/>
+<xs:element name="nonNegativeInteger" type="tns:nonNegativeInteger_DEtype" minOccurs="0"/>
+<xs:element name="nonPositiveInteger" type="tns:nonPositiveInteger_DEtype" minOccurs="0"/>
+<xs:element name="positiveInteger" type="tns:positiveInteger_DEtype" minOccurs="0"/>
+<xs:element name="short" type="tns:short_DEtype" minOccurs="0"/>
+<xs:element name="string" type="tns:string_DEtype" minOccurs="0"/>
+<xs:element name="time" type="tns:time_DEtype" minOccurs="0"/>
+<xs:element name="unsignedByte" type="tns:unsignedByte_DEtype" minOccurs="0"/>
+<xs:element name="unsignedInt" type="tns:unsignedInt_DEtype" minOccurs="0"/>
+<xs:element name="unsignedLong" type="tns:unsignedLong_DEtype" minOccurs="0"/>
+<xs:element name="unsignedShort" type="tns:unsignedShort_DEtype" minOccurs="0"/>
+<xs:element name="XML" type="tns:XML_DEtype" minOccurs="0"/>
+<xs:element name="yearMonthDuration" type="tns:yearMonthDuration_DEtype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="DisplayedItem" type="tns:DisplayedType"/>
+<xs:element name="ListItem" type="tns:ListItemType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LinkType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="LinkText" type="tns:RichTextType" minOccurs="0"/>
+<xs:element name="LinkURI" type="tns:anyURI_Stype"/>
+<xs:element name="Description" type="tns:RichTextType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BlobType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Description" type="tns:RichTextType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="Hash" type="tns:HashType" minOccurs="0"/>
+<xs:element name="BlobURI" type="tns:anyURI_Stype" minOccurs="0"/>
+<xs:element name="BinaryMediaBase64" type="tns:base64Binary_Stype" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="mimeType" type="xs:string" use="required"/>
+<xs:attribute name="fileExtension" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HashType">
+<xs:complexContent>
+<xs:extension base="tns:base64Binary_Stype">
+<xs:sequence/>
+<xs:attribute name="hashAlgorithm" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="base64Binary_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="mimeType" type="xs:string"/>
+<xs:attribute name="length" type="xs:long"/>
+<xs:attribute name="val" type="xs:base64Binary"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="base64Binary_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:base64Binary_Stype">
+<xs:sequence/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OnEventType">
+<xs:complexContent>
+<xs:extension base="tns:IfThenType">
+<xs:sequence/>
+<xs:attribute name="eventName" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ButtonItemType">
+<xs:complexContent>
+<xs:extension base="tns:DisplayedType">
+<xs:sequence>
+<xs:element name="OnClick" type="tns:IfThenType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListItemBaseType">
+<xs:complexContent>
+<xs:extension base="tns:DisplayedType">
+<xs:sequence>
+<xs:element name="ListItemResponseField" type="tns:ListItemResponseFieldType" minOccurs="0"/>
+<xs:element name="OnSelect" type="tns:IfThenType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="OnDeselect" type="tns:IfThenType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="SelectIf" type="tns:WatchedPropertyType" minOccurs="0"/>
+<xs:element name="DeselectIf" type="tns:WatchedPropertyType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="selected" type="xs:boolean"/>
+<xs:attribute name="selectionDisablesChildren" type="xs:boolean"/>
+<xs:attribute name="selectionDeselectsSiblings" type="xs:boolean"/>
+<xs:attribute name="omitWhenSelected" type="xs:boolean"/>
+<xs:attribute name="repeat" type="xs:positiveInteger"/>
+<xs:attribute name="instanceGUID" type="xs:string"/>
+<xs:attribute name="parentGUID" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListItemType">
+<xs:complexContent>
+<xs:extension base="tns:ListItemBaseType">
+<xs:sequence>
+<xs:element name="ChildItems" type="tns:ChildItemsType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RuleSelectionTestType">
+<xs:complexContent>
+<xs:extension base="tns:RuleIllegalSelectionSetsType">
+<xs:sequence/>
+<xs:attribute name="testItemName" type="xs:NMTOKEN" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RuleIllegalSelectionSetsType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="listItemNames" use="required">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="validationMessage" type="xs:string"/>
+<xs:attribute ref="tns:not"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RulesType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="PollingRules" type="tns:RulesCollectionType"/>
+<xs:element name="ReferenceRules" type="tns:RulesCollectionType"/>
+</xs:choice>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActShowMessageType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Message" type="tns:RichTextType" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="alertLevel" type="xs:string"/>
+<xs:attribute name="alertType" type="xs:string"/>
+<xs:attribute name="messageType" type="xs:string"/>
+<xs:attribute name="messageCode" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActShowFormType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="formID" type="xs:string"/>
+<xs:attribute name="packageID" type="xs:string"/>
+<xs:attribute name="displayState" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActSaveResponsesType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="MessageText" type="tns:RichTextType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActSendReportType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="Email" type="tns:EmailAddressType"/>
+<xs:element name="Fax" type="tns:PhoneNumberType"/>
+<xs:element name="WebService" type="tns:WebServiceType"/>
+</xs:choice>
+</xs:sequence>
+<xs:attribute name="reportURI" type="xs:string"/>
+<xs:attribute name="reportInstanceGuid" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActValidateFormType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="ValidationWebService" type="tns:WebServiceType" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="validateDataTypes" type="xs:boolean"/>
+<xs:attribute name="validateRules" type="xs:boolean"/>
+<xs:attribute name="validationType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RuleAutoSelectType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="targetNameSelectList" type="xs:NCName"/>
+<xs:attribute name="selectedItemSet" use="required">
+<xs:simpleType>
+<xs:list itemType="xs:NMTOKENS"/>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute ref="tns:not"/>
+<xs:attribute name="boolOp" type="xs:string"/>
+<xs:attribute name="onlyIf" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DataSourceType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="Database" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:DataStoreType">
+<xs:sequence>
+<xs:element name="SQL" type="tns:SQL_Type"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="RDF_Store" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:DataStoreType">
+<xs:sequence>
+<xs:element name="SPARQL">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="version" type="xs:string"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="XML" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:DataStoreType">
+<xs:sequence>
+<xs:element name="XPath" type="tns:XPathType" minOccurs="0"/>
+<xs:element name="ItemID" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="SQL" type="tns:SQL_Type" minOccurs="0"/>
+<xs:element name="XQuery" type="tns:XQueryType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="MappedCode" type="tns:CodingType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DataStoreType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="SecurityInfo" minOccurs="0">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:string_Stype">
+<xs:sequence/>
+<xs:attribute name="password" type="xs:string"/>
+<xs:attribute name="userName" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="DataStoreLocation" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="DatabaseSoftware" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="DatabaseName" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="ConnectiontonString" type="tns:string_Stype" minOccurs="0"/>
+<xs:element name="OtherConnectionParameters" type="tns:string_Stype" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TemplateTargetType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="TargetItemID" type="tns:anyURI_Stype"/>
+<xs:element name="TargetDisplayText" type="tns:RichTextType" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ItemMapType">
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence>
+<xs:element name="TemplateTarget" type="tns:TemplateTargetType"/>
+<xs:element name="DataSource" type="tns:DataSourceType"/>
+<xs:element name="MapComment" type="tns:RichTextType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SimpleSdcRetrieveFormPackageType">
+<xs:complexContent>
+<xs:extension base="tns:BasePackageType">
+<xs:sequence>
+<xs:element name="SubmissionRule" type="tns:SubmissionRuleType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ComplianceRule" type="tns:ComplianceRuleType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="HTMLPackage" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="XMLPackage" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DemogFormDesign" type="tns:FormDesignType" minOccurs="0"/>
+<xs:element name="FormDesign" type="tns:FormDesignType" minOccurs="0"/>
+<xs:element name="MapTemplate" type="tns:MappingType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="FormOverridesTemplate" type="tns:OverrideTemplateType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ReportDesignTemplate" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:FormDesignType">
+<xs:sequence/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="HelperFile" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="tns:ExtensionBaseType">
+<xs:sequence/>
+<xs:attribute name="templateID" type="xs:string" use="required"/>
+<xs:attribute name="targetTemplateID" type="xs:string" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="byte_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:byte"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="byte_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:byte_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:byte"/>
+<xs:attribute name="maxInclusive" type="xs:byte"/>
+<xs:attribute name="minExclusive" type="xs:byte"/>
+<xs:attribute name="maxExclusive" type="xs:byte"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="int_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:int_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:int"/>
+<xs:attribute name="maxInclusive" type="xs:int"/>
+<xs:attribute name="minExclusive" type="xs:int"/>
+<xs:attribute name="maxExclusive" type="xs:int"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="int_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:int"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XML_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:XML_Stype">
+<xs:sequence/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gDay_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:gDay"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gDay_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:gDay_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:gDay"/>
+<xs:attribute name="maxInclusive" type="xs:gDay"/>
+<xs:attribute name="minExclusive" type="xs:gDay"/>
+<xs:attribute name="maxExclusive" type="xs:gDay"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="time_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:time_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:time"/>
+<xs:attribute name="maxInclusive" type="xs:time"/>
+<xs:attribute name="minExclusive" type="xs:time"/>
+<xs:attribute name="maxExclusive" type="xs:time"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="time_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:time"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gYear_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:gYear"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gYear_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:gYear_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:gYear"/>
+<xs:attribute name="maxInclusive" type="xs:gYear"/>
+<xs:attribute name="minExclusive" type="xs:gYear"/>
+<xs:attribute name="maxExclusive" type="xs:gYear"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="short_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:short"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="short_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:short_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:short"/>
+<xs:attribute name="maxInclusive" type="xs:short"/>
+<xs:attribute name="minExclusive" type="xs:short"/>
+<xs:attribute name="maxExclusive" type="xs:short"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="float_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:float"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="float_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:float_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:float"/>
+<xs:attribute name="maxInclusive" type="xs:float"/>
+<xs:attribute name="minExclusive" type="xs:float"/>
+<xs:attribute name="maxExclusive" type="xs:float"/>
+<xs:attribute name="fractionDigits" type="xs:unsignedByte"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="duration_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:duration_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:duration"/>
+<xs:attribute name="maxInclusive" type="xs:duration"/>
+<xs:attribute name="minExclusive" type="xs:duration"/>
+<xs:attribute name="maxExclusive" type="xs:duration"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="duration_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:duration"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="hexBinary_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:hexBinary_Stype">
+<xs:sequence/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="hexBinary_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="mimeType" type="xs:string"/>
+<xs:attribute name="length" type="xs:long"/>
+<xs:attribute name="val" type="xs:hexBinary"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedByte_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:unsignedByte_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:unsignedByte"/>
+<xs:attribute name="maxInclusive" type="xs:unsignedByte"/>
+<xs:attribute name="minExclusive" type="xs:unsignedByte"/>
+<xs:attribute name="maxExclusive" type="xs:unsignedByte"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedByte_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:unsignedByte"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedInt_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:unsignedInt_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:unsignedInt"/>
+<xs:attribute name="maxInclusive" type="xs:unsignedInt"/>
+<xs:attribute name="minExclusive" type="xs:unsignedInt"/>
+<xs:attribute name="maxExclusive" type="xs:unsignedInt"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedInt_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:unsignedInt"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="decimal_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:decimal_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:decimal"/>
+<xs:attribute name="maxInclusive" type="xs:decimal"/>
+<xs:attribute name="minExclusive" type="xs:decimal"/>
+<xs:attribute name="maxExclusive" type="xs:decimal"/>
+<xs:attribute name="fractionDigits" type="xs:unsignedByte"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="decimal_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:decimal"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="negativeInteger_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:negativeInteger"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="negativeInteger_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:negativeInteger_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:negativeInteger"/>
+<xs:attribute name="maxInclusive" type="xs:negativeInteger"/>
+<xs:attribute name="minExclusive" type="xs:negativeInteger"/>
+<xs:attribute name="maxExclusive" type="xs:negativeInteger"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gMonthDay_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:gMonthDay"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gMonthDay_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:gMonthDay_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:gMonthDay"/>
+<xs:attribute name="maxInclusive" type="xs:gMonthDay"/>
+<xs:attribute name="minExclusive" type="xs:gMonthDay"/>
+<xs:attribute name="maxExclusive" type="xs:gMonthDay"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dayTimeDuration_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:duration"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dayTimeDuration_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:dayTimeDuration_Stype">
+<xs:sequence/>
+<xs:attribute name="maxExclusive" type="xs:duration"/>
+<xs:attribute name="minExclusive" type="xs:duration"/>
+<xs:attribute name="maxInclusive" type="xs:duration"/>
+<xs:attribute name="minInclusive" type="xs:duration"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="nonNegativeInteger_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:nonNegativeInteger"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="nonNegativeInteger_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:nonNegativeInteger_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:nonNegativeInteger"/>
+<xs:attribute name="maxInclusive" type="xs:nonNegativeInteger"/>
+<xs:attribute name="minExclusive" type="xs:nonNegativeInteger"/>
+<xs:attribute name="maxExclusive" type="xs:nonNegativeInteger"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedLong_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:unsignedLong"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedLong_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:unsignedLong_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:unsignedLong"/>
+<xs:attribute name="maxInclusive" type="xs:unsignedLong"/>
+<xs:attribute name="minExclusive" type="xs:unsignedLong"/>
+<xs:attribute name="maxExclusive" type="xs:unsignedLong"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="nonPositiveInteger_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:nonPositiveInteger"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="nonPositiveInteger_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:nonPositiveInteger_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:nonPositiveInteger"/>
+<xs:attribute name="maxInclusive" type="xs:nonPositiveInteger"/>
+<xs:attribute name="minExclusive" type="xs:nonPositiveInteger"/>
+<xs:attribute name="maxExclusive" type="xs:nonPositiveInteger"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="anyType_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence>
+<xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+<xs:attribute name="schema" type="xs:string"/>
+<xs:attribute name="namespace" type="xs:string"/>
+<xs:anyAttribute namespace="##other" processContents="skip"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gYearMonth_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:gYearMonth"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="gYearMonth_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:gYearMonth_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:gYearMonth"/>
+<xs:attribute name="maxInclusive" type="xs:gYearMonth"/>
+<xs:attribute name="minExclusive" type="xs:gYearMonth"/>
+<xs:attribute name="maxExclusive" type="xs:gYearMonth"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="double_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:double"/>
+<xs:attribute name="mask" type="xs:string"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="double_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:double_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:double"/>
+<xs:attribute name="maxInclusive" type="xs:double"/>
+<xs:attribute name="minExclusive" type="xs:double"/>
+<xs:attribute name="maxExclusive" type="xs:double"/>
+<xs:attribute name="fractionDigits" type="xs:unsignedByte"/>
+<xs:attribute name="totalDigits" type="xs:unsignedByte"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dateTimeStamp_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:dateTimeStamp_Stype">
+<xs:sequence/>
+<xs:attribute name="maxExclusive" type="xs:dateTime"/>
+<xs:attribute name="minExclusive" type="xs:dateTime"/>
+<xs:attribute name="maxInclusive" type="xs:dateTime"/>
+<xs:attribute name="minInclusive" type="xs:dateTime"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dateTimeStamp_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:dateTime"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="anyURI_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:anyURI_Stype">
+<xs:sequence/>
+<xs:attribute name="length" type="xs:long"/>
+<xs:attribute name="minLength" type="xs:long"/>
+<xs:attribute name="maxLength" type="xs:long"/>
+<xs:attribute name="pattern" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedShort_DEtype">
+<xs:complexContent>
+<xs:extension base="tns:unsignedShort_Stype">
+<xs:sequence/>
+<xs:attribute name="minInclusive" type="xs:unsignedShort"/>
+<xs:attribute name="maxInclusive" type="xs:unsignedShort"/>
+<xs:attribute name="minExclusive" type="xs:unsignedShort"/>
+<xs:attribute name="maxExclusive" type="xs:unsignedShort"/>
+<xs:attribute name="totalDigits" type="xs:short"/>
+<xs:attribute name="mask" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="unsignedShort_Stype">
+<xs:complexContent>
+<xs:extension base="tns:BaseType">
+<xs:sequence/>
+<xs:attribute name="val" type="xs:unsignedShort"/>
+<xs:attribute name="quantEnum" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:attribute name="not" type="xs:string"/>
+</xs:schema>

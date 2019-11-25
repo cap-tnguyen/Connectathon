@@ -1,0 +1,33 @@
+<div id="header" runat="server">
+    <a id="linkParameters" style="display:block;margin-left:100px" href="#" onclick="toggleParameters()">Show Package Parameters</a> 
+    <div id="parameters" style="display:none;width:80%;padding-left:20px;background-color:lightgray;border:solid thin;margin-left:200px" >
+        <table >
+            <tr>
+                <td>Package ID</td><td><asp:Label runat="server" ID="packageid"></asp:Label></td>
+            </tr>
+          
+            <tr>
+                <td>Form (s)</td><td><asp:Label runat="server" ID="forms"></asp:Label></td>
+            </tr>
+            <tr>
+                <td>Form Submit Endpoint</td><td style="text-align:left;"><input type="text" runat="server" id="submiturl" style="width:80%"/></td>
+            </tr>            
+            <tr>
+                <td>Form Manager Endpoint</td><td><input type="text" runat="server" id="retrieveurl" style="width:80%;"/></td>
+            </tr>
+            
+          
+
+            <tr>
+                <td>Submit Soap</td><td> <textarea cols="200" runat="server" id="submitsoap" style="width:80%;" rows="6">Soap Request is generated when you submit. Hit the back button after you submit.</textarea></td>
+            </tr>
+            <tr>
+                <td>Submit w Script</td><td><input runat="server" type="checkbox" id="scriptsubmit" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <a id="linkxml" style="display:block;margin-left:100px;margin-bottom:20px" href="#" onclick="toggleviewxml()">Show XML</a>
+    <textarea cols="200" runat="server" id="rawxml" 
+        style="display:none;width:80%;padding-left:20px;background-color:lightgray;border:solid thin;margin-left:200px;margin-bottom:40px" rows="15"></textarea>
+</div>

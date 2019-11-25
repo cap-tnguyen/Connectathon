@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<meta name="google-signin-client_id" content="744808901662-ov9v32g8hkjc34sjj5vhmapt0guds49m.apps.googleusercontent.com">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <link href="Content/Site.css?ver=1.2" rel="stylesheet" />
+    <link href="Content/Menu.css?ver=1.3" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.6.2.js"></script>
+
+    <script src="Scripts/Site.js"></script>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        $(window).on("load", function (e) {
+
+            $('#copyright').text("© " + new Date().getFullYear() + " SDC Application");
+        });
+    </script>
+
+
+    <script>
+
+        //after authentication user is sent to this page with user id in the parameter
+        var user = getUrlParam('User', 'Empty');
+        var auth = getUrlParam('authorize');
+
+        $(function () {
+
+            //Initialize dialog
+            $("#NewPackageDlg").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    OK: function () { $(this).dialog("close"); }
+                },
+            });
+
+            $("#ViewXmlDlg").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    OK: function () { $(this).dialog("close"); }
+                },
+            });
+
+            $("#newupload").click(function () {
+
+                $("#ViewXmlDlg").dialog("open");
+            });
+
+        });
+
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        function GetXml(id) {
+            alert(id);
+
+        }
+
+
+    </script>
+
+    <title></title>
+    <style>
+        .ui-widget-header, .ui-state-default, ui-button {
+            background: #b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+    </style>
+
+    <style>
+        table.scroll {
+            width: 100%; /* Optional */
+            /* border-collapse: collapse; */
+            border-spacing: 0;
+            /*border: 2px solid black;*/
+        }
+
+            table.scroll tbody,
+            table.scroll thead {
+                display: block;
+            }
+
+        thead tr th {
+            height: 30px;
+            line-height: 30px;
+            /*text-align: left;*/
+        }
+
+        table.scroll tbody {
+            height: 250px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        tbody td:last-child, thead th:last-child {
+            border-right: none;
+        }
+
+        .headerClass {
+            /*height: 30px;*/
+            font-family: 'Arial Bold', 'Arial';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 12px;
+            color: #FFFFFF;
+            text-align: center;
+            display: table-cell;
+            padding: 2px 2px 2px 2px;
+        }
+
+        td {
+            font-size: 12px;
+            word-wrap: break-word !important;
+            padding: 2px 2px 2px 2px !important;
+            word-break: break-all;
+        }
+
+        a.linkClass {
+            border: none;
+            background: transparent;
+            color: blue !important;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        input[type='file'] { /*hides the filename label*/
+            color: transparent;
+            display: inline-block;
+            width: 90px;
+        }
+
+        .navigator {
+            margin-bottom: 40px;
+        }
+
+        #txtSearch {
+            font-size: 14px;
+            padding: 2px 10px;
+            height: 24px;
+            width: 500px;
+        }
+
+
+        .tab-title {
+            font-family: Arial;
+            font-size: 1.4em;
+            color: black;
+            font-weight: bold;
+            margin-top: 10px
+        }
+
+        p {
+            padding-top: 2px;
+        }
+
+        .tab-content {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-color: grey;
+            border-style: solid;
+            border-width: thin;
+            border-collapse: collapse;
+        }
+
+        #bodyContainer {
+            background-color: #e9edf7;
+            padding: 20px;
+        }
+
+        .margin-bot-6 {
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+        .buttonUpload {
+            width: 213px;
+            height: 40px;
+            background: inherit;
+            background-color: rgba(0, 155, 191, 1);
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(121, 121, 121, 1);
+            border-radius: 5px;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-family: 'Arial Bold', 'Arial';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+
+        /* When the input field gets focus, change its width to 100% */
+        input[type=text]:focus {
+            width: 80%;
+        }
+
+        i {
+            border: none;
+            /*border-width: 0 3px 3px 0;*/
+            display: inline-block;
+            padding: 3px;
+        }
+/*
+        .up {
+            transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+        }
+
+        .down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }*/
+    </style>
+
+
+</head>
+<body>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/SDCTrancationApp.js?ver=1.102"></script>
+
+    <div ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+
+        <!-- note that elements inside included html are available in includeContentLoaded event-->
+        <div ng-include="'header.html'"></div>
+
+        <div style="clear:both"></div>
+        <br />
+        <div style="float:right"><button style="float:right" class="buttonUpload" onclick="window.location.href='UploadPackage.aspx'">UPLOAD NEW PACKAGE</button></div>
+        <div style="text-align: center; float:none;">
+            <!--<span>Search: </span>-->
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-heart"></span>
+            <input id="txtSearch" ng-model="search" ng-change="filterRows(search)" type="text" placeholder="What am I looking for?" />
+        </div>
+
+
+        <div style="clear:both"></div>
+        <p style="font-family: 'Arial';font-weight:normal;font-size:14px">Available Packages ({{Filteredlists.length}})</p>
+        <div style="width:1310px">
+            <table id="packages" class="scroll">
+                <thead>
+                    <tr>
+
+                        <th width="150" class="headerClass" ng-click="orderByField='PackageID'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Package ID <span ng-show="orderByField == 'PackageID'">
+                                <span ng-show="!reverseSort"><i class="fas fa-caret-up" style="border:none"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-down"></i></span>
+                            </span>
+                        </th>
+                        <th width="160" class="headerClass" ng-click="orderByField='PackageName'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Package Name <span ng-show="orderByField == 'PackageName'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-down"></i></span></span>
+                        </th>
+                        <th width="160" class="headerClass" ng-click="orderByField='FormID'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Form ID <span ng-show="orderByField == 'FormID'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-down"></i></span></span>
+                        </th>
+                        <th width="160" class="headerClass" ng-click="orderByField='FormName'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Form Name <span ng-show="orderByField == 'FormName'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-down"></i></span></span>
+                        </th>
+                        <th width="80" class="headerClass" ng-click="orderByField='AgencyName'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Agency Name <span ng-show="orderByField == 'AgencyName'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-up"></i></span></span>
+                        </th>
+                        <th width="100" class="headerClass" ng-click="orderByField='ValidationPath'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Validation Path <span ng-show="orderByField == 'ValidationPath'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-up"></i></span></span>
+                        </th>
+                        <th width="100" class="headerClass" ng-click="orderByField='TransformPath'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Transform Path <span ng-show="orderByField == 'TransformPath'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span> <span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-up"></i></span></span>
+                        </th>
+                        <th width="130" class="headerClass" ng-click="orderByField='orderByDateUploaded'; reverseSort = !reverseSort" style="cursor:pointer">
+                            Date Updated <span ng-show="orderByField == 'orderByDateUploaded'"><span ng-show="!reverseSort"><i style="border:none" class="fas fa-caret-up"></i></span><span ng-show="reverseSort"> <i style="border:none" class="fas fa-caret-down"></i></span></span>
+                        </th>
+                        <!--<th class="headerClass" width:120 style="width: 110px;" colspan="2">Files</th>
+                <th class="headerClass" width:170 style="width: 170px;" ng-show="admin" colspan="2">Actions</th>-->
+                        <th width="90" class="headerClass">Files</th>
+                        <th width="128" class="headerClass" ng-show="admin">Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="height:250px;overflow-y: auto;overflow-x: hidden;display:block">
+
+                    <tr data-ng-repeat="p in Filteredlists|orderBy:orderByField:reverseSort">
+
+                        <td width="150">{{p.PackageID}}</td>
+                        <td width="160">{{p.PackageName}}</td>
+                        <td width="160">{{p.FormID}}</td>
+                        <td width="160">{{p.FormName}}</td>
+                        <td width="80">{{p.AgencyName}}</td>
+                        <td width="100">{{p.ValidationPath}}</td>
+                        <td width="100">{{p.TransformPath}}</td>
+                        <td width="130">{{p.DateUploaded}}</td>
+                        <!--<td><div style="width: 35px;"><a class="linkClass" style="cursor:pointer" ng-click="GetXml(p.PackageID)">XML</a></div></td>
+                <td><div style="width: 40px;"><a class="linkClass" style="cursor:pointer" ng-click="GetHtml(p.PackageID)">HTML</a></div></td>
+                <td ng-show="admin"><div  style="width: 50px;"><a class="linkClass" style="cursor:pointer" ng-click="UpdatePackage(p.PackageID)">Update</a></div></td>
+                <td ng-show="admin"><div style="width: 55px;"><a class="linkClass" style="cursor:pointer" ng-click="DeletePackage(p.PackageID)">Remove</a></div></td>-->
+                        <td width="90">
+                            <a class="linkClass" style="cursor:pointer" ng-click="GetXml(p.PackageID)">XML</a>
+                            <a class="linkClass" style="cursor:pointer" ng-click="GetHtml(p.PackageID)">HTML</a>
+                        </td>
+                        <td width="110" ng-show="admin">
+                            <a class="linkClass" style="cursor:pointer" ng-click="UpdatePackage(p.PackageID)">Update</a>
+                            <a class="linkClass" style="cursor:pointer" ng-click="DeletePackage(p.PackageID)">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        
+    </div>
+
+
+    <div id="footer" style="text-align: center;background-color:#333333; margin-top:10px; padding:8px; margin-bottom:20px; color:whitesmoke">
+        <span id="copyright" style="font-family:Arial;font-size:12px;display: inline-block;"></span>
+    </div>
+
+    <!--<div id="u561" class="ax_default label">
+        <div id="u561_div" class=""></div>
+        <div id="u561_text" class="text ">
+            <p><span>© 2017 SDC Application</span></p>
+        </div>
+    </div>-->
+</body>
+</html>

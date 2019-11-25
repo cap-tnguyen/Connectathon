@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta charset="utf-8" />
+
+    <title></title>
+    <link href="Content/Site.css?ver=1.2" rel="stylesheet" />
+    <link href="Content/Menu.css?ver=1.4" rel="stylesheet" />
+    <!--<script src="Scripts/modernizr-2.6.2.js"></script>-->
+
+    <script src="Scripts/Site.js"></script>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        //after authentication user is sent to this page with user id in the parameter
+        var user = getUrlParam('User', 'Empty');
+        var auth = getUrlParam('authorize');
+        var token = getUrlParam('token', 'Empty');
+
+        //save to database
+        console.log('home:' + user);
+
+        if (user != 'Empty') {
+            localStorage.setItem("user", encodeURI(user));
+            localStorage.setItem("authenticator", auth);
+        }
+
+        if (token != 'Empty') {
+            sessionStorage.setItem("token", token);
+        }
+
+        console.log('home after encoding:' + encodeURI(user));
+
+
+
+    </script>
+    <script>
+        $(window).on("load", function (e) {
+
+            $('#copyright').text("© " + new Date().getFullYear() + " SDC Application");
+        });
+    </script>
+    <style>
+        .ui-widget-header, .ui-state-default, ui-button {
+            background: #b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+       
+    </style>
+
+    <style>
+
+        .headerClass {
+            height: 50px;
+            font-family: 'Arial Bold', 'Arial';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 14px;
+            color: #FFFFFF;
+            text-align: center;
+            display: table-cell;
+        }
+
+        td {
+            font-size: 13px;
+        }
+
+        a.linkClass {
+            border: none;
+            background: transparent;
+            color: #009bbf !important;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        input[type='file'] { /*hides the filename label*/
+            color: transparent;
+            display: inline-block;
+            width: 90px;
+        }
+
+        .navigator {
+            margin-bottom: 40px;
+        }
+
+        #txtSearch {
+            font-size: 14px;
+            padding: 2px 10px;
+            height: 24px;
+            width: 500px;
+        }
+
+
+        .tab-title {
+            font-family: Arial;
+            font-size: 1.4em;
+            color: black;
+            font-weight: bold;
+            margin-top: 10px
+        }
+
+        p {
+            padding-top: 2px;
+        }
+
+        .tab-content {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-color: grey;
+            border-style: solid;
+            border-width: thin;
+            border-collapse: collapse;
+        }
+
+        #bodyContainer {
+            background-color: #e9edf7;
+            padding: 20px;
+        }
+
+        .margin-bot-6 {
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+        .buttonUpload {
+            width: 213px;
+            height: 40px;
+            background: inherit;
+            background-color: rgba(0, 155, 191, 1);
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(121, 121, 121, 1);
+            border-radius: 5px;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-family: 'Arial Bold', 'Arial';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+
+        /* When the input field gets focus, change its width to 100% */
+        input[type=text]:focus {
+            width: 80%;
+        }
+
+        #content {
+            /*width: 90%;*/
+            margin-left: 20px;
+            margin-right:10px;
+            text-align: center;
+        }
+
+        #maincontent {
+            /*border: thin solid black;*/
+            /*color: black;
+            height: 300px;
+            padding:4px;*/
+            /*width: 99%;*/
+            padding-top:40px;
+        }
+
+        .column {
+            float: left;
+            width: 30%;
+            /*padding: 20px;*/
+            height: 550px; /* Should be removed. Only for demonstration */
+            /*background-color: #F2F2F2;*/
+            /*margin-right: 20px;*/
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .title {
+            /*padding: 15px 15px 15px 15px;*/
+            font-family:"Arial Bold", Arial;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333333;
+        }
+
+        #resources {
+            height: 150px;
+        }
+
+        li{
+            float:none;
+            text-align:left;
+        }
+        ul{
+            background-color:white;
+        }
+
+        li a{
+            padding:1px 1px 14px 1px!important;
+            text-align:left!important;
+        }
+        /** {
+            box-sizing: border-box;
+        }*/
+    </style>
+
+    <script src="Scripts/angular.js?ver=1"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/SDCTrancationApp.js?ver=1.40"></script>
+
+</head>
+<body>
+
+    <div ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+        <div ng-include="'header.html'"></div>
+        <div id="content" >
+            
+            <div class="column" style="width:850px;text-align:left;">
+                <p><span class="title">Conference Calls</span></p>
+                <iframe src="https://calendar.google.com/calendar/embed?src=sdcworkgroup%40ihe.net&ctz=America%2FToronto" style="border: 0" width="800" height="500" frameborder="0" scrolling="no"></iframe>
+            </div>
+            
+            <div class="column" style="margin-left:10px;">
+                <div>
+                    
+                    <div style="text-align:left;padding:4px">
+                        <p><span class="title">Resources</span> </p>
+                        <div style="padding-left:40px">
+                            <ul style="list-style-type:disc;text-align:left">
+                                <li>
+                                    <a class="linkClass" href="https://groups.google.com/a/ihe.net/forum/?pli=1#!forum/sdc">Google Group</a>
+                                </li>
+                                <li>
+                                    <a class="linkClass" href="https://wiki.ihe.net/index.php/Structured_Data_Capture">Wiki Page</a>
+                                </li>
+                                <li>
+                                    <a class="linkClass" href="https://structureddatacapture.slack.com/">Slack</a>
+                                </li>
+                                <li>
+                                    <a class="linkClass" href="https://github.com/IHE-SDC-WG">GitHub</a>
+                                </li>
+                                <li>
+                                    <a class="linkClass" target="_blank" href="https://documents.cap.org/documents/sdc-system-manual-v1-0.pdf">System manual</a>
+                                </li>
+                                <li>
+                                    <a class="linkClass" target="_blank" href='Content/CAP SDC Technical Reference Guide_v0.41 (Feb 2019).pdf'>Technical Reference Guide</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+
+                    <div id="contact" style="display:block;text-align:left;">
+                       
+                        <p><span class="title">Contact</span> </p>
+                        <div style="padding-left:40px">                            
+                            <p>
+                                For more information contact<br/>
+                                <a href="mailto:sdcworkgroup@ihe.net" class="linkClass">sdcworkgroup@ihe.net</a>
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                
+               
+
+            </div>
+            <div style="clear:both"></div>
+            <div id="maincontent" style="text-align:left;">
+                <span class="title">About SDC</span>
+               
+                <div>
+                    <p>SDC is a new technology for representing technology-agnostic forms using SDC schema definition XML format. Starting in 2019, all eCC templates will be in SDC format.</p>
+                    
+                    <ul style="list-style-type:disc;text-align:left;margin-left:40px">
+                        <li>
+                            The Form Filler can request available SDC packages in various formats such as XML, HTML and URI from the registered/authorized Form Manager.
+                        </li>
+                        <li>
+                            The Form Manager will process the request and returns the requested SDC form.
+                        </li>
+                        <li>
+                            The Form Filler will input the data and submit the form response to the Form Receiver.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Learn more about SDC by reading the <a class="linkClass" target="_blank" href="https://documents.cap.org/documents/sdc-system-manual-v1-0.pdf">SDC System manual</a>
+                        that explains SDC web tool navigation, features, and functionality.
+                    </p>
+
+                </div>
+
+               
+            </div>
+        </div>
+
+
+    </div>
+    <div id="footer" style="text-align: center;background-color:#333333; margin-top:10px; padding:8px; margin-bottom:20px; color:whitesmoke">
+        <span id="copyright" style="font-family:Arial;font-size:12px;display: inline-block;"></span>
+    </div>
+   
+</body>
+</html>

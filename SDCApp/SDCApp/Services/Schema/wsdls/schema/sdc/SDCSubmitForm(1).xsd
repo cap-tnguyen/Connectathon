@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ihe:qrph:sdc:2016" xmlns="urn:ihe:qrph:sdc:2016">
+   <!-- 9/15/2016 Changes for IHE Profile Trial Implementation (for Jan 2017 Connectathon) -->
+   <xs:include schemaLocation="SDCFormDesign.xsd"/>
+
+
+
+
+
+
+
+   <xs:element name="SDCSubmissionPackage">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element minOccurs="0" name="DemogFormDesign" type="FormDesignType"/>
+            <xs:element maxOccurs="unbounded" name="FormDesign" type="FormDesignType"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

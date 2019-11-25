@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="test.xsl"?>
+<FormDesign ID='123'>
+    <Header title='SDC XML to XAML Sample'>
+        
+    </Header>
+    <Body>
+        <ChildItems>
+            <Section>
+                <Question title="What is your name?"/>
+                <Question title="Where do you live?"/>
+            </Section>
+        </ChildItems>
+    </Body>
+</FormDesign>

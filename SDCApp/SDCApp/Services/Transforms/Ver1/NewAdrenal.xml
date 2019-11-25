@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="sdctemplate.xslt" ?>
+
+<S:Envelope xmlns:S="http://www.w3.org/2003/05/soap-envelope">
+  <S:Body>
+    <RetrieveFormResponse xmlns="urn:ihe:iti:rfd:2007">
+      <form>
+        <Structured>
+          <SDCPackage:SDCPackage xmlns="http://healthIT.gov/sdc" xmlns:SDCPackage="http://healthIT.gov/sdc">
+            <XMLPackage>
+              <FormDesign ID="129.1000043" baseURI="www.cap.org/eCC/SDC/IHE">
+                <Header ID="Header.129.1000043" styleClass="left" title="ADRENAL GLAND">
+                  <OtherText styleClass="float-right" val="CAP approved" />
+                  <OtherText name="GenericHeaderText" styleClass="left" type="meta" val="Surgical Pathology Cancer Case Summary (Checklist)" />
+                  <OtherText name="OfficialName" type="meta" val="ADRENAL GLAND: Biopsy (Core Needle, Incisional, Excisional); Resection" />
+                  <OtherText name="Category" type="meta" val="Endocrine" />
+                  <OtherText name="Restrictions" type="meta" val="Protocol applies to adrenal cortical carcinoma only. Cortical adenomas, pheochromocytoma, neuroblastic tumors, and adrenal tumors of childhood are not included." />
+                  <OtherText name="Required" type="meta" val="true" />
+                  <OtherText name="CTV_Ckey" type="meta" val="129.1000043" />
+                  <OtherText name="ChecklistCKey" type="meta" val="2.100004300" />
+                  <OtherText name="VersionID" type="meta" val="2.004.001.1000043" />
+                  <OtherText name="CurrentFileName" type="meta" val="AdrenalGlandBiopsy(CoreNe[Bx]_2.004.001                     " />
+                  <OtherText name="ApprovalStatus" type="meta" val="1" />
+                  <OtherText name="EffectiveDate" styleClass="right" type="meta dt.dateTime" />
+                  <OtherText name="WebPostingDate" styleClass="right" type="meta dt.dateTime" val="10/1/2013 12:00:00 AM" />
+                  <OtherText name="AJCC_UICC_Version" styleClass="right" type="meta" val="7th Edition" />
+                  <OtherText name="CS_Version" styleClass="right" type="meta" val="Version 2" />
+                  <OtherText name="FIGO_Version" styleClass="right" type="meta" />
+                </Header>
+                <Body ID="Body_129.1000043_18b9cd14-2d84-4c8f-8bb6-7da6db5f05c6">
+                  <ChildItems>
+                    <Section ID="4257.100004300" minCard="0" mustImplement="false" name="Section_4257.100004300_21">
+                      <ChildItems>
+                        <Question ID="2118.100004300" minCard="0" mustImplement="false" name="Tum_Site_23" readOnly="true" title="Tumor Site">
+                          <ListField>
+                            <List>
+                              <ListItem ID="2119.100004300" mustImplement="false" name="Adrenal_Structure_26" selected="true" title="Adrenal structure" />
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17537.100004300" minCard="0" mustImplement="false" name="Section_17537.100004300_27" title="CLINICAL">
+                      <ChildItems>
+                        <Question ID="20899.100004300" minCard="0" mustImplement="false" name="Non_Pathologic_Findings_29" title="Non-Pathology Findings (Notes J and K)">
+                          <OtherText name="Non_Pathologic_Findings_30" type="reportText" val="Non-Pathology Findings" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="20900.100004300" mustImplement="false" name="Urin_17-ketosteroids_increased_33" title="Urinary 17-ketosteroids increased (10 mg / g creatinine / 24 hours)" />
+                              <ListItem ID="20901.100004300" mustImplement="false" name="Hormone_Production_34" title="Hormone production">
+                                <ChildItems>
+                                  <Question ID="24853.100004300" minCard="0" mustImplement="false" name="Hormone_Produce_Type_36">
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="20902.100004300" mustImplement="false" name="Cushing_Synd_39" title="Cushing syndrome" />
+                                        <ListItem ID="20904.100004300" mustImplement="false" name="Conn_Synd_40" title="Conn syndrome" />
+                                        <ListItem ID="20905.100004300" mustImplement="false" name="Virilization_Feminization_41" title="Virilization / feminization" />
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="20906.100004300" mustImplement="false" name="Weight_Loss_42" title="Weight loss" />
+                              <ListItem ID="20907.100004300" mustImplement="false" name="Oth_43" title="Other (specify)">
+                                <OtherText name="Oth_44" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_45" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_47" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="20911.100004300" minCard="0" mustImplement="false" name="Neoadjuvant_Tx_48" title="Neoadjuvant Therapy">
+                          <ListField>
+                            <List>
+                              <ListItem ID="24854.100004300" mustImplement="false" name="Yes_51" title="Yes (specify type)">
+                                <OtherText name="Yes_52" type="reportText" val="Yes (type)" />
+                                <ListItemResponseField name="Yes_53" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Yes_55" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20914.100004300" mustImplement="false" name="No_56" title="No" />
+                              <ListItem ID="20915.100004300" mustImplement="false" name="Indeterminate_57" title="Indeterminate">
+                                <ListItemResponseField name="Indeterminate_58">
+                                  <Response>
+                                    <string maxLength="4000" name="Indeterminate_60" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="4156.100004300" minCard="0" mustImplement="false" name="Oth_Non_Path_Findings_61" title="Other (specify)">
+                          <OtherText name="Oth_Non_Path_Findings_62" type="reportText" val="{no text}" />
+                          <ResponseField name="Oth_Non_Path_Findings_63">
+                            <Response>
+                              <string maxLength="4000" name="Oth_Non_Path_Findings_65" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17875.100004300" name="Section_17875.100004300_66" title="SPECIMEN">
+                      <ChildItems>
+                        <Question ID="20850.100004300" name="Adrenal_Gland_Received_68" title="Adrenal Gland Received">
+                          <ListField>
+                            <List>
+                              <ListItem ID="20848.100004300" name="Fresh_71" title="Fresh" />
+                              <ListItem ID="20849.100004300" name="In_Formalin_72" title="In formalin" />
+                              <ListItem ID="20855.100004300" name="Oth_73" title="Other (specify)">
+                                <OtherText name="Oth_74" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_75" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_77" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="2120.100004300" name="Procedure_78" title="Procedure">
+                          <ListField>
+                            <List>
+                              <ListItem ID="20856.100004300" name="Needle_Bx_81" title="Needle biopsy (radiographically guided)" />
+                              <ListItem ID="2122.100004300" name="Adrenalectomy_Total_82" title="Adrenalectomy, total" />
+                              <ListItem ID="2121.100004300" name="Adrenalectomy_Part_83" title="Adrenalectomy, partial" />
+                              <ListItem ID="2123.100004300" name="Oth_84" title="Other (specify)">
+                                <OtherText name="Oth_85" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_86" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_88" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="2124.100004300" name="NS_89" title="Not specified" />
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="20858.100004300" name="Spec_Integrity_90" title="Specimen Integrity">
+                          <ListField>
+                            <List>
+                              <ListItem ID="20857.100004300" name="Intact_93" title="Intact" />
+                              <ListItem ID="20859.100004300" name="Fragmented_94" title="Fragmented" />
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Section ID="20860.100004300" name="Spec_Size_95" title="Specimen Size">
+                          <ChildItems>
+                            <Question ID="24068.100004300" name="Spec_Grt_Dim_97" title="Greatest Dimension (cm)">
+                              <OtherText name="Spec_Grt_Dim_98" type="reportText" val="Greatest Dimension " />
+                              <ResponseField name="Spec_Grt_Dim_99">
+                                <Response>
+                                  <string maxLength="5" name="Spec_Grt_Dim_102" />
+                                </Response>
+                                <TextAfterResponse val="cm" />
+                                <ResponseUnits val="cm" />
+                              </ResponseField>
+                            </Question>
+                            <Question ID="24856.100004300" name="Spec_Add_Dim_104" title="Additional Dimension (cm)">
+                              <OtherText name="Spec_Add_Dim_105" type="reportText" val="Additional Dimension " />
+                              <ResponseField name="Spec_Add_Dim_106">
+                                <Response>
+                                  <string maxLength="5" name="Spec_Add_Dim_109" />
+                                </Response>
+                                <TextAfterResponse val="cm" />
+                                <ResponseUnits val="cm" />
+                              </ResponseField>
+                            </Question>
+                            <Question ID="24857.100004300" name="Spec_Add_Dim_111" title="Additional Dimension (cm)">
+                              <OtherText name="Spec_Add_Dim_112" type="reportText" val="Additional Dimension " />
+                              <ResponseField name="Spec_Add_Dim_113">
+                                <Response>
+                                  <string maxLength="5" name="Spec_Add_Dim_116" />
+                                </Response>
+                                <TextAfterResponse val="cm" />
+                                <ResponseUnits val="cm" />
+                              </ResponseField>
+                            </Question>
+                            <Section ID="24855.100004300" minCard="0" name="Section_24855.100004300_118" title="Additional dimensions (repeat section if more than one part)">
+                              <OtherText name="_119" type="reportText" val="{no text}" />
+                              <ChildItems>
+                                <Question ID="24069.100004300" minCard="0" mustImplement="false" name="Spec_Add_Dim_121" title="Additional Dimension (cm)">
+                                  <OtherText name="Spec_Add_Dim_122" type="reportText" val="Additional Dimension " />
+                                  <ResponseField name="Spec_Add_Dim_123">
+                                    <Response>
+                                      <string maxLength="5" name="Spec_Add_Dim_126" />
+                                    </Response>
+                                    <TextAfterResponse val="cm" />
+                                    <ResponseUnits val="cm" />
+                                  </ResponseField>
+                                </Question>
+                                <Question ID="20847.100004300" minCard="0" mustImplement="false" name="Spec_Add_Dim_128" title="Additional Dimension (cm)">
+                                  <OtherText name="Spec_Add_Dim_129" type="reportText" val="Additional Dimension " />
+                                  <ResponseField name="Spec_Add_Dim_130">
+                                    <Response>
+                                      <string maxLength="5" name="Spec_Add_Dim_133" />
+                                    </Response>
+                                    <TextAfterResponse val="cm" />
+                                    <ResponseUnits val="cm" />
+                                  </ResponseField>
+                                </Question>
+                                <Question ID="20912.100004300" minCard="0" mustImplement="false" name="Spec_Add_Dim_135" title="Additional Dimension (cm)">
+                                  <OtherText name="Spec_Add_Dim_136" type="reportText" val="Additional Dimension " />
+                                  <ResponseField name="Spec_Add_Dim_137">
+                                    <Response>
+                                      <string maxLength="5" name="Spec_Add_Dim_140" />
+                                    </Response>
+                                    <TextAfterResponse val="cm" />
+                                    <ResponseUnits val="cm" />
+                                  </ResponseField>
+                                </Question>
+                              </ChildItems>
+                            </Section>
+                          </ChildItems>
+                        </Section>
+                        <Question ID="2125.100004300" name="Spec_Lat_142" title="Specimen Laterality">
+                          <ListField>
+                            <List>
+                              <ListItem ID="2126.100004300" name="Right_145" title="Right" />
+                              <ListItem ID="2127.100004300" name="Left_146" title="Left" />
+                              <ListItem ID="2128.100004300" name="NS_147" title="Not specified" />
+                              <ListItem ID="20866.100004300" name="Oth_148" title="Other (specify)">
+                                <OtherText name="Oth_149" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_150" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_152" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="2129.100004300" name="Tum_Size_153" title="Tumor Size (Note A)">
+                          <OtherText name="Tum_Size_154" type="reportText" val="Tumor Size" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="2131.100004300" name="TSize1_157" title="Greatest dimension (cm)">
+                                <OtherText name="TSize1_158" type="reportText" val="Greatest dimension " />
+                                <ListItemResponseField name="TSize1_159">
+                                  <Response>
+                                    <string maxLength="5" name="TSize1_162" />
+                                  </Response>
+                                  <TextAfterResponse val="cm" />
+                                  <ResponseUnits val="cm" />
+                                </ListItemResponseField>
+                                <ChildItems>
+                                  <Question ID="2133.100004300" minCard="0" mustImplement="false" name="Tum_Add_Dim_165" title="Additional Dimension (cm)">
+                                    <OtherText name="Tum_Add_Dim_166" type="reportText" val="Additional Dimension " />
+                                    <ResponseField name="Tum_Add_Dim_167">
+                                      <Response>
+                                        <string maxLength="5" name="Tum_Add_Dim_170" />
+                                      </Response>
+                                      <TextAfterResponse val="cm" />
+                                      <ResponseUnits val="cm" />
+                                    </ResponseField>
+                                  </Question>
+                                  <Question ID="2132.100004300" minCard="0" mustImplement="false" name="Tum_Add_Dim_172" title="Additional Dimension (cm)">
+                                    <OtherText name="Tum_Add_Dim_173" type="reportText" val="Additional Dimension " />
+                                    <ResponseField name="Tum_Add_Dim_174">
+                                      <Response>
+                                        <string maxLength="5" name="Tum_Add_Dim_177" />
+                                      </Response>
+                                      <TextAfterResponse val="cm" />
+                                      <ResponseUnits val="cm" />
+                                    </ResponseField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="2130.100004300" name="CBD_179" title="Cannot be determined (fragmented specimen)">
+                                <ListItemResponseField name="CBD_180">
+                                  <Response>
+                                    <string maxLength="4000" name="CBD_182" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="26236.100004300" name="Tum_Gland_Weight_183" title="Tumor Gland Weight (Note B)">
+                          <OtherText name="Tum_Gland_Weight_184" type="reportText" val="Tumor Gland Weight" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="26237.100004300" name="NA_187" selectionDisablesChildren="true" title="Not applicable">
+                                <ListItemResponseField name="NA_188">
+                                  <Response>
+                                    <string maxLength="4000" name="NA_190" />
+                                  </Response>
+                                </ListItemResponseField>
+                                <ChildItems>
+                                  <Question ID="2134.100004300" name="Tum_Gland_Weight_g_192" title="Specify Weight (g)">
+                                    <OtherText name="Tum_Gland_Weight_g_193" type="reportText" val="Weight " />
+                                    <ResponseField name="Tum_Gland_Weight_g_194">
+                                      <Response>
+                                        <string maxLength="7" name="Tum_Gland_Weight_g_197" />
+                                      </Response>
+                                      <TextAfterResponse val="g" />
+                                      <ResponseUnits val="grams" />
+                                    </ResponseField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17876.100004300" minCard="0" mustImplement="false" name="Section_17876.100004300_199" title="TUMOR">
+                      <ChildItems>
+                        <Question ID="2116.100004300" minCard="0" mustImplement="false" name="Histologic_Type_201" readOnly="true" title="Histologic Type (Notes C through E)">
+                          <OtherText name="Histologic_Type_202" type="reportText" val="Histologic Type" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="2117.100004300" mustImplement="false" name="Adrenal_Cortical_Ca_205" selected="true" title="Adrenal cortical carcinoma" />
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17877.100004300" minCard="0" mustImplement="false" name="Section_17877.100004300_206" title="EXTENT">
+                      <ChildItems>
+                        <Question ID="20873.100004300" minCard="0" mustImplement="false" name="Micro_Ext_Spfy_208" title="Microscopic Tumor Extension (specify)">
+                          <OtherText name="Micro_Ext_Spfy_209" type="reportText" val="Microscopic Tumor Extension" />
+                          <ResponseField name="Micro_Ext_Spfy_210">
+                            <Response>
+                              <string maxLength="4000" name="Micro_Ext_Spfy_212" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17878.100004300" name="Section_17878.100004300_213" title="MARGINS">
+                      <ChildItems>
+                        <Question ID="2153.100004300" name="Marg_Status_215">
+                          <ListField>
+                            <List>
+                              <ListItem ID="2154.100004300" name="MargUnv_Tum_218" title="Margins uninvolved by tumor">
+                                <ChildItems>
+                                  <Question ID="26358.100004300" minCard="0" mustImplement="false" name="MargUnv_Tum_Dist_220" title="Distance from Closest Margin">
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="26359.100004300" mustImplement="false" name="Spfy_mm_223" title="Specify (mm)">
+                                          <OtherText name="Spfy_mm_224" type="reportText" val="{no text}" />
+                                          <ListItemResponseField name="Spfy_mm_225" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="5" name="Spfy_mm_228" />
+                                            </Response>
+                                            <TextAfterResponse val="mm" />
+                                            <ResponseUnits val="mm" />
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                        <ListItem ID="26361.100004300" mustImplement="false" name="CBA_230" title="Cannot be assessed (explain)">
+                                          <OtherText name="CBA_231" type="reportText" val="Cannot be assessed" />
+                                          <ListItemResponseField name="CBA_232" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="CBA_234" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                  <Question ID="26362.100004300" name="Marg_Loc_235" title="Specify Margin, if possible">
+                                    <OtherText name="Marg_Loc_236" type="reportText" val="Margin" />
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="26363.100004300" name="Marg_Loc_239" title="Specify margin">
+                                          <OtherText name="Marg_Loc_240" type="reportText" val="{no text}" />
+                                          <ListItemResponseField name="Marg_Loc_241" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="Marg_Loc_243" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                        <ListItem ID="26364.100004300" name="CBD_244" title="Cannot be determined (explain)">
+                                          <OtherText name="CBD_245" type="reportText" val="Cannot be determined" />
+                                          <ListItemResponseField name="CBD_246" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="CBD_248" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="2155.100004300" name="Marg_Tum_249" title="Margin(s) involved by tumor">
+                                <ChildItems>
+                                  <Question ID="26365.100004300" name="Marg_Loc_251" title="Specify Margin(s), if possible">
+                                    <OtherText name="Marg_Loc_252" type="reportText" val="Margin(s)" />
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="26366.100004300" name="Marg_Loc_255" title="Specify margin(s)">
+                                          <OtherText name="Marg_Loc_256" type="reportText" val="{no text}" />
+                                          <ListItemResponseField name="Marg_Loc_257" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="Marg_Loc_259" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                        <ListItem ID="26367.100004300" name="CBD_260" title="Cannot be determined (explain)">
+                                          <OtherText name="CBD_261" type="reportText" val="Cannot be determined" />
+                                          <ListItemResponseField name="CBD_262" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="CBD_264" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="2157.100004300" name="CBD_265" title="Cannot be determined">
+                                <ListItemResponseField name="CBD_266">
+                                  <Response>
+                                    <string maxLength="4000" name="CBD_268" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20852.100004300" name="NA_269" title="Not applicable">
+                                <ListItemResponseField name="NA_270">
+                                  <Response>
+                                    <string maxLength="4000" name="NA_272" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17879.100004300" name="Section_17879.100004300_273" title="ACCESSORY FINDINGS">
+                      <ChildItems>
+                        <Question ID="20875.100004300" minCard="0" mustImplement="false" name="Tx_Effect_275" title="Treatment Effect (applicable to carcinomas treated with neoadjuvant therapy)">
+                          <OtherText name="Tx_Effect_276" type="reportText" val="Treatment Effect" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="20876.100004300" mustImplement="false" name="Not_Id_279" title="Not identified" />
+                              <ListItem ID="20877.100004300" mustImplement="false" name="Present_Spfy_280" title="Present (specify)">
+                                <OtherText name="Present_Spfy_281" type="reportText" val="Present" />
+                                <ListItemResponseField name="Present_Spfy_282" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Present_Spfy_284" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20878.100004300" mustImplement="false" name="Indeterminate_285" title="Indeterminate">
+                                <ListItemResponseField name="Indeterminate_286">
+                                  <Response>
+                                    <string maxLength="4000" name="Indeterminate_288" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="20862.100004300" minCard="0" mustImplement="false" name="Tum_Description_289" title="Tumor Description">
+                          <ListField>
+                            <List>
+                              <ListItem ID="20863.100004300" mustImplement="false" name="Hemorrhagic_292" title="Hemorrhagic" />
+                              <ListItem ID="20864.100004300" mustImplement="false" name="Necrotic_293" title="Necrotic" />
+                              <ListItem ID="17883.100004300" mustImplement="false" name="Invasion_294" title="Invasion">
+                                <ChildItems>
+                                  <Question ID="20869.100004300" minCard="0" mustImplement="false" name="LVI_Inv_Type_296">
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="20870.100004300" mustImplement="false" name="Capsule_299" title="Capsule" />
+                                        <ListItem ID="20871.100004300" mustImplement="false" name="Vessels_300" title="Vessels" />
+                                        <ListItem ID="20872.100004300" mustImplement="false" name="Extra_Adrenal_301" title="Extra-adrenal (specify)">
+                                          <OtherText name="Extra_Adrenal_302" type="reportText" val="Extra-adrenal" />
+                                          <ListItemResponseField name="Extra_Adrenal_303" responseRequired="true">
+                                            <Response>
+                                              <string maxLength="4000" name="Extra_Adrenal_305" />
+                                            </Response>
+                                          </ListItemResponseField>
+                                        </ListItem>
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="20865.100004300" mustImplement="false" name="Oth_306" title="Other (specify)">
+                                <OtherText name="Oth_307" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_308" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_310" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="2158.100004300" name="LVI_311" title="Lymph-Vascular Invasion (Note F)">
+                          <OtherText name="LVI_312" type="reportText" val="Lymph-Vascular Invasion" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="2159.100004300" name="Not_Id_315" title="Not identified" />
+                              <ListItem ID="2160.100004300" name="Present_316" title="Present">
+                                <ChildItems>
+                                  <Question ID="20861.100004300" name="LVI_Vessel_Type_318">
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="20853.100004300" name="Lg_Vessel_321" title="Large vessel (venous)" />
+                                        <ListItem ID="20881.100004300" name="Sm_Vessel_322" title="Small vessel (capillary lymphatic)" />
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="2161.100004300" name="Indeterminate_323" title="Indeterminate">
+                                <ListItemResponseField name="Indeterminate_324">
+                                  <Response>
+                                    <string maxLength="4000" name="Indeterminate_326" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="20882.100004300" minCard="0" mustImplement="false" name="PNI_327" title="Perineural Invasion">
+                          <ListField>
+                            <List>
+                              <ListItem ID="20879.100004300" mustImplement="false" name="Not_Id_330" title="Not identified" />
+                              <ListItem ID="20884.100004300" mustImplement="false" name="Present_331" title="Present" />
+                              <ListItem ID="20883.100004300" mustImplement="false" name="Indeterminate_332" title="Indeterminate">
+                                <ListItemResponseField name="Indeterminate_333">
+                                  <Response>
+                                    <string maxLength="4000" name="Indeterminate_335" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17880.100004300" minCard="0" mustImplement="false" name="Section_17880.100004300_336" title="SPECIAL STUDIES">
+                      <ChildItems>
+                        <Question ID="6202.100004300" minCard="0" mustImplement="false" name="Anc_Study_338" title="Ancillary Studies (Note L)">
+                          <OtherText name="Anc_Study_339" type="reportText" val="Ancillary Studies" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="20908.100004300" mustImplement="false" name="Spfy_Type_342" title="Specify type(s)">
+                                <OtherText name="Spfy_Type_343" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Spfy_Type_344" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Spfy_Type_346" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20909.100004300" mustImplement="false" name="Spfy_Results_347" title="Specify result(s)">
+                                <OtherText name="Spfy_Results_348" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Spfy_Results_349" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Spfy_Results_351" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17881.100004300" minCard="0" mustImplement="false" name="Section_17881.100004300_352" title="LYMPH NODES">
+                      <ChildItems>
+                        <Question ID="20885.100004300" minCard="0" mustImplement="false" name="Extranodal_Ext_354" title="Lymph Nodes, Extranodal Extension">
+                          <ListField>
+                            <List>
+                              <ListItem ID="1850.100004300" mustImplement="false" name="No_LN_Id_357" title="No nodes submitted or found" />
+                              <ListItem ID="20886.100004300" mustImplement="false" name="Not_Id_358" title="Not identified" />
+                              <ListItem ID="20887.100004300" mustImplement="false" name="Present_359" title="Present" />
+                              <ListItem ID="20888.100004300" mustImplement="false" name="Indeterminate_360" title="Indeterminate">
+                                <ListItemResponseField name="Indeterminate_361">
+                                  <Response>
+                                    <string maxLength="4000" name="Indeterminate_363" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="2136.100004300" name="Section_2136.100004300_364" title="STAGE (pTNM) (Note G)">
+                      <OtherText name="_365" type="reportText" val="STAGE (pTNM)" />
+                      <ChildItems>
+                        <Question ID="20880.100004300" name="TNM_Descriptors_367" title="?TNM Descriptors">
+                          <OtherText name="TNM_Descriptors_368" type="reportText" val="TNM Descriptors" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="22897.100004300" name="NA_371" omitWhenSelected="true" selectionDeselectsSiblings="true" title="?Not applicable">
+                                <OtherText name="NA_372" type="reportText" val="Not applicable" />
+                                <ListItemResponseField name="NA_373">
+                                  <Response>
+                                    <string maxLength="4000" name="NA_375" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20890.100004300" name="m_376" title="m (multiple primary tumors)" />
+                              <ListItem ID="20891.100004300" name="r_377" title="r (recurrent)" />
+                              <ListItem ID="20892.100004300" name="y_378" title="y (post-treatment)" />
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="2137.100004300" name="pT_379" title="Primary Tumor (pT)">
+                          <ListField>
+                            <List>
+                              <DisplayedItem ID="20893.100004300" name="_20893.100004300_389" title="# Adjacent organs include kidney, diaphragm, great vessels, pancreas, and liver.">
+                                <OtherText name="_390" type="reportText" val="{no text}" />
+                              </DisplayedItem>
+                              <ListItem ID="2142.100004300" name="pTX_382" title="pTX: Cannot be determined">
+                                <ListItemResponseField name="pTX_383">
+                                  <Response>
+                                    <string maxLength="4000" name="pTX_385" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="20889.100004300" name="pT0_386" title="pT0: No evidence of primary tumor" />
+                              <ListItem ID="2138.100004300" name="pT1_387" title="pT1: Tumor 5 cm or less in greatest dimension, no extra-adrenal invasion" />
+                              <ListItem ID="2139.100004300" name="pT2_388" title="pT2: Tumor greater than 5 cm, no extra-adrenal invasion" />
+                              <ListItem ID="2140.100004300" name="pT3_391" title="pT3: Tumor of any size with local invasion, but not invading adjacent organs#">
+                                <OtherText name="pT3_392" type="reportText" val="pT3: Tumor of any size with local invasion, but not invading adjacent organs" />
+                              </ListItem>
+                              <ListItem ID="2141.100004300" name="pT4_393" title="pT4: Tumor of any size with invasion of adjacent organs#">
+                                <OtherText name="pT4_394" type="reportText" val="pT4: Tumor of any size with invasion of adjacent organs" />
+                              </ListItem>
+                            </List>
+                          </ListField>
+                          <ChildItems>
+                            <DisplayedItem ID="20894.100004300" name="_20894.100004300_396" title="Note: There is no category of carcinoma in situ (pTis) relative to carcinomas of the adrenal gland.">
+                              <OtherText name="_397" type="reportText" val="{no text}" />
+                            </DisplayedItem>
+                          </ChildItems>
+                        </Question>
+                        <Question ID="2143.100004300" name="pN_398" title="Regional Lymph Nodes (pN) (Note H)">
+                          <OtherText name="pN_399" type="reportText" val="Regional Lymph Nodes (pN)" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="2144.100004300" name="pNX_402" title="pNX: Cannot be assessed" />
+                              <ListItem ID="2145.100004300" name="pN0_403" title="pN0: No regional lymph node metastasis" />
+                              <ListItem ID="2146.100004300" name="pN1_404" title="pN1: Regional lymph node metastasis" />
+                            </List>
+                          </ListField>
+                          <ChildItems>
+                            <Question ID="1867.100004300" name="LN_Status_406">
+                              <ListField>
+                                <List>
+                                  <ListItem ID="1868.100004300" name="No_LN_Id_409" selectionDisablesChildren="true" title="No nodes submitted or found">
+                                    <ChildItems>
+                                      <Question ID="1869.100004300" name="Num_LN_Exam_411" title="Number of Lymph Nodes Examined">
+                                        <ListField>
+                                          <List>
+                                            <ListItem ID="1870.100004300" name="Specify_414" title="Specify">
+                                              <OtherText name="Specify_415" type="reportText" val="{no text}" />
+                                              <ListItemResponseField name="Specify_416" responseRequired="true">
+                                                <Response>
+                                                  <string maxLength="3" name="Specify_418" />
+                                                </Response>
+                                              </ListItemResponseField>
+                                            </ListItem>
+                                            <ListItem ID="1871.100004300" name="CBD_419" title="Number cannot be determined (explain)">
+                                              <OtherText name="CBD_420" type="reportText" val="Number cannot be determined" />
+                                              <ListItemResponseField name="CBD_421" responseRequired="true">
+                                                <Response>
+                                                  <string maxLength="4000" name="CBD_423" />
+                                                </Response>
+                                              </ListItemResponseField>
+                                            </ListItem>
+                                          </List>
+                                        </ListField>
+                                      </Question>
+                                      <Question ID="1872.100004300" name="Num_LN_Invol_424" title="Number of Lymph Nodes Involved">
+                                        <ListField>
+                                          <List>
+                                            <ListItem ID="1873.100004300" name="Specify_427" title="Specify">
+                                              <OtherText name="Specify_428" type="reportText" val="{no text}" />
+                                              <ListItemResponseField name="Specify_429" responseRequired="true">
+                                                <Response>
+                                                  <string maxLength="3" name="Specify_431" />
+                                                </Response>
+                                              </ListItemResponseField>
+                                            </ListItem>
+                                            <ListItem ID="1874.100004300" name="CBD_432" title="Number cannot be determined (explain)">
+                                              <OtherText name="CBD_433" type="reportText" val="Number cannot be determined" />
+                                              <ListItemResponseField name="CBD_434" responseRequired="true">
+                                                <Response>
+                                                  <string maxLength="4000" name="CBD_436" />
+                                                </Response>
+                                              </ListItemResponseField>
+                                            </ListItem>
+                                          </List>
+                                        </ListField>
+                                      </Question>
+                                    </ChildItems>
+                                  </ListItem>
+                                </List>
+                              </ListField>
+                            </Question>
+                          </ChildItems>
+                        </Question>
+                        <Question ID="2149.100004300" name="pM_437" title="Distant Metastasis (pM) (Note I)">
+                          <OtherText name="pM_438" type="reportText" val="Distant Metastasis (pM)" />
+                          <ListField>
+                            <List>
+                              <ListItem ID="20895.100004300" name="NA_441" title="Not applicable">
+                                <ListItemResponseField name="NA_442">
+                                  <Response>
+                                    <string maxLength="4000" name="NA_444" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="2151.100004300" name="pM1_445" title="pM1: Distant metastasis">
+                                <ChildItems>
+                                  <Question ID="2152.100004300" minCard="0" mustImplement="false" name="pM_Loc_447" title="Specify Site(s), if known">
+                                    <OtherText name="pM_Loc_448" type="reportText" val="Site(s)" />
+                                    <ResponseField name="pM_Loc_449">
+                                      <Response>
+                                        <string maxLength="4000" name="pM_Loc_451" />
+                                      </Response>
+                                    </ResponseField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Section ID="17884.100004300" minCard="0" mustImplement="false" name="Section_17884.100004300_452" title="ADDITIONAL NON-TUMOR">
+                      <ChildItems>
+                        <Question ID="2162.100004300" minCard="0" mustImplement="false" name="AF_454" title="Additional Pathologic Findings">
+                          <ListField>
+                            <List>
+                              <ListItem ID="2163.100004300" mustImplement="false" name="None_Id_457" selectionDeselectsSiblings="true" title="None identified" />
+                              <ListItem ID="2164.100004300" mustImplement="false" name="Necrosis_458" title="Tumor necrosis" />
+                              <ListItem ID="20896.100004300" mustImplement="false" name="Degenerative_Changes_459" title="Degenerative changes">
+                                <ChildItems>
+                                  <Question ID="22900.100004300" minCard="0" mustImplement="false" name="Type_Degenerative_Changes_461">
+                                    <ListField>
+                                      <List>
+                                        <ListItem ID="20854.100004300" mustImplement="false" name="Calcifications_464" title="Calcifications" />
+                                        <ListItem ID="20897.100004300" mustImplement="false" name="Hemorrhage_465" title="Hemorrhage" />
+                                        <ListItem ID="20898.100004300" mustImplement="false" name="Cystic_Change_466" title="Cystic change" />
+                                      </List>
+                                    </ListField>
+                                  </Question>
+                                </ChildItems>
+                              </ListItem>
+                              <ListItem ID="2167.100004300" mustImplement="false" name="Oth_467" title="Other (specify)">
+                                <OtherText name="Oth_468" type="reportText" val="{no text}" />
+                                <ListItemResponseField name="Oth_469" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Oth_471" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                    <Question ID="2168.100004300" minCard="0" mustImplement="false" name="Comments_472" title="Comment(s)">
+                      <ResponseField name="Comments_473">
+                        <Response>
+                          <string maxLength="4000" name="Comments_475" />
+                        </Response>
+                      </ResponseField>
+                    </Question>
+                    <Section ID="22894.100004300" minCard="0" mustImplement="false" name="Section_22894.100004300_476" title="(Deprecated Items)">
+                      <ChildItems>
+                        <Question ID="29221.100004300" minCard="0" mustImplement="false" name="_29221.100004300_478" title="(Deprecated Answers)">
+                          <ListField>
+                            <List>
+                              <ListItem ID="26360.100004300" mustImplement="false" name="Spfy_cm_481" title="Specify (cm)">
+                                <ListItemResponseField name="Spfy_cm_482" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="5" name="Spfy_cm_485" />
+                                  </Response>
+                                  <TextAfterResponse val="cm" />
+                                  <ResponseUnits val="cm" />
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="20851.100004300" name="Marg_InvCa_Dist_487" title="Distance from Closest Margin">
+                          <ResponseField name="Marg_InvCa_Dist_488">
+                            <Response>
+                              <string maxLength="5" name="Marg_InvCa_Dist_490" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                        <Question ID="2156.100004300" name="Marg_InvCa_Loc_491" title="Specify Margin(s) if possible">
+                          <ResponseField name="Marg_InvCa_Loc_492">
+                            <Response>
+                              <string maxLength="4000" name="Marg_InvCa_Loc_494" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                        <Question ID="3875.100004300" name="Marg_Dist_Unit_495" title="Specify Units">
+                          <ListField>
+                            <List>
+                              <ListItem ID="3876.100004300" name="mm_498" title="mm" />
+                              <ListItem ID="3917.100004300" name="cm_499" title="cm" />
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="2147.100004300" name="Num_LN_Exam_500" title="Number Examined">
+                          <ResponseField name="Num_LN_Exam_501">
+                            <Response>
+                              <string maxLength="3" name="Num_LN_Exam_503" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                        <Question ID="2148.100004300" name="Num_LN_Invol_504" title="Number Involved">
+                          <ResponseField name="Num_LN_Invol_505">
+                            <Response>
+                              <string maxLength="3" name="Num_LN_Invol_507" />
+                            </Response>
+                          </ResponseField>
+                        </Question>
+                        <Question ID="22886.100004300" name="Marg_Tum_Dist_508" title="Distance from Closest Margin">
+                          <ListField>
+                            <List>
+                              <ListItem ID="22887.100004300" name="Spfy_mm_511" title="Specify (mm)">
+                                <ListItemResponseField name="Spfy_mm_512" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="5" name="Spfy_mm_515" />
+                                  </Response>
+                                  <TextAfterResponse val="mm" />
+                                  <ResponseUnits val="mm" />
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="23469.100004300" name="Spfy_cm_517" title="Specify (cm)">
+                                <ListItemResponseField name="Spfy_cm_518" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="5" name="Spfy_cm_521" />
+                                  </Response>
+                                  <TextAfterResponse val="cm" />
+                                  <ResponseUnits val="cm" />
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="22888.100004300" name="CBD_Expln_523" title="Cannot be assessed (explain)">
+                                <ListItemResponseField name="CBD_Expln_524" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="CBD_Expln_526" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                        <Question ID="22889.100004300" name="Marg_Tum_Loc_527" title="Specify Margin(s) if possible">
+                          <ListField>
+                            <List>
+                              <ListItem ID="22890.100004300" name="Marg_Loc_530" title="Specify Margin">
+                                <ListItemResponseField name="Marg_Loc_531" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="Marg_Loc_533" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                              <ListItem ID="22891.100004300" name="CBD_534" title="Cannot be determined (explain)">
+                                <ListItemResponseField name="CBD_535" responseRequired="true">
+                                  <Response>
+                                    <string maxLength="4000" name="CBD_537" />
+                                  </Response>
+                                </ListItemResponseField>
+                              </ListItem>
+                            </List>
+                          </ListField>
+                        </Question>
+                      </ChildItems>
+                    </Section>
+                  </ChildItems>
+                </Body>
+                <Footer ID="Footer_129.1000043_18b9cd14-2d84-4c8f-8bb6-7da6db5f05c6">
+                  <OtherText name="Copyright" styleClass="copyright" type="meta" val="(c) 2016 College of American Pathologists.  All rights reserved.  License required for use." />
+                </Footer>
+              </FormDesign>
+            </XMLPackage>
+          </SDCPackage:SDCPackage>
+        </Structured>
+      </form>
+      <contentType>XML</contentType>
+    </RetrieveFormResponse>
+  </S:Body>
+</S:Envelope>

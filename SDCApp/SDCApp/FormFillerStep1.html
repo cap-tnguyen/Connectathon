@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <title></title>
+     <link href="Content/Site.css?ver=1.2"" rel="stylesheet" />
+    <link href="Content/Additions.css?ver=1.2" rel="stylesheet" />
+	<link href="Content/Menu.css?ver=1.2" rel="stylesheet" />
+   
+
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet"/>
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
+
+    <script src="Scripts/angular.js"></script> 
+	<script src="Scripts/site.js"></script> 
+    <script src="Scripts/angular-route.js"></script> 
+    <script src="Scripts/SDCTrancationApp.js?ver=1.40"></script>
+    <style>
+         
+        table, th, td, tr {
+			border: none;
+			
+		}
+		
+		
+		table tr:nth-child(even) {
+			background-color: inherit;
+			color:black;
+			font-weight:normal
+		}
+
+		table tr:nth-child(odd) {
+			background-color: inherit;
+			color:black;
+			font-weight:normal
+		}
+
+       
+
+    </style>
+      <!-- CSS -->
+      <style>
+         .ui-widget-header,.ui-state-default, ui-button {
+            background:#b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+      </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div ng-app="SDCApp" ng-controller="SDCTransactionCtrl">
+    <div ng-include="'header.html'"></div>
+   
+     <div style="clear:both"></div>
+       <div id="formmanagers" style="margin-top:20px; margin-bottom:20px" runat="server" >
+           <span style="font-size:18px;font-weight:700">Select a form manager</span>
+        <table>
+            <tr data-ng-repeat="x in Managers">
+                <td><a href="FormFillerStep2.html?manager={{x.Id}}" ng-click="selectManager($event, x)">{{x.Name}}</a></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
