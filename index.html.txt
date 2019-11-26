@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Refresh" content="7; url=https://sdcapp.azurewebsites.net/SDCApp/" />
+  </head>
+  <body>
+    <p>Please follow <a href="https://sdcapp.azurewebsites.net/SDCApp/">this link</a>.</p>
+  </body>
+</html>
